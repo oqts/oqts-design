@@ -13,10 +13,12 @@ and assets from this repo and never define styling of their own.
 
 **This doc explains and specifies. [`demo/`](demo/index.html) shows.**
 
-Every rule below has a worked example on the demo page, and the demo has a
-light/dark toggle that repaints the entire page — chrome, components and charts
-— so both modes can be inspected rather than imagined. Nothing in the brand is
+Every rule below has a worked example on the demo page. Nothing in the brand is
 described here without being visible there.
+
+There is **one ground**. Oxford appears as a band inside a light page — the
+title bar and the footer — but that is a surface, not a second theme. The brand
+has no dark mode.
 
 | This doc | Explains | See it |
 |---|---|---|
@@ -24,7 +26,7 @@ described here without being visible there.
 | §3 Type | Why a monospace leads and a journal serif carries | demo §3 — every scale role rendered at real size with its token |
 | §4 Signature device | Why a ledger double rule closes a section | demo §5 — the rule, the hairline and the bracketed block |
 | §5 Logo | The locked construction and the asset set | demo §1 — every colourway, the size ladder, clear space, and six ways to get it wrong |
-| §6 Charts | Why these hues, and where red/green costs you | demo §6 — bar, line, diverging, scatter, both ramps, in both modes |
+| §6 Charts | Why these hues, and where red/green costs you | demo §6 — bar, line, diverging, scatter, both ramps, and the returns table |
 | §7 Imagery | Why full colour rather than duotone | demo §7 — the two crops, the scrim, the escape hatch |
 | §8 Layout | Grid, measure and rhythm | demo §4 — the spacing scale drawn to size |
 | §9 Accessibility | The floor everything is measured against | demo §2 and §6 — contrast shown, not asserted |
@@ -78,7 +80,7 @@ small-caps labels.
 | Token | Hex | Role |
 |---|---|---|
 | `ivory` | `#FBF8F1` | **Base ground.** A warm off-white — the same hue as `paper`, lifted. Carries every light page. |
-| `oxford` | `#002147` | **Base ink and dark ground.** Text on light; full-bleed for the title bar, feature bands and footer. Oxford Blue — the University's colour is free to use; its crest is not. |
+| `oxford` | `#002147` | **Base ink and dark ground.** Text on light; full-bleed for the title bar and the footer. Oxford Blue — the University's colour is free to use; its crest is not. |
 | `paper` | `#F4EDDC` | **Secondary.** The original beige, now a tint rather than a ground: panels, cards, banded sections. Reads as a soft inset against `ivory`. |
 | `chalk` | `#E0D5BC` | Secondary. Hairlines and borders. |
 | `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. |
@@ -317,24 +319,23 @@ change**. Tokens live in `assets/oqts.css`.
 Eight slots. Slots 1 and 2 are the brand, so most charts read as OQTS
 without effort.
 
-| Slot | Hue | Light | Dark |
-|---|---|---|---|
-| 1 | oxford blue *(brand)* | `#1E5C99` | `#2C69A7` |
-| 2 | gold *(brand)* | `#B8821E` | `#BD8725` |
-| 3 | violet | `#7A5BB0` | `#8365BB` |
-| 4 | teal | `#0E8A72` | `#20937A` |
-| 5 | orange | `#C4611A` | `#CC6824` |
-| 6 | crimson | `#8E2740` | `#9E374D` |
-| 7 | magenta | `#C2529E` | `#C959A5` |
-| 8 | green | `#2F6B1E` | `#3C782C` |
+| Slot | Hue | Hex |
+|---|---|---|
+| 1 | oxford blue *(brand)* | `#1E5C99` |
+| 2 | gold *(brand)* | `#B8821E` |
+| 3 | violet | `#7A5BB0` |
+| 4 | teal | `#0E8A72` |
+| 5 | orange | `#C4611A` |
+| 6 | crimson | `#8E2740` |
+| 7 | magenta | `#C2529E` |
+| 8 | green | `#2F6B1E` |
 
-Validated for **adjacent** pairs — bars, stacks, lines — worst ΔE 10.6 light
-and 10.8 dark, all checks pass. Three dark slots sit just under 3:1 on navy,
-which obliges visible labels or a table view; that is not dismissable.
+Validated for **adjacent** pairs — bars, stacks, lines — worst ΔE 10.6, all
+five checks pass on ivory.
 
 **Scatter, bubble and small multiples use slots 1, 2, 4 and 6 only.** There
-any two marks can touch, so all pairs must separate — validated at ΔE 10.4
-light, 10.1 dark. Beyond four series, facet; do not add slots.
+any two marks can touch, so all pairs must separate — validated at ΔE 10.4.
+Beyond four series, facet; do not add slots.
 
 > `slate` is deliberately absent. It measures below the chroma floor — in a
 > chart it reads as grey, not as a colour. It stays a text token.
@@ -351,21 +352,21 @@ step clearing 3:1.
 Red ↔ green with a neutral midpoint, chosen deliberately for an audience that
 reads P&L. It carries a cost worth stating plainly.
 
-| | Light | Dark |
-|---|---|---|
-| negative, midpoint→extreme | `#C8442E` `#A82A22` `#7F1D1D` | `#BF544B` `#DE7065` `#FE8C80` |
-| midpoint | `#DCD5C6` | `#2A4257` |
-| positive, midpoint→extreme | `#46A876` `#2A8A5F` `#1E6B4F` | `#73BF88` `#86D29B` `#99E6AD` |
+| | midpoint → extreme |
+|---|---|
+| negative | `#C8442E` `#A82A22` `#7F1D1D` |
+| midpoint | `#DCD5C6` |
+| positive | `#46A876` `#2A8A5F` `#1E6B4F` |
 
-- On **light**, corresponding steps clear ΔE 8.3–10.1 — a pass.
-- On **dark**, equal-lightness arms only reached 5.1–6.9, below the floor,
-  because on navy both arms must be light and only hue remains. The arms are
-  therefore **deliberately asymmetric in lightness** (ΔE 9.4–15.3). The cost:
-  a +5% and a −5% do not read as equally weighted. Sign is carried by hue and
-  lightness together, which is more robust, not less.
-- **Non-corresponding steps drop to ΔE 4.3.** Wherever arbitrary steps can
-  abut — correlation matrices, heatmaps — the sign must also be carried by a
-  signed value, a label, or the texture arm angle. Never by hue alone.
+Corresponding steps — a +2% against a −2% — clear ΔE 8.3–10.1, which passes.
+**But non-corresponding steps drop to ΔE 4.3.** Wherever arbitrary steps can
+abut — a returns table, a correlation matrix, a heat grid — the sign must also
+be carried by a signed value or a label. Never by hue alone. This is the one
+place the palette leans on something other than colour, and it is not optional.
+
+For tables and heat grids, use the **cell tints** (`--oqts-div-cell-*`): the
+same two hues composited over ivory so ink stays at 6:1 or better on every
+cell. A full-strength diverging fill behind text fails contrast.
 
 ### Status
 
@@ -383,9 +384,11 @@ are the mitigation, which is why status colour never travels alone.
 
 ### Chrome
 
-Surface `ivory` / `oxford`. Ink `oxford` / `paper`. Secondary `slate` /
-`#A9B6C6`. Axis and labels `#6B6555` / `#8FA0B4`. Gridlines `chalk` /
-`#1B3A5C` — recessive, always. Baseline `#C9BB9C` / `#2A4E75`.
+Surface `ivory`. Ink `oxford`. Secondary `slate`. Axis and labels `#6B6555`.
+Gridlines `chalk` — recessive, always. Baseline `#C9BB9C`.
+
+> If a dark chart surface is ever needed, its steps must be **selected and
+> re-validated** against that surface. Never flip these.
 
 Marks: thin, 2px lines, markers ≥ 8px, a 2px surface gap between adjacent
 fills and stacked segments, direct labels used selectively — never a number

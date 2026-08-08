@@ -53,7 +53,6 @@ code{font-family:var(--oqts-display);font-size:var(--oqts-micro);
 
 /* ── page furniture ── */
 .masthead{background:var(--oqts-oxford);padding:var(--oqts-space-5) 0}
-:root[data-theme="dark"] .masthead{background:var(--oqts-surface-2)}
 .masthead .bar{display:flex;align-items:center;justify-content:space-between;
   gap:var(--oqts-space-6);flex-wrap:wrap}
 .masthead img{height:58px;width:auto;display:block}
@@ -69,10 +68,6 @@ code{font-family:var(--oqts-display);font-size:var(--oqts-micro);
   font:400 var(--oqts-micro)/1.4 var(--oqts-display);letter-spacing:.04em}
 .toolbar a{color:var(--oqts-ink-2);text-decoration:none;text-transform:uppercase}
 .toolbar a:hover{color:var(--oqts-accent-text)}
-.btn-theme{margin-left:auto;font:400 var(--oqts-micro)/1 var(--oqts-display);
-  letter-spacing:.1em;text-transform:uppercase;background:none;cursor:pointer;
-  color:var(--oqts-ink);border:1px solid var(--oqts-ink);padding:8px 14px;border-radius:2px}
-.btn-theme:hover{background:var(--oqts-ink);color:var(--oqts-surface)}
 
 section{padding-top:var(--oqts-space-9)}
 .sec-head{margin-bottom:var(--oqts-space-6)}
@@ -142,6 +137,13 @@ td{padding:10px var(--oqts-space-4) 10px 0;border-bottom:1px solid var(--oqts-ha
 td.num,th.num{text-align:right;padding-right:0}
 tr.total td{border-bottom:0;border-top:1px solid var(--oqts-accent-rule);
   box-shadow:0 3px 0 -2px var(--oqts-accent-rule)}
+.rtn{width:100%;border-collapse:separate;border-spacing:2px;
+  font:400 var(--oqts-data)/1.5 var(--oqts-display);font-variant-numeric:tabular-nums}
+.rtn th{border:0;padding:0 0 var(--oqts-space-2) 0;text-align:center}
+.rtn th.row{text-align:left;padding-right:var(--oqts-space-4)}
+.rtn td{border:0;padding:9px 6px;text-align:center;color:var(--oqts-chart-ink)}
+.rtn td.row{text-align:left;color:var(--oqts-ink-2);background:none;padding-left:0;
+  font-size:var(--oqts-micro);letter-spacing:.04em}
 .status-row{display:flex;gap:var(--oqts-space-5);flex-wrap:wrap;align-items:center}
 .status{display:flex;align-items:center;gap:8px;font:400 var(--oqts-body-s)/1 var(--oqts-text);
   color:var(--oqts-ink)}
@@ -171,7 +173,6 @@ tr.total td{border-bottom:0;border-top:1px solid var(--oqts-accent-rule);
 
 footer{background:var(--oqts-oxford);color:var(--oqts-paper);
   padding:var(--oqts-space-8) 0 var(--oqts-space-7);margin-top:var(--oqts-space-9)}
-:root[data-theme="dark"] footer{background:var(--oqts-surface-2)}
 footer img{height:150px;width:auto;display:block}
 footer .cols{display:grid;grid-template-columns:auto 1fr;gap:var(--oqts-space-8);align-items:start}
 footer h4{color:var(--oqts-camel-rev);font-size:var(--oqts-micro)}
@@ -211,11 +212,10 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
 
 <div class="toolbar">
   <div class="wrap inner">
-    <span style="color:var(--oqts-accent-text)">Design system reference</span>
+    <span style="color:var(--oqts-accent-text);margin-right:auto">Design system reference</span>
     <a href="#logo">1 Logo</a><a href="#colour">2 Colour</a><a href="#type">3 Type</a>
     <a href="#space">4 Spacing</a><a href="#components">5 Components</a>
     <a href="#charts">6 Charts</a><a href="#imagery">7 Imagery</a>
-    <button class="btn-theme" id="themeBtn" aria-pressed="false">Dark mode</button>
   </div>
 </div>
 
@@ -225,8 +225,8 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
       <p class="eyebrow">Brand system v1.1</p>
       <h1 class="col">Every asset, every mode,<br>every use case.</h1>
       <p class="lede col">This page is the visual counterpart to <code>brand.md</code>. The doc
-        explains and specifies; this shows. Anything the brand permits has an example here — and
-        the toggle above switches the whole page, charts included, between the two modes.</p>
+        explains and specifies; this shows. Anything the brand permits has an example here.
+        There is one ground — ivory — with oxford used as a band inside it, never as a second theme.</p>
       <div class="close-rule"></div>
     </section>
 
@@ -304,7 +304,7 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
         <h2>Two grounds, one accent</h2>
         <p class="note">Ivory carries the page and oxford answers it; paper drops back to a tint for
           panels. Every value below is measured, not chosen — the number under each swatch is its
-          contrast against the current ground.</p>
+          contrast against ivory.</p>
       </div>
       <div class="grid g3" id="swatches"></div>
 
@@ -426,11 +426,28 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
         <p class="eyebrow">§6</p>
         <h2>Charts</h2>
         <p class="note">The most brand-critical thing the society produces. Every colour here came
-          out of a validator, not out of taste. These examples use the tokens directly, so the
-          theme toggle repaints them — which is the point: dark mode is a selected set of steps,
-          not an automatic flip.</p>
+          out of a validator, not out of taste. These examples are built from the tokens directly,
+          so a chart can never drift from the palette.</p>
       </div>
       <div class="grid g2" id="charts-grid"></div>
+
+      <figure class="chart" style="margin-top:var(--oqts-space-5)">
+        <h4>Diverging in a table — monthly returns</h4>
+        <p class="note" style="margin-bottom:var(--oqts-space-4)">The commonest place these two
+          hues will actually appear. Cells are tinted by magnitude using the diverging hues
+          composited over ivory, so the ink stays at 6:1 or better on every cell — a full-strength
+          fill would fail. <b>Every value keeps its sign.</b> That is not decoration: non-corresponding
+          steps measure ΔE 4.3, so a reader with red-green deficiency is reading the number, not
+          the colour. Figures are placeholders.</p>
+        <table class="rtn" id="returns"></table>
+        <div class="legend" style="margin-top:var(--oqts-space-4)">
+          <span><i style="background:var(--oqts-div-cell-neg-3)"></i>−3% or worse</span>
+          <span><i style="background:var(--oqts-div-cell-neg-1)"></i>slightly negative</span>
+          <span><i style="background:var(--oqts-div-cell-zero);border:1px solid var(--oqts-hairline)"></i>flat</span>
+          <span><i style="background:var(--oqts-div-cell-pos-1)"></i>slightly positive</span>
+          <span><i style="background:var(--oqts-div-cell-pos-3)"></i>+3% or better</span>
+        </div>
+      </figure>
       <div class="close-rule"></div>
     </section>
 
@@ -485,20 +502,6 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
 </footer>
 
 <script>
-/* ── theme toggle: drives page chrome and charts from one attribute ── */
-const btn = document.getElementById('themeBtn'), root = document.documentElement;
-function setTheme(t){
-  root.setAttribute('data-theme', t);
-  btn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
-  btn.setAttribute('aria-pressed', t === 'dark');
-  document.getElementById('mastLogo').src =
-    '../assets/logo/oqts-lockup-reverse.svg';       /* masthead is dark in both themes */
-  paintSwatches();
-}
-btn.addEventListener('click', () =>
-  setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
-setTheme('light');
-
 /* ── colour swatches, with live contrast against the current ground ── */
 const TOKENS = [
   ['ivory','#FBF8F1','base ground'], ['oxford','#002147','base ink, dark ground'],
@@ -511,8 +514,7 @@ function lum(h){const c=[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255)
   return .2126*c[0]+.7152*c[1]+.0722*c[2];}
 function cr(a,b){const x=lum(a),y=lum(b);return ((Math.max(x,y)+.05)/(Math.min(x,y)+.05));}
 function paintSwatches(){
-  const dark = root.getAttribute('data-theme')==='dark';
-  const ground = dark ? '#002147' : '#FBF8F1';
+  const ground = '#FBF8F1';
   document.getElementById('swatches').innerHTML = TOKENS.map(([n,hex,role])=>{
     const c = cr(hex, ground);
     const verdict = c>=4.5 ? 'text ok' : (c>=3 ? 'large / UI only' : 'never text');
@@ -642,13 +644,34 @@ document.getElementById('charts-grid').innerHTML = CHARTS.map(([t,note,svg,leg])
       <div class="legend"><span>100 — lightest</span><span style="margin-left:auto">800 — darkest</span></div>
     </figure>
     <figure class="chart"><h4>Diverging ramp and midpoint</h4>
-      <p class="note" style="margin-bottom:var(--oqts-space-4)">Neutral at the centre — never a hue.
-      On oxford the two arms are deliberately asymmetric in lightness, because at equal lightness
-      only hue separates them and that is exactly what colour-vision deficiency collapses.</p>
+      <p class="note" style="margin-bottom:var(--oqts-space-4)">Neutral at the centre — never a
+      hue. Corresponding steps clear ΔE 8.3–10.1, but non-corresponding steps drop to 4.3, so the
+      sign is always carried by a signed value or a label as well.</p>
       <div class="ramp">${['neg-3','neg-2','neg-1','mid','pos-1','pos-2','pos-3'].map(s=>
         `<div style="background:var(--oqts-div-${s})"></div>`).join('')}</div>
       <div class="legend"><span>negative</span><span style="margin-left:auto">positive</span></div>
     </figure>`;
+
+/* ── diverging table: tint by magnitude, sign always written ── */
+const MONTHS=['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
+const ROWS=[
+  ['Momentum',[1.2,-0.4,2.8,3.9,-1.1,0.6,4.2,-2.6,1.8]],
+  ['Carry',[0.4,1.1,-0.2,1.6,2.2,-3.4,0.9,1.3,-0.7]],
+  ['Value',[-1.8,0.2,-0.9,0.5,1.4,2.1,-0.3,0.8,3.2]],
+  ['Reversal',[2.6,-3.9,0.7,-1.2,0.3,1.9,-2.1,-0.5,1.1]],
+];
+function tint(v){
+  const a=Math.abs(v);
+  if(a<0.5) return 'var(--oqts-div-cell-zero)';
+  const lvl = a<1.5 ? 1 : (a<3 ? 2 : 3);
+  return `var(--oqts-div-cell-${v>0?'pos':'neg'}-${lvl})`;
+}
+document.getElementById('returns').innerHTML =
+  '<thead><tr><th class="row">Sleeve</th>' + MONTHS.map(m=>`<th>${m}</th>`).join('') + '</tr></thead>'
+  + '<tbody>' + ROWS.map(([n,vals])=>
+      `<tr><td class="row">${n}</td>` + vals.map(v=>
+        `<td style="background:${tint(v)}">${v>0?'+':'−'}${Math.abs(v).toFixed(1)}</td>`).join('')
+      + '</tr>').join('') + '</tbody>';
 </script>
 </body>
 </html>
