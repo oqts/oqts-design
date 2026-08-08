@@ -455,9 +455,14 @@ the assets ship in `assets/patterns/`):
  "amin":0,"amax":0.105,"cluster":6,"detail":0.5,"cut":0}
 ```
 
-Three cuts: `oqts-dots-right.svg` and `oqts-dots-left.svg` (density ramps
-toward that edge — use so the field grows *away* from the reading column)
-and `oqts-dots-uniform.svg` (no ramp, for sparse full-width areas).
+Two cuts: `oqts-dots-right.svg` — the workhorse — carries explicit pixel
+dimensions (1200×760) so it renders at a **fixed intrinsic scale**
+(`background-size:auto`): dot size never varies with the height of the
+section wearing it. **The field always ramps right-to-left**: densest at
+the right edge, the last and smallest dots landing around the middle of
+the page, with a baked bottom fade so tall sections dissolve rather than
+crop. `oqts-dots-uniform.svg` (no ramp) exists for sparse full-width
+areas.
 
 Rules of use:
 
@@ -466,9 +471,10 @@ Rules of use:
   ground, not of components.
 - Opacity is baked into the asset and peaks at 0.105. Do not raise it, and
   do not tint the dots — one ink, screened, like everything else.
-- The field sits in whitespace or behind *sparse* text (heroes, section
-  margins). Never behind body copy at reading density; the measure column
-  stays clean.
+- The field fills plain whitespace wherever content leaves it: heroes and
+  any section whose content is a narrow column. Never behind body copy at
+  reading density; the ramp exists so dots fade out before the measure
+  column, and it always runs right-to-left.
 - Keep max dot diameter between one-fifth and one-third of cell spacing
   (the recipe sits at 4/14). Coarser reads as halftone; finer as grime.
 - A re-tune happens in the lab, lands here as a new recipe, and regenerates
