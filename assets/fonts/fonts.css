@@ -48,14 +48,21 @@
 
 /* ── Brand tokens, so a consumer needs one import to be correct ── */
 :root{
-  --oqts-oxford:#002147;      /* base — ink on paper, ground for dark surfaces */
-  --oqts-paper:#F4EDDC;       /* base — the default ground */
-  --oqts-slate:#46586A;       /* secondary — supporting text */
-  --oqts-chalk:#E0D5BC;       /* secondary — hairlines and borders */
-  --oqts-camel:#B08D57;       /* accent on paper */
-  --oqts-oldgold:#A5843E;     /* accent on paper, the more metallic gold */
-  --oqts-camel-rev:#CDB183;   /* accent on navy */
-  --oqts-oldgold-rev:#C8A85E; /* accent on navy */
+  /* grounds */
+  --oqts-ivory:#FBF8F1;       /* base — the default light ground */
+  --oqts-oxford:#002147;      /* base — ink on light, and the dark ground */
+  /* secondary */
+  --oqts-paper:#F4EDDC;       /* tint for panels, cards and bands on ivory */
+  --oqts-chalk:#E0D5BC;       /* hairlines and borders */
+  --oqts-slate:#46586A;       /* supporting text — 6.9:1 on ivory */
+  /* accent. On light grounds gold is NOT text-safe: camel 2.9:1,
+     oldgold 3.3:1. Use bronze for any accent text, and keep camel and
+     oldgold for rules, marks and other non-text detail. */
+  --oqts-bronze:#856B32;      /* accent TEXT on light — 4.8:1 on ivory */
+  --oqts-camel:#B08D57;       /* accent rules and detail on light */
+  --oqts-oldgold:#A5843E;     /* accent rules and detail on light */
+  --oqts-camel-rev:#CDB183;   /* accent on navy — 7.8:1, text-safe */
+  --oqts-oldgold-rev:#C8A85E; /* accent on navy — 7.0:1, text-safe */
 
   --oqts-display:'Latin Modern Mono', ui-monospace, monospace;
   --oqts-text:'STIX Two Text', Georgia, serif;

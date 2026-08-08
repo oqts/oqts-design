@@ -1,7 +1,9 @@
 # OQTS Brand & Design System
 
 **Oxford Quantitative Trading Society** — brand identity and design doc.
-Status: **v1.0** (2026-08-08) — **logo and type system final.** Remaining open
+Status: **v1.1** (2026-08-08) — **logo and type system final.** Palette revised:
+lighter `ivory` ground, `paper` demoted to a tint, `bronze` added for accent
+text. Remaining open
 items are noted inline as `TODO`.
 This file is the single editable source of truth for all OQTS styling. The
 public site (`oqts/oqts.org`) and the member platform (`oqts-platform`)
@@ -40,22 +42,33 @@ small-caps labels.
 
 | Token | Hex | Role |
 |---|---|---|
-| `oxford` | `#002147` | Brand anchor. Text ink on paper; full-bleed background for dark surfaces. This is Oxford Blue — the University's colour is free to use; its crest is not. |
-| `paper` | `#F4EDDC` | Ground. Warm beige — an aged journal page, chosen over ivory after side-by-side comparison. |
-| `slate` | `#46586A` | Secondary text on paper (bylines, captions, metadata). |
-| `camel` | `#B08D57` | Primary accent on paper. Warm sandy gold. Used **only** in rules, small-caps labels, and marker details — never as a fill for panels or buttons. On navy → `#CDB183`. |
-| `oldgold` | `#A5843E` | Secondary accent — the more metallic gold, mainly for dark surfaces via its navy variant `#C8A85E`. |
-| `chalk` | `#E0D5BC` | Hairlines and borders on paper. |
+| `ivory` | `#FBF8F1` | **Base ground.** A warm off-white — the same hue as `paper`, lifted. Carries every light page. |
+| `oxford` | `#002147` | **Base ink and dark ground.** Text on light; full-bleed for the title bar, feature bands and footer. Oxford Blue — the University's colour is free to use; its crest is not. |
+| `paper` | `#F4EDDC` | **Secondary.** The original beige, now a tint rather than a ground: panels, cards, banded sections. Reads as a soft inset against `ivory`. |
+| `chalk` | `#E0D5BC` | Secondary. Hairlines and borders. |
+| `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. |
+| `bronze` | `#856B32` | **Accent text.** The only gold safe for type on a light ground — 4.8:1 on `ivory`. Eyebrows, small-caps labels, links on hover. |
+| `camel` | `#B08D57` | Accent for **rules and detail only** on light — 2.9:1, not text-safe. On navy → `#CDB183`. |
+| `oldgold` | `#A5843E` | Accent for **rules and detail only** on light — 3.3:1, not text-safe. On navy → `#C8A85E`. |
 
 Rules of use:
 
-- Two surfaces only: `paper` (default) and `oxford` (hero, footer,
-  formal moments). No greys, no gradients, no third background.
-- `oxford` on `paper` is the primary text pair (contrast ≈ 14:1).
-  `paper` on `oxford` for dark surfaces.
-- The accent is earned, not sprinkled: if a page uses `camel`/`oldgold` in
-  more than rules, labels, and one marker, it is over-dressed. The logo
-  itself is always monochrome — accents never enter the mark.
+- **Two grounds only:** `ivory` (default) and `oxford` (title bar, feature
+  bands, footer). `paper` is a tint on top of `ivory`, not a third ground.
+  No greys, no gradients.
+- `oxford` on `ivory` is the primary text pair (15.1:1). `paper` on `oxford`
+  for dark surfaces (13.8:1).
+- **Gold is not text-safe on light grounds.** Measured: `camel` 2.9:1 and
+  `oldgold` 3.3:1 on `ivory` — both below the 4.5:1 floor at any size. Accent
+  *text* therefore uses `bronze`; the two golds are for rules, marks and
+  detail. Reversed on navy the constraint disappears: `camel` 7.8:1 and
+  `oldgold` 7.0:1 both pass, so gold text is fine on dark.
+- The accent is earned, not sprinkled: if a page uses gold in more than
+  rules, labels, and one marker, it is over-dressed. The logo itself is
+  always monochrome — accents never enter the mark.
+- The **title bar is `oxford`**, full-bleed, carrying the reversed lockup. It
+  is the first thing on the page and should read as a distinct band, not as a
+  continuation of the ground.
 - Chart colours are **not** brand colours; the data palette is defined
   separately when the first chart ships (dataviz tokens, validated for
   contrast in both modes).
@@ -78,11 +91,11 @@ Type rules:
   oddly-named Light Bold). Do not ask it for a weight ramp; get hierarchy
   from **size and letter-spacing**, which is how the logo does it.
 - It is drawn as a 10pt optical size, so it renders thin on screen. Never
-  set it below 13px, and prefer `oxford` on `paper` rather than reversed at
+  set it below 13px, and prefer `oxford` on `ivory` rather than reversed at
   small sizes.
 - Caps + tracking is the mono's idiom: eyebrows 12–13px at 0.14em;
   the logo wordmark at 0.090em. Never faux-bold either face.
-- Body 17px/1.65 on paper. Long-form measure ≤ 70ch — in STIX, never mono.
+- Body 17px/1.65 on `ivory`. Long-form measure ≤ 70ch — in STIX, never mono.
   Monospaced paragraphs are a readability cost with no upside.
 - Tabular figures (`font-variant-numeric: tabular-nums`) in any column of
   numbers. Latin Modern Mono is monospaced, so it is already tabular.
@@ -99,7 +112,7 @@ subject.
 
 Usage:
 
-- A single hairline (`1px chalk` on paper, translucent `paper` on oxford)
+- A single hairline (`1px chalk` on light, translucent `paper` on oxford)
   opens a section; the **double rule** (two 1px lines, 3px apart, in
   `camel`/`oldgold`) closes it — under mastheads, under section ends, under
   table totals.
@@ -175,7 +188,7 @@ type scale as a token file alongside `assets/fonts/fonts.css`.
 
 ### Rules
 
-- **Colourways:** `oxford` on `paper` or white; `paper` on `oxford`. Nothing
+- **Colourways:** `oxford` on `ivory`, `paper` or white; `paper` on `oxford`. Nothing
   else. The mark is always monochrome — accents never enter it.
 - **Clear space:** one bracket-arm length (22 units, ≈ 10% of the mark
   height) on all sides. The baked-background files already include it.
@@ -203,8 +216,9 @@ type scale as a token file alongside `assets/fonts/fonts.css`.
 
 ## 7. Accessibility floor
 
-- All text pairs ≥ 4.5:1 (`camel` on `paper` reserved for ≥ 18px labels).
-- Visible keyboard focus: 2px `oxford` outline on paper, `oldgold` navy
+- All text pairs ≥ 4.5:1. Verified on `ivory`: `oxford` 15.1, `slate` 6.9,
+  `bronze` 4.8. `camel` (2.9) and `chalk` (1.4) are **never** used for text.
+- Visible keyboard focus: 2px `oxford` outline on light, `oldgold` navy
   variant `#C8A85E` on oxford.
 - Latin Modern Mono is a fine-stroked 10pt design: never below 13px, and
   prefer dark-on-light for anything small.
