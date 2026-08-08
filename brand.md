@@ -295,6 +295,26 @@ drawn separately:
 - Exploration history and superseded artwork are in `archive/`; the
   interactive type tester that produced this spec is `lab/index.html`.
 
+### Matrix devices (parametric)
+
+The mark's construction is open, under control, to other words. A
+**matrix device** sets a word in the bracket grid using the identical
+locked spec — same face and cap height, same 100-unit cell pitch, same
+bracket stroke and arms, same 216-unit ink normalisation — so every
+device sits beside the mark as an equal-weight sibling. The first is
+`JOIN`, the masthead's recruiting mark.
+
+- Up to 4 letters take the 2×2 grid; 5-9 letters take a 3×3 at the same
+  pitch. **Unused cells are filled with dots** (the favicon idiom), never
+  left empty.
+- Generate only via `lab/tools/build-matrix.py`; assets land in
+  `assets/matrix/`. Hand-drawn or CSS-approximated matrices are forbidden
+  — that is how the geometry drifts.
+- A device is UI furniture, not identity: it never replaces the mark,
+  never appears in the masthead's logo position, and at most one device
+  appears per surface.
+- Colourways and don'ts follow the logo rules above.
+
 ## 6. Data visualisation
 
 > **See it —** [demo §6](demo/index.html#charts): ranked bars, two-series lines, the diverging
