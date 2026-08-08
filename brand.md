@@ -83,9 +83,9 @@ small-caps labels.
 | `oxford` | `#002147` | **Base ink and dark ground.** Text on light; full-bleed for the title bar and the footer. Oxford Blue — the University's colour is free to use; its crest is not. |
 | `paper` | `#F4EDDC` | **Secondary.** The original beige, now a tint rather than a ground: panels, cards, banded sections. Reads as a soft inset against `ivory`. |
 | `chalk` | `#E0D5BC` | Secondary. Hairlines and borders. |
-| `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. |
-| `bronze` | `#856B32` | **Accent text.** The only gold safe for type on a light ground — 4.8:1 on `ivory`. Eyebrows, small-caps labels, links on hover. |
-| `camel` | `#B08D57` | Accent for **rules and detail only** on light — 2.9:1, not text-safe. On navy → `#CDB183`, where it is text-safe at 7.8:1. |
+| `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. On navy → `slate-rev` `#A9B6C6`, 7.8:1. |
+| `bronze` | `#8A6933` | **Accent text.** The only gold safe for type on a light ground — 4.8:1 on `ivory`. Eyebrows, small-caps labels, links on hover. |
+| `camel` | `#B08D57` | Accent for **rules and detail only** on light — 2.9:1, not text-safe. On navy → `camel-rev` `#CEB083`, where it is text-safe at 7.8:1. |
 
 Rules of use:
 
@@ -458,7 +458,7 @@ monochrome both undercut; the price is that the rule has to be enforced.
 - All text pairs ≥ 4.5:1. Verified on `ivory`: `oxford` 15.1, `slate` 6.9,
   `bronze` 4.8. `camel` (2.9) and `chalk` (1.4) are **never** used for text.
 - Visible keyboard focus: 2px `oxford` outline on light, `camel-rev`
-  `#CDB183` on oxford.
+  `#CEB083` on oxford.
 - Latin Modern Mono is a fine-stroked 10pt design: never below 13px, and
   prefer dark-on-light for anything small.
 - Responsive to 360px. Semantic headings, one `h1` per page.

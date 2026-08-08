@@ -182,7 +182,7 @@ footer a{color:var(--oqts-paper);text-decoration:none;font-size:var(--oqts-body-
 footer a:hover{color:var(--oqts-camel-rev);text-decoration:underline}
 footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
   border-top:1px solid rgba(244,237,220,.18);
-  font:400 var(--oqts-micro)/1.7 var(--oqts-display);color:#A9B6C6}
+  font:400 var(--oqts-micro)/1.7 var(--oqts-display);color:var(--oqts-slate-rev)}
 .foot-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--oqts-space-6)}
 
 @media (max-width:680px){
@@ -524,22 +524,23 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
 const TOKENS = [
   ['ivory','#FBF8F1','base ground'], ['oxford','#002147','base ink, dark ground'],
   ['paper','#F4EDDC','secondary — panels'], ['chalk','#E0D5BC','secondary — hairlines'],
-  ['slate','#46586A','secondary text'], ['bronze','#856B32','accent TEXT'],
-  ['camel','#B08D57','accent RULES only'], ['camel-rev','#CDB183','accent on oxford'],
+  ['slate','#46586A','secondary text'], ['slate-rev','#A9B6C6','secondary text on oxford','#002147'],
+  ['bronze','#8A6933','accent TEXT'],
+  ['camel','#B08D57','accent RULES only'], ['camel-rev','#CEB083','accent on oxford','#002147'],
 ];
 function lum(h){const c=[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255)
   .map(v=>v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4));
   return .2126*c[0]+.7152*c[1]+.0722*c[2];}
 function cr(a,b){const x=lum(a),y=lum(b);return ((Math.max(x,y)+.05)/(Math.min(x,y)+.05));}
 function paintSwatches(){
-  const ground = '#FBF8F1';
-  document.getElementById('swatches').innerHTML = TOKENS.map(([n,hex,role])=>{
-    const c = cr(hex, ground);
+  document.getElementById('swatches').innerHTML = TOKENS.map(([n,hex,role,ground])=>{
+    const c = cr(hex, ground || '#FBF8F1');
     const verdict = c>=4.5 ? 'text ok' : (c>=3 ? 'large / UI only' : 'never text');
     return `<div class="sw"><div class="chip" style="background:${hex}"></div>
       <div class="info"><b>${n}</b><span>${hex} · ${role}</span>
-      <span>${c.toFixed(2)}:1 — ${verdict}</span></div></div>`;}).join('');
+      <span>${c.toFixed(2)}:1${ground?' on oxford':''} — ${verdict}</span></div></div>`;}).join('');
 }
+paintSwatches();
 
 /* ── type scale, rendered at real size ── */
 const SCALE = [

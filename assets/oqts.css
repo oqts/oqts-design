@@ -58,13 +58,15 @@
   /* secondary */
   --oqts-paper:#F4EDDC;       /* tint for panels, cards and bands on ivory */
   --oqts-chalk:#E0D5BC;       /* hairlines and borders */
-  --oqts-slate:#46586A;       /* supporting text — 6.9:1 on ivory */
-  /* accent — one gold, two roles. On light grounds gold is not text-safe
-     (camel measures 2.9:1), so text takes bronze and rules take camel.
-     Reversed on navy the constraint disappears. */
-  --oqts-bronze:#856B32;      /* accent TEXT on light — 4.8:1 on ivory */
+  --oqts-slate:#46586A;       /* supporting text on light — 6.9:1 on ivory */
+  --oqts-slate-rev:#A9B6C6;   /* supporting text on oxford — 7.8:1 */
+  /* accent — ONE gold, literally: all three sit on hue 77.4 in OKLCH and
+     differ only in lightness. On light grounds gold is not text-safe (camel
+     measures 2.9:1), so text takes bronze and rules take camel. Reversed on
+     navy the constraint disappears. */
+  --oqts-bronze:#8A6933;      /* accent TEXT on light — 4.8:1 on ivory */
   --oqts-camel:#B08D57;       /* accent RULES and detail on light — never text */
-  --oqts-camel-rev:#CDB183;   /* accent on navy — 7.8:1, text-safe */
+  --oqts-camel-rev:#CEB083;   /* accent on navy — 7.8:1, text-safe */
 
   --oqts-display:'Latin Modern Mono', ui-monospace, monospace;
   --oqts-text:'STIX Two Text', Georgia, serif;
