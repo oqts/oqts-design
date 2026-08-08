@@ -28,8 +28,9 @@ has no dark mode.
 | §5 Logo | The locked construction and the asset set | demo §1 — every colourway, the size ladder, clear space, and six ways to get it wrong |
 | §6 Charts | Why these hues, and where red/green costs you | demo §6 — bar, line, diverging, scatter, both ramps, and the returns table |
 | §7 Imagery | Why full colour rather than duotone | demo §7 — the two crops, the scrim, the escape hatch |
-| §8 Layout | Grid, measure and rhythm | demo §4 — the spacing scale drawn to size |
-| §9 Accessibility | The floor everything is measured against | demo §2 and §6 — contrast shown, not asserted |
+| §8 Texture | The one permitted whitespace texture and its recipe | demo §8 — the dot field over ivory at real densities |
+| §9 Layout | Grid, measure and rhythm | demo §4 — the spacing scale drawn to size |
+| §10 Accessibility | The floor everything is measured against | demo §2 and §6 — contrast shown, not asserted |
 
 Serve it locally:
 
@@ -436,7 +437,44 @@ monochrome both undercut; the price is that the rule has to be enforced.
   figure or a type-led card is always better than one off-brand image, and
   this rule is what stops the site drifting once other people upload.
 
-## 8. Layout & structure
+## 8. Texture
+
+> **See it —** [demo §8](demo/index.html#texture): the field over ivory with text at
+> real densities; [lab/textures.html](lab/textures.html) is the tester that produced the recipe.
+
+Whitespace may carry one texture: a noise-modulated **dot field** in
+`oxford` ink. It is the favicon's dot idiom dissolved into the page — dots
+grow and fade in smooth clusters, reading as data points, not decoration.
+No other texture exists; hexagons, bars and grids were tested and retired.
+
+**The canonical recipe** (regenerate only via `lab/tools/build-patterns.mjs`;
+the assets ship in `assets/patterns/`):
+
+```
+{"pattern":"dots","seed":5994,"cell":14,"szmin":0,"szmax":4,
+ "amin":0,"amax":0.105,"cluster":6,"detail":0.5,"cut":0}
+```
+
+Three cuts: `oqts-dots-right.svg` and `oqts-dots-left.svg` (density ramps
+toward that edge — use so the field grows *away* from the reading column)
+and `oqts-dots-uniform.svg` (no ramp, for sparse full-width areas).
+
+Rules of use:
+
+- **`oxford` ink on `ivory` only.** Never on `paper` panels or cards, never
+  on navy, never under imagery. The texture is a property of the page
+  ground, not of components.
+- Opacity is baked into the asset and peaks at 0.105. Do not raise it, and
+  do not tint the dots — one ink, screened, like everything else.
+- The field sits in whitespace or behind *sparse* text (heroes, section
+  margins). Never behind body copy at reading density; the measure column
+  stays clean.
+- Keep max dot diameter between one-fifth and one-third of cell spacing
+  (the recipe sits at 4/14). Coarser reads as halftone; finer as grime.
+- A re-tune happens in the lab, lands here as a new recipe, and regenerates
+  the assets — the site never carries a private variant.
+
+## 9. Layout & structure
 
 > **See it —** [demo §4](demo/index.html#space): the 4px scale drawn to size, step by step.
 
@@ -450,7 +488,7 @@ monochrome both undercut; the price is that the rule has to be enforced.
 - Motion: one orchestrated page-load reveal at most; scroll effects and
   ambient animation are off-brand. `prefers-reduced-motion` respected.
 
-## 9. Accessibility floor
+## 10. Accessibility floor
 
 > **See it —** [demo §2](demo/index.html#colour) shows live contrast per token; every status
 > chip in [demo §5](demo/index.html#components) ships with its icon and word.
@@ -463,7 +501,7 @@ monochrome both undercut; the price is that the rule has to be enforced.
   prefer dark-on-light for anything small.
 - Responsive to 360px. Semantic headings, one `h1` per page.
 
-## 10. Single source of truth
+## 11. Single source of truth
 
 Per society policy, everything is editable in exactly one place:
 
