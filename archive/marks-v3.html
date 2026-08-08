@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS — vesica refinements v0.3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #F4EDDC;
+    --slate:  #46586A;
+    --ledger: #8B6C1F;
+    --gilt:   #C9A24B;
+    --chalk:  #E0D5BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 48px 56px 72px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .row { margin-bottom: 52px; }
+  .row-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--ledger);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .row-note { font-size: 15px; color: var(--slate); margin-bottom: 14px; max-width: 82ch; }
+  .cells { display: flex; gap: 20px; align-items: stretch; }
+  .cell {
+    border: 1px solid var(--chalk);
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px; min-height: 220px; flex: 1;
+  }
+  .cell.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+  .cell.small { flex: 0.8; gap: 26px; }
+  .fav { text-align: center; }
+  .fav figcaption { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--slate); margin-top: 8px; }
+  .dark .fav figcaption { color: var(--gilt); }
+
+  .strip { display: flex; gap: 20px; }
+  .strip .cell { flex-direction: column; gap: 10px; }
+  .strip .letter {
+    font-family: "IBM Plex Mono", monospace; font-size: 13px;
+    letter-spacing: 0.1em; color: var(--ledger);
+  }
+  .lockup { display: flex; align-items: center; gap: 34px; }
+  .lockup .text { text-align: left; }
+  .lockup .word { font-size: 64px; font-weight: 600; letter-spacing: 0.06em; line-height: 1; }
+  .lockup .name { margin-top: 9px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.24em; color: var(--slate); }
+  .dark .lockup .name { color: var(--gilt); }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · vesica refinements · v0.3 · answering "it only says OQ"</div>
+
+<!-- V1 GOLD LENS -->
+<div class="row">
+  <div class="row-label">V1 — The lens</div>
+  <div class="row-note">Reframe: the circles are not letters. Two domains — price and value, market and
+  model — and the gilt lens where they intersect is where trading happens. The tail keeps the Q for
+  those who want to read it; the meaning no longer depends on it.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="230" height="172" viewBox="0 0 320 240">
+        <path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="230" height="172" viewBox="0 0 320 240">
+        <path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell small dark">
+      <figure class="fav"><svg width="32" height="24" viewBox="0 0 320 240"><path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="20"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="20"/><line x1="212" y1="132" x2="262" y2="182" stroke="currentColor" stroke-width="20"/></svg><figcaption>32</figcaption></figure>
+      <figure class="fav"><svg width="16" height="12" viewBox="0 0 320 240"><path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/><circle cx="160" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30" transform="translate(-32 0)"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><line x1="212" y1="132" x2="268" y2="188" stroke="currentColor" stroke-width="30"/></svg><figcaption>16</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- V2 CONSTRUCTION CIPHER -->
+<div class="row">
+  <div class="row-label">V2 — One construction, four letters</div>
+  <div class="row-note">The direct answer to "it only says OQ": every letter of OQTS is derivable from
+  the same two-circle construction. O is a circle; Q is a circle with a radial; T is the common
+  tangent with the lens axis; S is the ogee traced through the lens with half-radius arcs. The mark
+  stays the vesica — this strip is the argument, and it becomes brand collateral (tote, membership
+  card, about page) rather than the logo itself.</div>
+  <div class="strip">
+    <div class="cell">
+      <svg width="160" height="120" viewBox="0 0 320 240">
+        <g stroke="var(--slate)" stroke-width="7" opacity="0.30" fill="none">
+          <circle cx="192" cy="112" r="64"/><line x1="212" y1="132" x2="258" y2="178"/>
+          <line x1="116" y1="48" x2="204" y2="48"/><line x1="160" y1="56.6" x2="160" y2="167.4"/>
+        </g>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="var(--ledger)" stroke-width="13"/>
+      </svg>
+      <div class="letter">O · the circle</div>
+    </div>
+    <div class="cell">
+      <svg width="160" height="120" viewBox="0 0 320 240">
+        <g stroke="var(--slate)" stroke-width="7" opacity="0.30" fill="none">
+          <circle cx="128" cy="112" r="64"/>
+          <line x1="116" y1="48" x2="204" y2="48"/><line x1="160" y1="56.6" x2="160" y2="167.4"/>
+        </g>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="var(--ledger)" stroke-width="13"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="var(--ledger)" stroke-width="13"/>
+      </svg>
+      <div class="letter">Q · circle + radial</div>
+    </div>
+    <div class="cell">
+      <svg width="160" height="120" viewBox="0 0 320 240">
+        <g stroke="var(--slate)" stroke-width="7" opacity="0.30" fill="none">
+          <circle cx="128" cy="112" r="64"/><circle cx="192" cy="112" r="64"/>
+          <line x1="212" y1="132" x2="258" y2="178"/>
+        </g>
+        <line x1="116" y1="48" x2="204" y2="48" stroke="var(--ledger)" stroke-width="13"/>
+        <line x1="160" y1="56.6" x2="160" y2="167.4" stroke="var(--ledger)" stroke-width="13"/>
+      </svg>
+      <div class="letter">T · tangent + axis</div>
+    </div>
+    <div class="cell">
+      <svg width="160" height="120" viewBox="0 0 320 240">
+        <g stroke="var(--slate)" stroke-width="7" opacity="0.30" fill="none">
+          <circle cx="128" cy="112" r="64"/><circle cx="192" cy="112" r="64"/>
+          <line x1="212" y1="132" x2="258" y2="178"/>
+          <line x1="116" y1="48" x2="204" y2="48"/>
+        </g>
+        <path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="var(--ledger)" stroke-width="13"/>
+      </svg>
+      <div class="letter">S · the ogee</div>
+    </div>
+  </div>
+</div>
+
+<!-- V3 SEAL -->
+<div class="row">
+  <div class="row-label">V3 — The settled seal</div>
+  <div class="row-note">The vesica above the closing double rule — the ledger mark for "total,
+  settled". Composition reads as an institution's seal, not as initials, which also answers the
+  OQ worry. Strong for letterheads, stamps, and the site footer.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="200" height="172" viewBox="0 0 320 260">
+        <circle cx="132" cy="104" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="190" cy="104" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="208" y1="122" x2="250" y2="164" stroke="currentColor" stroke-width="13"/>
+        <line x1="96" y1="206" x2="226" y2="206" stroke="var(--ledger)" stroke-width="4"/>
+        <line x1="96" y1="218" x2="226" y2="218" stroke="var(--ledger)" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="200" height="172" viewBox="0 0 320 260">
+        <circle cx="132" cy="104" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="190" cy="104" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="208" y1="122" x2="250" y2="164" stroke="currentColor" stroke-width="13"/>
+        <line x1="96" y1="206" x2="226" y2="206" stroke="var(--gilt)" stroke-width="4"/>
+        <line x1="96" y1="218" x2="226" y2="218" stroke="var(--gilt)" stroke-width="4"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- V4 CHAIN -->
+<div class="row">
+  <div class="row-label">V4 — The chain</div>
+  <div class="row-note">Four circles, one per letter, each passing through its neighbour's centre —
+  the vesica relation propagated. The literal answer to "four letters", at the cost of simplicity;
+  needs the two-circle mark as its small-size stand-in.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="240" height="126" viewBox="0 0 380 200">
+        <circle cx="94" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="146" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="198" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="250" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <line x1="266" y1="116" x2="304" y2="154" stroke="var(--ledger)" stroke-width="12"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="240" height="126" viewBox="0 0 380 200">
+        <circle cx="94" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="146" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="198" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="250" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="12"/>
+        <line x1="266" y1="116" x2="304" y2="154" stroke="var(--gilt)" stroke-width="12"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- V5 LOCKUP -->
+<div class="row">
+  <div class="row-label">V5 — Lockup preview (V1 lens + wordmark)</div>
+  <div class="row-note">How the leading mark sits with the masthead wordmark — the full signature.</div>
+  <div class="cells">
+    <div class="cell">
+      <div class="lockup">
+        <svg width="128" height="96" viewBox="0 0 320 240">
+          <path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/>
+          <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+          <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+          <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="14"/>
+        </svg>
+        <div class="text">
+          <div class="word">OQTS</div>
+          <div class="name">OXFORD QUANTITATIVE<br>TRADING SOCIETY</div>
+        </div>
+      </div>
+    </div>
+    <div class="cell dark">
+      <div class="lockup">
+        <svg width="128" height="96" viewBox="0 0 320 240">
+          <path d="M 160 56.6 A 64 64 0 0 1 160 167.4 A 64 64 0 0 1 160 56.6 Z" fill="var(--gilt)"/>
+          <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+          <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+          <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="14"/>
+        </svg>
+        <div class="text">
+          <div class="word">OQTS</div>
+          <div class="name">OXFORD QUANTITATIVE<br>TRADING SOCIETY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

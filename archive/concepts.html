@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OQTS — logo concepts v0.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #FAF7F0;
+    --slate:  #46586A;
+    --ledger: #8B6C1F;
+    --gilt:   #C9A24B;
+    --chalk:  #E9E2D3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 56px 64px 80px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .concept { margin-bottom: 64px; }
+  .concept-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--ledger);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .pair { display: flex; gap: 24px; }
+  .panel {
+    flex: 1;
+    border: 1px solid var(--chalk);
+    padding: 56px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+  .panel.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+
+  /* ---------- Concept A: Masthead ---------- */
+  .masthead { text-align: center; }
+  .masthead .rule-open { height: 1px; background: currentColor; opacity: .45; margin-bottom: 18px; }
+  .masthead .word {
+    font-size: 92px;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    padding-left: 0.075em; /* optically recenters letterspaced caps */
+  }
+  .masthead .rule-close { margin-top: 16px; }
+  .masthead .rule-close span { display: block; height: 1px; background: var(--ledger); }
+  .masthead .rule-close span + span { margin-top: 3px; }
+  .panel.dark .masthead .rule-close span { background: var(--gilt); }
+  .masthead .name {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    padding-left: 0.34em;
+  }
+
+  /* ---------- Concept B: Constructed Q ---------- */
+  .qlock { display: flex; align-items: center; gap: 36px; }
+  .qmark { width: 132px; height: 132px; display: block; }
+  .qlock .text .word {
+    font-size: 76px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .qlock .text .name {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    color: var(--slate);
+  }
+  .panel.dark .qlock .text .name { color: var(--gilt); }
+  .sizes { display: flex; align-items: flex-end; gap: 28px; margin-left: 56px; }
+  .sizes figure { text-align: center; }
+  .sizes figcaption {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; color: var(--slate); margin-top: 8px;
+  }
+  .panel.dark .sizes figcaption { color: var(--gilt); }
+
+  /* ---------- Concept C: Q-rule ---------- */
+  .qrule { display: inline-block; text-align: left; }
+  .qrule .wordwrap { position: relative; display: inline-block; }
+  .qrule .word {
+    font-size: 92px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1;
+  }
+  .qrule .tail {
+    position: absolute;
+    left: 41%;
+    right: -8%;
+    bottom: 9px;
+    height: 3px;
+    background: var(--ledger);
+  }
+  .panel.dark .qrule .tail { background: var(--gilt); }
+  .qrule .tail::after {
+    content: "";
+    position: absolute;
+    right: 0; top: -2px;
+    width: 7px; height: 7px;
+    background: inherit;
+  }
+  .qrule .name {
+    margin-top: 20px;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.30em;
+  }
+
+  /* ---------- Palette + type ---------- */
+  .meta { display: flex; gap: 24px; }
+  .swatches { flex: 1; border: 1px solid var(--chalk); padding: 28px; }
+  .swatch { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .swatch .chip { width: 44px; height: 28px; border: 1px solid var(--chalk); }
+  .swatch code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--slate); }
+  .specimen { flex: 1.4; border: 1px solid var(--chalk); padding: 28px; }
+  .specimen .eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ledger); margin-bottom: 10px;
+  }
+  .specimen h2 { font-size: 30px; font-weight: 600; margin-bottom: 10px; }
+  .specimen p { font-size: 17px; line-height: 1.65; max-width: 62ch; }
+  .specimen .figures {
+    margin-top: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px; color: var(--slate);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · logo concepts · v0.1 · 2026-08-07</div>
+
+<section class="concept">
+  <div class="concept-label">Concept A — Masthead</div>
+  <div class="pair">
+    <div class="panel">
+      <div class="masthead">
+        <div class="rule-open"></div>
+        <div class="word">OQTS</div>
+        <div class="rule-close"><span></span><span></span></div>
+        <div class="name">OXFORD QUANTITATIVE TRADING SOCIETY</div>
+      </div>
+    </div>
+    <div class="panel dark">
+      <div class="masthead">
+        <div class="rule-open"></div>
+        <div class="word">OQTS</div>
+        <div class="rule-close"><span></span><span></span></div>
+        <div class="name">OXFORD QUANTITATIVE TRADING SOCIETY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="concept">
+  <div class="concept-label">Concept B — Constructed Q</div>
+  <div class="pair">
+    <div class="panel">
+      <div class="qlock">
+        <svg class="qmark" viewBox="0 0 240 240" aria-label="OQTS mark">
+          <circle cx="120" cy="120" r="76" fill="none" stroke="currentColor" stroke-width="16"/>
+          <line x1="144" y1="144" x2="206" y2="206" stroke="currentColor" stroke-width="16"/>
+        </svg>
+        <div class="text">
+          <div class="word">OQTS</div>
+          <div class="name">OXFORD QUANTITATIVE<br>TRADING SOCIETY</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel dark">
+      <div class="qlock">
+        <svg class="qmark" viewBox="0 0 240 240" aria-label="OQTS mark">
+          <circle cx="120" cy="120" r="76" fill="none" stroke="currentColor" stroke-width="16"/>
+          <line x1="144" y1="144" x2="206" y2="206" stroke="var(--gilt)" stroke-width="16"/>
+        </svg>
+        <div class="text">
+          <div class="word">OQTS</div>
+          <div class="name">OXFORD QUANTITATIVE<br>TRADING SOCIETY</div>
+        </div>
+      </div>
+      <div class="sizes">
+        <figure>
+          <svg width="64" height="64" viewBox="0 0 240 240"><circle cx="120" cy="120" r="76" fill="none" stroke="currentColor" stroke-width="16"/><line x1="144" y1="144" x2="206" y2="206" stroke="currentColor" stroke-width="16"/></svg>
+          <figcaption>64</figcaption>
+        </figure>
+        <figure>
+          <svg width="32" height="32" viewBox="0 0 240 240"><circle cx="120" cy="120" r="76" fill="none" stroke="currentColor" stroke-width="18"/><line x1="144" y1="144" x2="206" y2="206" stroke="currentColor" stroke-width="18"/></svg>
+          <figcaption>32</figcaption>
+        </figure>
+        <figure>
+          <svg width="16" height="16" viewBox="0 0 240 240"><circle cx="120" cy="120" r="74" fill="none" stroke="currentColor" stroke-width="26"/><line x1="148" y1="148" x2="210" y2="210" stroke="currentColor" stroke-width="26"/></svg>
+          <figcaption>16</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="concept">
+  <div class="concept-label">Concept C — Q-rule</div>
+  <div class="pair">
+    <div class="panel">
+      <div class="qrule">
+        <div class="wordwrap"><div class="word">OQTS</div><div class="tail"></div></div>
+        <div class="name">OXFORD QUANTITATIVE TRADING SOCIETY</div>
+      </div>
+    </div>
+    <div class="panel dark">
+      <div class="qrule">
+        <div class="wordwrap"><div class="word">OQTS</div><div class="tail"></div></div>
+        <div class="name">OXFORD QUANTITATIVE TRADING SOCIETY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="meta">
+  <div class="swatches">
+    <div class="concept-label">Palette</div>
+    <div class="swatch"><div class="chip" style="background:#002147"></div><code>oxford&nbsp;&nbsp;#002147</code></div>
+    <div class="swatch"><div class="chip" style="background:#FAF7F0"></div><code>paper&nbsp;&nbsp;&nbsp;#FAF7F0</code></div>
+    <div class="swatch"><div class="chip" style="background:#46586A"></div><code>slate&nbsp;&nbsp;&nbsp;#46586A</code></div>
+    <div class="swatch"><div class="chip" style="background:#8B6C1F"></div><code>ledger&nbsp;&nbsp;#8B6C1F</code></div>
+    <div class="swatch"><div class="chip" style="background:#C9A24B"></div><code>gilt&nbsp;&nbsp;&nbsp;&nbsp;#C9A24B</code></div>
+    <div class="swatch"><div class="chip" style="background:#E9E2D3"></div><code>chalk&nbsp;&nbsp;&nbsp;#E9E2D3</code></div>
+  </div>
+  <div class="specimen">
+    <div class="eyebrow">Type specimen</div>
+    <h2>Price discovery is the skill the simulator tests.</h2>
+    <p>Each instrument has a latent fair value that evolves over the round
+    and is never broadcast. Participants must infer it from order-book
+    dynamics — STIX Two Text for prose, IBM Plex Mono for figures.</p>
+    <div class="figures">bid 99.25 · ask 99.75 · last 99.50 · vol 12,408</div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*~
+.idea/
+.vscode/
+
+# Python tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# scratch output from the build scripts
+_tmp*
+*.log
+nohup.out

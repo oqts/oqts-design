@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS marks v9 — Z1-U optical correction (rev 2)</title>
+<style>
+  body { background:#F4EDDC; color:#2b2820; font:14px/1.5 Georgia, serif; margin:40px; }
+  h1 { font-size:20px; font-weight:normal; }
+  .row { display:flex; gap:48px; align-items:flex-end; flex-wrap:wrap; margin:32px 0 56px; }
+  .item { text-align:center; }
+  .item p { margin:10px 0 0; font-size:12px; color:#6b6555; }
+  .note { max-width:640px; color:#4a4536; }
+  .navy { background:#002147; border-radius:24px; padding:24px; display:inline-block; }
+</style>
+</head>
+<body>
+<h1>OQTS matrix monogram — Z1-U rev 2: optical width correction</h1>
+<p class="note">Flat-sided glyphs read larger than round ones at identical dimensions
+(type-design overshoot principle), so rev 2 narrows the flats against the O/Q reference:
+T bar 48&rarr;44 centreline (ink 58, 93.5% of O&rsquo;s 62), S 48&rarr;42 (ink 56, 90%).
+Grid, stroke 14 square caps, r24/r12 curve family unchanged.</p>
+
+<div class="row">
+  <div class="item">
+    <svg viewBox="0 0 280 280" width="280" height="280">
+      <g stroke="#002147" fill="none">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+      </g>
+      <g stroke="#002147" fill="none" stroke-width="14" stroke-linecap="square">
+        <circle cx="100" cy="100" r="24"/><circle cx="180" cy="100" r="24"/>
+        <line x1="188" y1="108" x2="204" y2="124"/>
+        <line x1="76" y1="156" x2="124" y2="156"/><line x1="100" y1="156" x2="100" y2="204"/>
+        <path d="M 204 156 H 168 A 12 12 0 0 0 168 180 H 192 A 12 12 0 0 1 192 204 H 156"/>
+      </g>
+    </svg>
+    <p>rev 1 — geometrically equal (T/S read wide)</p>
+  </div>
+  <div class="item">
+    <svg viewBox="0 0 280 280" width="280" height="280">
+      <g stroke="#002147" fill="none">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+      </g>
+      <g stroke="#002147" fill="none" stroke-width="14" stroke-linecap="square">
+        <circle cx="100" cy="100" r="24"/><circle cx="180" cy="100" r="24"/>
+        <line x1="188" y1="108" x2="204" y2="124"/>
+        <line x1="78" y1="156" x2="122" y2="156"/><line x1="100" y1="156" x2="100" y2="204"/>
+        <path d="M 201 156 H 171 A 12 12 0 0 0 171 180 H 189 A 12 12 0 0 1 189 204 H 159"/>
+      </g>
+    </svg>
+    <p>rev 2 — optically corrected (current spec)</p>
+  </div>
+  <div class="item">
+    <span class="navy">
+      <svg viewBox="0 0 280 280" width="232" height="232">
+        <g stroke="#F4EDDC" fill="none">
+          <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+          <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+        </g>
+        <g stroke="#F4EDDC" fill="none" stroke-width="14" stroke-linecap="square">
+          <circle cx="100" cy="100" r="24"/><circle cx="180" cy="100" r="24"/>
+          <line x1="188" y1="108" x2="204" y2="124"/>
+          <line x1="78" y1="156" x2="122" y2="156"/><line x1="100" y1="156" x2="100" y2="204"/>
+          <path d="M 201 156 H 171 A 12 12 0 0 0 171 180 H 189 A 12 12 0 0 1 189 204 H 159"/>
+        </g>
+      </svg>
+    </span>
+    <p>rev 2 reversed — navy tile</p>
+  </div>
+</div>
+
+<h1>Size test</h1>
+<div class="row" id="sizes"></div>
+<script>
+  const mark = document.querySelectorAll('.item svg')[1].outerHTML;
+  const dots = `<svg viewBox="0 0 280 280" width="SZ" height="SZ">
+    <g stroke="#002147" fill="none">
+      <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="22"/>
+      <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="22"/>
+    </g>
+    <g fill="#002147"><circle cx="100" cy="100" r="18"/><circle cx="180" cy="100" r="18"/>
+    <circle cx="100" cy="180" r="18"/><circle cx="180" cy="180" r="18"/></g></svg>`;
+  const row = document.getElementById('sizes');
+  for (const s of [112, 64, 48, 32]) {
+    const d = document.createElement('div');
+    d.className = 'item';
+    d.innerHTML = mark.replace('width="280" height="280"', `width="${s}" height="${s}"`) + `<p>${s}px</p>`;
+    row.appendChild(d);
+  }
+  for (const s of [32, 16]) {
+    const d = document.createElement('div');
+    d.className = 'item';
+    d.innerHTML = dots.replaceAll('SZ', s) + `<p>${s}px dots</p>`;
+    row.appendChild(d);
+  }
+</script>
+</body>
+</html>

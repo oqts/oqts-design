@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <!-- OQTS logo — dark variant, Oxford navy background.
+       Matrix monogram Z1-U rev 2 (optically corrected). Paper #F4EDDC on navy #002147.
+       Same geometry as oqts-light-beige.svg; see that file for the full spec comment. -->
+  <rect width="280" height="280" fill="#002147"/>
+  <g stroke="#F4EDDC" fill="none">
+    <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+    <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+  </g>
+  <g stroke="#F4EDDC" fill="none" stroke-width="14" stroke-linecap="square">
+    <circle cx="100" cy="100" r="24"/>
+    <circle cx="180" cy="100" r="24"/>
+    <line x1="188" y1="108" x2="204" y2="124"/>
+    <line x1="78" y1="156" x2="122" y2="156"/>
+    <line x1="100" y1="156" x2="100" y2="204"/>
+    <path d="M 201 156 H 171 A 12 12 0 0 0 171 180 H 189 A 12 12 0 0 1 189 204 H 159"/>
+  </g>
+</svg>

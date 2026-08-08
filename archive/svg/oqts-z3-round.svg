@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <!-- OQTS matrix monogram — Z3 round-terminal cut
+       Same construction as Z1; stroke-linecap round on all open strokes -->
+  <g stroke="#002147" fill="none" stroke-linecap="round">
+    <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+    <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+    <circle cx="100" cy="100" r="24" stroke-width="14"/>
+    <circle cx="180" cy="100" r="24" stroke-width="14"/>
+    <line x1="189" y1="109" x2="214" y2="134" stroke-width="14"/>
+    <line x1="76" y1="156" x2="124" y2="156" stroke-width="14"/>
+    <line x1="100" y1="156" x2="100" y2="204" stroke-width="14"/>
+    <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" stroke-width="14"/>
+  </g>
+</svg>

@@ -1,0 +1,103 @@
+# OQTS design
+
+Brand assets and the design system for the **Oxford Quantitative Trading
+Society**. This directory is the single editable source of truth for OQTS
+styling — the public site (`oqts/oqts.org`) and the member platform
+(`oqts-platform`) consume from here and never define styling of their own.
+
+**Read [`brand.md`](brand.md) first.** It carries the identity, colour, type
+and logo specification, including the locked construction of the mark.
+
+---
+
+## Layout
+
+```
+design/
+├── brand.md          the design doc — colour, type, logo spec, rules
+├── assets/           everything you consume
+│   ├── logo/         17 production SVGs — the source of truth
+│   ├── logo-png/     raster exports at 1x / 2x / 3x
+│   ├── favicon/      favicon.ico, PNG icons, apple-touch, Open Graph cards
+│   └── fonts/        the two brand faces, with licences, plus fonts.css
+├── demo/             a sample page proving the whole system
+├── lab/              the type tester and the scripts that build assets/
+└── archive/          superseded artwork and the exploration history
+```
+
+## Using the assets
+
+Reach for `assets/logo/*.svg` first — the PNGs exist only for contexts that
+cannot take vector (email clients, some slide software, social cards).
+
+| You need | Use |
+|---|---|
+| Site masthead, letterhead, decks, email | `logo/oqts-lockup.svg` |
+| The same on a dark surface | `logo/oqts-lockup-reverse.svg` |
+| A flat file with the background baked in | `logo/oqts-lockup-on-{beige,white,navy}.svg` |
+| Narrow or portrait space | `logo/oqts-lockup-stacked.svg` |
+| The name is already on the page | `logo/oqts-mark.svg` |
+| Social avatar, app icon | `logo/oqts-mark-on-navy.svg` |
+| Browser tab, ≤ 32px | `favicon/favicon.ico` |
+| iOS home screen | `favicon/apple-touch-icon.png` |
+| Link previews | `favicon/og-card.png` (or `-navy`) |
+
+Transparent SVGs are the primaries. The `-on-*` variants bake a background
+plus 40 units of clear space, for slides and anywhere CSS is not available.
+
+**Minimum sizes:** lockup ≥ 180px wide, mark alone ≥ 48px, and below 32px use
+the favicon — its entries collapse to four dots. Latin Modern's strokes are
+fine, so do not push past these.
+
+## Using the type
+
+```html
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+```
+
+That gives you both families and the colour tokens as CSS custom properties
+(`--oqts-oxford`, `--oqts-paper`, `--oqts-camel`, `--oqts-display`, …).
+
+**Latin Modern Mono** leads — logo, display, headings, eyebrows, figures and
+tables. **STIX Two Text** carries the reading — body copy, UI, forms, portal.
+No third family. Latin Modern has only three cuts, so take hierarchy from size
+and letter-spacing rather than weight, and never set it below 13px.
+
+> Convert both faces to WOFF2 before production. They ship here as OTF/TTF,
+> which is 2–4× larger than it needs to be over the wire.
+
+## Regenerating
+
+Every asset is generated; nothing is hand-drawn, so never edit an SVG by hand.
+The logo specification lives at the top of `lab/tools/build-logos.py` and that
+is the only place any of those numbers is edited.
+
+```bash
+uv run --with fonttools python lab/tools/build-logos.py        # assets/logo/
+uv run --with cairosvg --with pillow python lab/tools/build-exports.py  # PNGs, icons, OG cards
+```
+
+## The lab
+
+`lab/index.html` is the interactive type tester that produced the current
+spec — it renders the mark and lockup across the whole font library with live
+controls for size, gap, tracking and letter spread, and can flip the matrix
+between typeset and constructed glyphs.
+
+To add a face: drop the `.ttf` into `lab/fonts/` and run
+`lab/tools/refresh-fonts.sh`. That measures it, classifies its Q, and rebuilds
+`fonts.css` and `catalog.js`, which the tester reads. No HTML editing needed.
+
+Serve the directory to view `demo/` or `lab/` in a browser:
+
+```bash
+python3 -m http.server 8001 -d design
+# then http://<host>:8001/demo/  and  http://<host>:8001/lab/
+```
+
+## Licences
+
+Both faces are free for commercial use and redistributable. Latin Modern is
+under the GUST Font License (LPPL-based); STIX Two Text is under the SIL Open
+Font License 1.1. Full texts sit beside the fonts. The logo carries its glyphs
+as **outlines**, so deployed artwork has no font dependency.

@@ -1,0 +1,707 @@
+{
+ "anonymouspro-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.765,
+  "crossing": false
+ },
+ "anonymouspro-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.765,
+  "crossing": false
+ },
+ "archivo-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.604,
+  "crossing": false
+ },
+ "archivo-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.57,
+  "crossing": false
+ },
+ "azeretmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.392,
+  "crossing": false
+ },
+ "azeretmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.384,
+  "crossing": false
+ },
+ "b612mono-0.ttf": {
+  "counterFill": 0.037,
+  "reach": 1.5,
+  "crossing": true
+ },
+ "b612mono-1.ttf": {
+  "counterFill": 0.0149,
+  "reach": 1.409,
+  "crossing": false
+ },
+ "bricolagegrotesque-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.684,
+  "crossing": false
+ },
+ "bricolagegrotesque-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.705,
+  "crossing": false
+ },
+ "bricolagegrotesque-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.653,
+  "crossing": false
+ },
+ "casc-CascadiaCode-Bold.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.768,
+  "crossing": false
+ },
+ "casc-CascadiaCode-Regular.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.764,
+  "crossing": false
+ },
+ "casc-CascadiaCode-SemiBold.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.766,
+  "crossing": false
+ },
+ "casc-CascadiaMono-Bold.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.768,
+  "crossing": false
+ },
+ "casc-CascadiaMono-Regular.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.764,
+  "crossing": false
+ },
+ "casc-CascadiaMono-SemiBold.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.766,
+  "crossing": false
+ },
+ "chivomono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.665,
+  "crossing": false
+ },
+ "chivomono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.643,
+  "crossing": false
+ },
+ "comfortaa-0.ttf": {
+  "counterFill": 0.0425,
+  "reach": 1.28,
+  "crossing": true
+ },
+ "comfortaa-1.ttf": {
+  "counterFill": 0.0656,
+  "reach": 1.268,
+  "crossing": true
+ },
+ "courierprime-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.502,
+  "crossing": false
+ },
+ "courierprime-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.551,
+  "crossing": false
+ },
+ "cutivemono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.496,
+  "crossing": false
+ },
+ "didactgothic-0.ttf": {
+  "counterFill": 0.0177,
+  "reach": 1.283,
+  "crossing": false
+ },
+ "dmmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.68,
+  "crossing": false
+ },
+ "dmmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.652,
+  "crossing": false
+ },
+ "dmsans-0.ttf": {
+  "counterFill": 0.1053,
+  "reach": 1.498,
+  "crossing": true
+ },
+ "dmsans-1.ttf": {
+  "counterFill": 0.0813,
+  "reach": 1.467,
+  "crossing": true
+ },
+ "dmsans-2.ttf": {
+  "counterFill": 0.1665,
+  "reach": 1.559,
+  "crossing": true
+ },
+ "ebgaramond-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 2.124,
+  "crossing": false
+ },
+ "ebgaramond-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 2.128,
+  "crossing": false
+ },
+ "ebgaramond-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 2.115,
+  "crossing": false
+ },
+ "familjengrotesk-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.568,
+  "crossing": false
+ },
+ "familjengrotesk-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.568,
+  "crossing": false
+ },
+ "familjengrotesk-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.558,
+  "crossing": false
+ },
+ "firamono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.755,
+  "crossing": false
+ },
+ "firamono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.741,
+  "crossing": false
+ },
+ "firamono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.76,
+  "crossing": false
+ },
+ "gabarito-0.ttf": {
+  "counterFill": 0.0765,
+  "reach": 1.4,
+  "crossing": true
+ },
+ "gabarito-1.ttf": {
+  "counterFill": 0.1558,
+  "reach": 1.413,
+  "crossing": true
+ },
+ "gabarito-2.ttf": {
+  "counterFill": 0.126,
+  "reach": 1.413,
+  "crossing": true
+ },
+ "geistmono-0.ttf": {
+  "counterFill": 0.0123,
+  "reach": 1.417,
+  "crossing": false
+ },
+ "geistmono-1.ttf": {
+  "counterFill": 0.0024,
+  "reach": 1.393,
+  "crossing": false
+ },
+ "hankengrotesk-0.ttf": {
+  "counterFill": 0.082,
+  "reach": 1.387,
+  "crossing": true
+ },
+ "hankengrotesk-1.ttf": {
+  "counterFill": 0.0581,
+  "reach": 1.398,
+  "crossing": true
+ },
+ "hankengrotesk-2.ttf": {
+  "counterFill": 0.099,
+  "reach": 1.375,
+  "crossing": true
+ },
+ "ibmplexmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.596,
+  "crossing": false
+ },
+ "ibmplexmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.638,
+  "crossing": false
+ },
+ "ibmplexmono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.666,
+  "crossing": false
+ },
+ "inconsolata-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.615,
+  "crossing": false
+ },
+ "inconsolata-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.634,
+  "crossing": false
+ },
+ "instrumentsans-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.436,
+  "crossing": false
+ },
+ "instrumentsans-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.442,
+  "crossing": false
+ },
+ "instrumentsans-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.445,
+  "crossing": false
+ },
+ "instrumentsans-3.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.439,
+  "crossing": false
+ },
+ "inter-0.ttf": {
+  "counterFill": 0.0486,
+  "reach": 1.46,
+  "crossing": true
+ },
+ "inter-1.ttf": {
+  "counterFill": 0.0419,
+  "reach": 1.44,
+  "crossing": true
+ },
+ "jetbrainsmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.774,
+  "crossing": false
+ },
+ "jetbrainsmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.774,
+  "crossing": false
+ },
+ "jetbrainsmono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.784,
+  "crossing": false
+ },
+ "josefinsans-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.415,
+  "crossing": false
+ },
+ "josefinsans-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.428,
+  "crossing": false
+ },
+ "josefinsans-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.408,
+  "crossing": false
+ },
+ "jost-0.ttf": {
+  "counterFill": 0.1364,
+  "reach": 1.489,
+  "crossing": true
+ },
+ "jost-1.ttf": {
+  "counterFill": 0.1665,
+  "reach": 1.501,
+  "crossing": true
+ },
+ "jost-2.ttf": {
+  "counterFill": 0.0799,
+  "reach": 1.457,
+  "crossing": true
+ },
+ "jost-3.ttf": {
+  "counterFill": 0.109,
+  "reach": 1.47,
+  "crossing": true
+ },
+ "kodemono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.354,
+  "crossing": false
+ },
+ "kodemono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.352,
+  "crossing": false
+ },
+ "lexend-0.ttf": {
+  "counterFill": 0.1645,
+  "reach": 1.401,
+  "crossing": true
+ },
+ "lexend-1.ttf": {
+  "counterFill": 0.1073,
+  "reach": 1.422,
+  "crossing": true
+ },
+ "lexend500.ttf": {
+  "counterFill": 0.1332,
+  "reach": 1.41,
+  "crossing": true
+ },
+ "majormono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.458,
+  "crossing": false
+ },
+ "manrope-0.ttf": {
+  "counterFill": 0.0244,
+  "reach": 1.242,
+  "crossing": true
+ },
+ "manrope-1.ttf": {
+  "counterFill": 0.0126,
+  "reach": 1.294,
+  "crossing": false
+ },
+ "martianmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.712,
+  "crossing": false
+ },
+ "martianmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.706,
+  "crossing": false
+ },
+ "montserrat-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.579,
+  "crossing": false
+ },
+ "montserrat-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.599,
+  "crossing": false
+ },
+ "montserrat-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.604,
+  "crossing": false
+ },
+ "novamono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.517,
+  "crossing": false
+ },
+ "onest-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.512,
+  "crossing": false
+ },
+ "onest-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.456,
+  "crossing": false
+ },
+ "onest-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.471,
+  "crossing": false
+ },
+ "outfit-0.ttf": {
+  "counterFill": 0.171,
+  "reach": 1.39,
+  "crossing": true
+ },
+ "outfit-1.ttf": {
+  "counterFill": 0.1465,
+  "reach": 1.388,
+  "crossing": true
+ },
+ "outfit-2.ttf": {
+  "counterFill": 0.101,
+  "reach": 1.426,
+  "crossing": true
+ },
+ "outfit500.ttf": {
+  "counterFill": 0.1195,
+  "reach": 1.39,
+  "crossing": true
+ },
+ "overpassmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.312,
+  "crossing": false
+ },
+ "overpassmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.347,
+  "crossing": false
+ },
+ "poppins-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.662,
+  "crossing": false
+ },
+ "poppins-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.664,
+  "crossing": false
+ },
+ "poppins-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.661,
+  "crossing": false
+ },
+ "poppins-3.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.675,
+  "crossing": false
+ },
+ "publicsans-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.613,
+  "crossing": false
+ },
+ "publicsans-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.598,
+  "crossing": false
+ },
+ "publicsans-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.612,
+  "crossing": false
+ },
+ "questrial-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.691,
+  "crossing": false
+ },
+ "recursive-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.728,
+  "crossing": false
+ },
+ "recursive-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.729,
+  "crossing": false
+ },
+ "recursive-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.727,
+  "crossing": false
+ },
+ "redditmono-0.ttf": {
+  "counterFill": 0.0522,
+  "reach": 1.434,
+  "crossing": true
+ },
+ "redditmono-1.ttf": {
+  "counterFill": 0.0153,
+  "reach": 1.433,
+  "crossing": false
+ },
+ "redditmono-2.ttf": {
+  "counterFill": 0.0559,
+  "reach": 1.415,
+  "crossing": true
+ },
+ "redhatdisplay-0.ttf": {
+  "counterFill": 0.0343,
+  "reach": 1.306,
+  "crossing": true
+ },
+ "redhatdisplay-1.ttf": {
+  "counterFill": 0.064,
+  "reach": 1.299,
+  "crossing": true
+ },
+ "redhatmono-0.ttf": {
+  "counterFill": 0.0326,
+  "reach": 1.341,
+  "crossing": true
+ },
+ "redhatmono-1.ttf": {
+  "counterFill": 0.037,
+  "reach": 1.349,
+  "crossing": true
+ },
+ "robotomono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.556,
+  "crossing": false
+ },
+ "robotomono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.572,
+  "crossing": false
+ },
+ "robotomono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.567,
+  "crossing": false
+ },
+ "schibstedgrotesk-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.444,
+  "crossing": false
+ },
+ "schibstedgrotesk-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.422,
+  "crossing": false
+ },
+ "schibstedgrotesk-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.514,
+  "crossing": false
+ },
+ "sharetechmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.588,
+  "crossing": false
+ },
+ "sometypemono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.861,
+  "crossing": false
+ },
+ "sometypemono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.868,
+  "crossing": false
+ },
+ "sometypemono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.866,
+  "crossing": false
+ },
+ "sora-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.62,
+  "crossing": false
+ },
+ "sora-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.626,
+  "crossing": false
+ },
+ "sourcecodepro-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.739,
+  "crossing": false
+ },
+ "sourcecodepro-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.713,
+  "crossing": false
+ },
+ "spacegrotesk-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.534,
+  "crossing": false
+ },
+ "spacegrotesk-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.504,
+  "crossing": false
+ },
+ "spacegrotesk-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.481,
+  "crossing": false
+ },
+ "spacemono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.526,
+  "crossing": false
+ },
+ "spacemono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.496,
+  "crossing": false
+ },
+ "spectral-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.779,
+  "crossing": false
+ },
+ "spectral-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.79,
+  "crossing": false
+ },
+ "spectral-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.791,
+  "crossing": false
+ },
+ "splinesansmono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.59,
+  "crossing": false
+ },
+ "splinesansmono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.66,
+  "crossing": false
+ },
+ "urbanist-0.ttf": {
+  "counterFill": 0.0592,
+  "reach": 1.3,
+  "crossing": true
+ },
+ "urbanist-1.ttf": {
+  "counterFill": 0.0657,
+  "reach": 1.283,
+  "crossing": true
+ },
+ "urbanist-2.ttf": {
+  "counterFill": 0.0425,
+  "reach": 1.322,
+  "crossing": true
+ },
+ "urbanist500.ttf": {
+  "counterFill": 0.051,
+  "reach": 1.303,
+  "crossing": true
+ },
+ "victormono-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.786,
+  "crossing": false
+ },
+ "victormono-1.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.791,
+  "crossing": false
+ },
+ "victormono-2.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.793,
+  "crossing": false
+ },
+ "vt323-0.ttf": {
+  "counterFill": 0.0,
+  "reach": 1.821,
+  "crossing": false
+ }
+}

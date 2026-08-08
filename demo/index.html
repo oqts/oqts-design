@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OQTS — brand system demo</title>
+<link rel="icon" href="../assets/favicon/favicon.ico">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+
+:root{
+  /* base */      --oxford:#002147; --paper:#F4EDDC;
+  /* secondary */ --slate:#46586A;  --chalk:#E0D5BC;
+  /* accent */    --camel:#B08D57;  --oldgold:#A5843E;
+  /* accent, reversed onto navy */
+                  --camel-rev:#CDB183; --oldgold-rev:#C8A85E;
+  --mono:var(--oqts-display);
+  --text:var(--oqts-text);
+  --measure:68ch; --wide:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--oxford);
+  font:400 17.5px/1.65 var(--text);
+  font-variant-numeric:oldstyle-nums;
+}
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 32px}
+.col{max-width:var(--measure)}
+
+/* ── type scale ───────────────────────────────────────────── */
+.eyebrow{
+  font:400 12px/1.4 var(--mono); letter-spacing:.18em; text-transform:uppercase;
+  color:var(--oldgold); margin:0 0 18px;
+}
+h1,h2,h3{font-family:var(--mono);font-weight:400;color:var(--oxford)}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.16;letter-spacing:.01em;margin:0 0 22px}
+h2{font-size:clamp(22px,2.6vw,28px);line-height:1.25;letter-spacing:.015em;margin:0 0 16px}
+h3{font-size:16px;line-height:1.35;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+p{margin:0 0 18px}
+.lede{font-size:20px;line-height:1.55;color:var(--oxford)}
+.small{font-size:14.5px;line-height:1.6;color:var(--slate)}
+a{color:var(--oxford);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--oldgold)}
+:focus-visible{outline:2px solid var(--oxford);outline-offset:3px}
+
+/* ── the signature: ledger double rule, and the logo's bracket ─ */
+.close-rule{position:relative;border-top:1px solid var(--camel);height:4px;margin:56px 0 0}
+.close-rule::after{content:'';position:absolute;inset:3px 0 auto 0;border-top:1px solid var(--camel)}
+.hair{border:0;border-top:1px solid var(--chalk);margin:0}
+
+.bracketed{position:relative;padding:34px 46px}
+.bracketed::before,.bracketed::after{
+  content:'';position:absolute;top:0;bottom:0;width:20px;
+  border:2px solid var(--oxford);
+}
+.bracketed::before{left:0;border-right:0}
+.bracketed::after{right:0;border-left:0}
+
+/* ── masthead ─────────────────────────────────────────────── */
+.masthead{padding:26px 0 22px}
+.masthead .bar{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.masthead img{height:62px;width:auto;display:block}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{font:400 14px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+nav a[aria-current]{border-bottom:1px solid var(--camel);padding-bottom:4px}
+
+/* ── hero ─────────────────────────────────────────────────── */
+.hero{padding:74px 0 0}
+.hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;
+  font:400 13px/1.5 var(--mono);letter-spacing:.05em;color:var(--slate)}
+.hero .meta b{font-weight:400;color:var(--oldgold)}
+
+/* ── abstract, in the preprint idiom ──────────────────────── */
+.abstract{margin:52px 0 0}
+.abstract .bracketed{max-width:860px}
+.abstract p:last-child{margin-bottom:0}
+
+/* ── generic section ──────────────────────────────────────── */
+section{padding:56px 0 0}
+
+/* ── data table ───────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;margin-top:22px;
+  font:400 15px/1.5 var(--mono);font-variant-numeric:tabular-nums}
+caption{text-align:left;font:400 13px/1.5 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate);padding-bottom:12px}
+th{text-align:left;font-weight:400;color:var(--slate);letter-spacing:.06em;
+  text-transform:uppercase;font-size:12.5px;padding:0 14px 10px 0;
+  border-bottom:1px solid var(--chalk)}
+td{padding:11px 14px 11px 0;border-bottom:1px solid var(--chalk)}
+td.num,th.num{text-align:right;padding-right:0}
+tr.total td{border-bottom:0;border-top:1px solid var(--camel);
+  box-shadow:0 3px 0 -2px var(--camel);color:var(--oxford)}
+
+/* ── sponsors ─────────────────────────────────────────────── */
+.tiers{display:grid;gap:0;margin-top:20px}
+.tier{display:grid;grid-template-columns:150px 1fr;gap:28px;
+  padding:18px 0;border-bottom:1px solid var(--chalk);align-items:baseline}
+.tier dt{font:400 12.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--oldgold)}
+.tier dd{margin:0;font-size:19px}
+
+/* ── navy surface ─────────────────────────────────────────── */
+.dark{background:var(--oxford);color:var(--paper);margin-top:64px;padding:68px 0}
+.dark h2,.dark h1{color:var(--paper)}
+.dark .eyebrow{color:var(--camel-rev)}
+.dark .small{color:#A9B6C6}
+.dark a{color:var(--paper)}
+.dark a:hover{color:var(--oldgold-rev)}
+.dark .close-rule{border-top-color:var(--oldgold-rev)}
+.dark .close-rule::after{border-top-color:var(--oldgold-rev)}
+.dark .bracketed::before,.dark .bracketed::after{border-color:var(--camel-rev)}
+.dark img.lockup{height:150px;width:auto;display:block}
+.dark :focus-visible{outline-color:var(--camel-rev)}
+.split{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+
+/* ── cards ────────────────────────────────────────────────── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;
+  background:var(--chalk);border:1px solid var(--chalk);margin-top:26px}
+.card{background:var(--paper);padding:28px 26px 30px}
+.card img{height:52px;width:auto;display:block;margin-bottom:20px}
+.card p{margin-bottom:0;font-size:16px;line-height:1.6;color:var(--slate)}
+
+/* ── reference panels ─────────────────────────────────────── */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px;margin-top:22px}
+.sw{border:1px solid var(--chalk)}
+.sw .chip{height:78px}
+.sw .info{padding:11px 13px;font:400 12.5px/1.55 var(--mono)}
+.sw .info b{display:block;font-weight:400;letter-spacing:.05em}
+.sw .info span{color:var(--slate)}
+
+.specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px;margin-top:24px}
+.spec{border-top:1px solid var(--chalk);padding-top:18px}
+.spec .role{font:400 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--oldgold);margin-bottom:14px}
+.spec .sample-mono{font:400 25px/1.3 var(--mono);letter-spacing:.02em}
+.spec .sample-text{font:400 19px/1.5 var(--text)}
+.spec .note{margin-top:12px;font-size:13.5px;color:var(--slate);line-height:1.55}
+
+/* ── logo placement demo ──────────────────────────────────── */
+.sizes{display:flex;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-top:24px}
+.sizes figure{margin:0;text-align:center}
+.sizes img{display:block}
+.sizes figcaption{margin-top:12px;font:400 12px/1.4 var(--mono);letter-spacing:.07em;color:var(--slate)}
+.avatar{width:76px;height:76px;border-radius:50%;overflow:hidden;display:block}
+.avatar img{width:100%;height:100%;display:block}
+
+/* ── footer ───────────────────────────────────────────────── */
+footer{background:var(--oxford);color:var(--paper);padding:60px 0 46px;margin-top:0}
+footer .grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:start;flex-wrap:wrap}
+footer img{height:172px;width:auto;display:block}
+footer h3{color:var(--camel-rev);font-size:12.5px;letter-spacing:.14em}
+footer ul{list-style:none;margin:0 0 26px;padding:0}
+footer li{margin-bottom:7px}
+footer a{color:var(--paper);text-decoration:none;font-size:16px}
+footer a:hover{color:var(--oldgold-rev);text-decoration:underline}
+footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
+  font:400 12.5px/1.7 var(--mono);color:#A9B6C6;letter-spacing:.03em}
+.foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:34px}
+
+/* ── one page-load reveal, nothing ambient ────────────────── */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(10px);animation:rise .62s cubic-bezier(.22,.61,.36,1) forwards}
+  .reveal:nth-child(2){animation-delay:.07s}
+  .reveal:nth-child(3){animation-delay:.14s}
+  .reveal:nth-child(4){animation-delay:.21s}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .bracketed{padding:26px 30px}
+  .bracketed::before,.bracketed::after{width:13px}
+  .tier{grid-template-columns:1fr;gap:6px}
+  .split{grid-template-columns:1fr;gap:34px}
+  .dark img.lockup{height:120px}
+  footer .grid{grid-template-columns:1fr;gap:36px}
+  footer img{height:132px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ masthead: horizontal lockup ══ -->
+<header class="masthead">
+  <div class="wrap bar">
+    <a href="#" aria-label="Oxford Quantitative Trading Society, home">
+      <img src="../assets/logo/oqts-lockup.svg" alt="Oxford Quantitative Trading Society">
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#" aria-current="page">Research</a></li>
+        <li><a href="#">Fund</a></li>
+        <li><a href="#">OXDAQ</a></li>
+        <li><a href="#">Sponsors</a></li>
+        <li><a href="#">Join</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="wrap"><hr class="hair"></div>
+
+<main>
+  <!-- ══ hero ══ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow reveal">Michaelmas 2026</p>
+      <h1 class="col reveal">Oxford's first dedicated<br>quantitative trading society.</h1>
+      <p class="lede col reveal">We run a student-managed live fund, publish research
+        notes, and hold the OXDAQ competition series. Applications for the founding
+        cohort open in early September.</p>
+      <p class="meta reveal">
+        <span>Founded <b>2025</b></span>
+        <span>Members <b>240</b></span>
+        <span>Live fund <b>Michaelmas 2026</b></span>
+        <span>Proctors-registered</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ abstract, bracketed: the signature device ══ -->
+  <section class="abstract">
+    <div class="wrap">
+      <div class="bracketed">
+        <p class="eyebrow">Abstract</p>
+        <p style="margin-bottom:0">The Society exists to make quantitative research a
+          practice rather than a career aspiration. Members write strategies, defend them
+          in review, and run them with real capital under a risk mandate set by the
+          committee. Everything we publish is reproducible: data, code, and the note that
+          explains why the result is not luck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ data table, mono tabular figures, closing double rule ══ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">§1 &nbsp;Competition</p>
+      <h2>OXDAQ 2026 — final standings</h2>
+      <div class="col">
+        <p class="small">Six-week systematic trading competition. Sharpe computed net of
+          the 2 bp per-side cost model; drawdown is peak-to-trough on daily marks.</p>
+      </div>
+      <table>
+        <caption>Placeholder figures — replace with the real results table</caption>
+        <thead>
+          <tr>
+            <th scope="col">Team</th>
+            <th scope="col">College</th>
+            <th scope="col" class="num">Sharpe</th>
+            <th scope="col" class="num">Max DD</th>
+            <th scope="col" class="num">Return</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ornstein</td><td>Merton</td><td class="num">2.41</td><td class="num">−4.8%</td><td class="num">+18.2%</td></tr>
+          <tr><td>Kelly Criterion</td><td>St John's</td><td class="num">2.06</td><td class="num">−6.1%</td><td class="num">+16.9%</td></tr>
+          <tr><td>Basis Risk</td><td>Balliol</td><td class="num">1.88</td><td class="num">−5.4%</td><td class="num">+12.4%</td></tr>
+          <tr><td>Carry On</td><td>Magdalen</td><td class="num">1.52</td><td class="num">−9.7%</td><td class="num">+11.1%</td></tr>
+          <tr class="total"><td>Field median</td><td>—</td><td class="num">1.34</td><td class="num">−8.2%</td><td class="num">+7.6%</td></tr>
+        </tbody>
+      </table>
+      <div class="close-rule"></div>
+    </div>
+  </section>
+
+  <!-- ══ sponsors ══ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">§2 &nbsp;Support</p>
+      <h2>Our sponsors</h2>
+      <dl class="tiers">
+        <div class="tier"><dt>Founder</dt><dd>G-Research</dd></div>
+        <div class="tier"><dt>Gold</dt><dd>Jane Street &nbsp;·&nbsp; Optiver</dd></div>
+        <div class="tier"><dt>Silver</dt><dd>Hudson River Trading</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══ navy surface: reverse lockup + accent variants ══ -->
+  <section class="dark">
+    <div class="wrap">
+      <div class="split">
+        <img class="lockup" src="../assets/logo/oqts-lockup-stacked-reverse.svg" alt="">
+        <div>
+          <p class="eyebrow">The live fund</p>
+          <h2 style="max-width:22ch">Real capital, a risk mandate, and a review that
+            can say no.</h2>
+          <p class="small" style="max-width:56ch">Launching Michaelmas 2026. Every
+            position is minuted, every strategy has a named author, and the book is
+            marked daily. Applications for the founding cohort open in early September.</p>
+        </div>
+      </div>
+      <div class="close-rule"></div>
+    </div>
+  </section>
+
+  <!-- ══ cards, mark used small ══ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">§3 &nbsp;What we do</p>
+      <h2>Three standing commitments</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="../assets/logo/oqts-mark.svg" alt="">
+          <h3>Research notes</h3>
+          <p>Termly notes with data and code attached. Reviewed before publication,
+            withdrawn if they fail replication.</p>
+        </article>
+        <article class="card">
+          <img src="../assets/logo/oqts-mark.svg" alt="">
+          <h3>The OXDAQ series</h3>
+          <p>A six-week systematic competition with a published cost model, open to
+            every college.</p>
+        </article>
+        <article class="card">
+          <img src="../assets/logo/oqts-mark.svg" alt="">
+          <h3>The live fund</h3>
+          <p>Student-managed capital under a committee risk mandate, marked daily and
+            reported termly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ logo placements ══ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">§4 &nbsp;Identity</p>
+      <h2>The mark in place</h2>
+      <div class="col"><p class="small">The lockup leads wherever there is room. The mark
+        stands alone once the name is already on the page. Below 32 pixels the entries
+        collapse to four dots — the same matrix, sampled down.</p></div>
+      <div class="sizes">
+        <figure><img src="../assets/logo/oqts-lockup.svg" alt="" style="height:74px">
+          <figcaption>Lockup · masthead</figcaption></figure>
+        <figure><img src="../assets/logo/oqts-mark.svg" alt="" style="height:74px">
+          <figcaption>Mark · 74px</figcaption></figure>
+        <figure><img src="../assets/logo/oqts-mark.svg" alt="" style="height:48px">
+          <figcaption>Mark · 48px floor</figcaption></figure>
+        <figure><span class="avatar"><img src="../assets/logo/oqts-mark-on-navy.svg" alt=""></span>
+          <figcaption>Avatar</figcaption></figure>
+        <figure><img src="../assets/logo/oqts-favicon.svg" alt="" style="height:32px">
+          <figcaption>Favicon · 32px</figcaption></figure>
+        <figure><img src="../assets/logo/oqts-favicon.svg" alt="" style="height:16px">
+          <figcaption>Favicon · 16px</figcaption></figure>
+      </div>
+      <div class="close-rule"></div>
+    </div>
+  </section>
+
+  <!-- ══ colour roles ══ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">§5 &nbsp;Colour</p>
+      <h2>Two surfaces, one accent</h2>
+      <div class="col"><p class="small">Base carries the page, secondary carries
+        supporting text and hairlines, and the accent is earned — rules, labels, and one
+        marker. The mark itself is always monochrome.</p></div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:var(--paper);border-bottom:1px solid var(--chalk)"></div>
+          <div class="info"><b>paper</b><span>#F4EDDC · base</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--oxford)"></div>
+          <div class="info"><b>oxford</b><span>#002147 · base, ink</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--slate)"></div>
+          <div class="info"><b>slate</b><span>#46586A · secondary</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--chalk)"></div>
+          <div class="info"><b>chalk</b><span>#E0D5BC · secondary</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--camel)"></div>
+          <div class="info"><b>camel</b><span>#B08D57 · accent</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--oldgold)"></div>
+          <div class="info"><b>oldgold</b><span>#A5843E · accent</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--camel-rev)"></div>
+          <div class="info"><b>camel</b><span>#CDB183 · on navy</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--oldgold-rev)"></div>
+          <div class="info"><b>oldgold</b><span>#C8A85E · on navy</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ type roles ══ -->
+  <section style="padding-bottom:70px">
+    <div class="wrap">
+      <p class="eyebrow">§6 &nbsp;Type</p>
+      <h2>Latin Modern leads, STIX carries</h2>
+      <div class="specimens">
+        <div class="spec">
+          <p class="role">Latin Modern Mono — display</p>
+          <p class="sample-mono">Research &amp; the live fund</p>
+          <p class="sample-mono" style="font-size:15px;letter-spacing:.14em">EYEBROW · 0.14EM</p>
+          <p class="sample-mono" style="font-size:15px">2.41 −4.8% +18.2% 0123456789</p>
+          <p class="note">Logo, headings, eyebrows, figures and tables. Three cuts only,
+            so hierarchy comes from size and letter-spacing rather than weight. Never
+            below 13px — it is drawn as a 10pt optical size.</p>
+        </div>
+        <div class="spec">
+          <p class="role">STIX Two Text — reading</p>
+          <p class="sample-text">The Society exists to make quantitative research a
+            practice rather than a career aspiration, and to hold that work to the
+            standard of a paper rather than a pitch.</p>
+          <p class="note">Body copy, UI, forms, and the member portal. Commissioned by
+            the AIP, ACS, AMS, IEEE and Elsevier for scholarly journals, and the text
+            companion to STIX Two Math — built to sit beside notation.</p>
+        </div>
+      </div>
+      <div class="close-rule"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ══ footer: stacked lockup reversed ══ -->
+<footer>
+  <div class="wrap grid">
+    <img src="../assets/logo/oqts-lockup-stacked-reverse.svg" alt="Oxford Quantitative Trading Society">
+    <div>
+      <div class="foot-cols">
+        <div>
+          <h3>Society</h3>
+          <ul><li><a href="#">About</a></li><li><a href="#">Committee</a></li>
+              <li><a href="#">Constitution</a></li></ul>
+        </div>
+        <div>
+          <h3>Work</h3>
+          <ul><li><a href="#">Research notes</a></li><li><a href="#">OXDAQ</a></li>
+              <li><a href="#">The live fund</a></li></ul>
+        </div>
+        <div>
+          <h3>Join</h3>
+          <ul><li><a href="#">Membership</a></li><li><a href="#">Committee roles</a></li>
+              <li><a href="mailto:oqts@oqts.org">oqts@oqts.org</a></li></ul>
+        </div>
+      </div>
+      <p class="colophon">Oxford Quantitative Trading Society · registered with the
+        Proctors of the University of Oxford. The Society is not part of the University
+        and does not use its arms.<br>
+        Set in Latin Modern Mono and STIX Two Text.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

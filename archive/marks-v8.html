@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS — square matrix, bolder cuts v0.8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #F4EDDC;
+    --slate:  #46586A;
+    --chalk:  #E0D5BC;
+    --camel:  #B08D57;
+    --camelnavy: #CDB183;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 48px 56px 72px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .row { margin-bottom: 52px; }
+  .row-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--camel);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .row-note { font-size: 15px; color: var(--slate); margin-bottom: 14px; max-width: 84ch; }
+  .cells { display: flex; gap: 20px; align-items: stretch; }
+  .cell {
+    border: 1px solid var(--chalk);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 26px; min-height: 250px; flex: 1; gap: 14px;
+  }
+  .cell.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+  .cap {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    letter-spacing: 0.08em; color: var(--slate); text-align: center; line-height: 1.6;
+  }
+  .dark .cap { color: var(--camelnavy); }
+  .favs { display: flex; gap: 26px; align-items: flex-end; }
+  .fav { text-align: center; }
+  .fav figcaption { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--slate); margin-top: 7px; }
+  .dark .fav figcaption { color: var(--camelnavy); }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · v0.8 · square matrix — S fixed to the grid · bolder, more character</div>
+
+<div class="row">
+  <div class="row-label">S corrected: its envelope now exactly matches the 48-unit glyph box</div>
+  <div class="row-note">Four character cuts of the same construction. Grid unchanged: centres 80 apart
+  both axes, square bounding box, equal gaps.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="180" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="189" y1="109" x2="214" y2="134" stroke="currentColor" stroke-width="14"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="14"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="14"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+      <div class="cap">Z1 · bold uniform<br>one weight, turned up</div>
+    </div>
+    <div class="cell">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="10"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="16"/>
+        <circle cx="180" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="16"/>
+        <line x1="189" y1="109" x2="214" y2="134" stroke="currentColor" stroke-width="16"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="8"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="16"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="16"/>
+      </svg>
+      <div class="cap">Z2 · dual weight<br>rounds & stems thick, bars & brackets thin — the didone cut</div>
+    </div>
+    <div class="cell">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="180" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="189" y1="109" x2="214" y2="134" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+      </svg>
+      <div class="cap">Z3 · round terminals<br>softer instrument, same geometry</div>
+    </div>
+    <div class="cell">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="180" cy="100" r="31" fill="currentColor"/>
+        <line x1="188" y1="108" x2="216" y2="136" stroke="#F4EDDC" stroke-width="10"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="14"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="14"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+      <div class="cap">Z4 · the pivot<br>one solid entry — the Q carries the mass</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-label">Dark surface · small sizes · alternates</div>
+  <div class="cells">
+    <div class="cell dark">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="180" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="189" y1="109" x2="214" y2="134" stroke="currentColor" stroke-width="14"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="14"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="14"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+      <div class="cap">Z1 on navy</div>
+    </div>
+    <div class="cell dark">
+      <svg width="210" height="210" viewBox="0 0 280 280">
+        <path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="16"/>
+        <circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="180" cy="100" r="31" fill="currentColor"/>
+        <line x1="188" y1="108" x2="216" y2="136" stroke="#002147" stroke-width="10"/>
+        <line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="14"/>
+        <line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="14"/>
+        <path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+      <div class="cap">Z4 on navy</div>
+    </div>
+    <div class="cell dark">
+      <div class="favs">
+        <figure class="fav"><svg width="64" height="64" viewBox="0 0 280 280"><path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="18"/><path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="18"/><circle cx="100" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="15"/><circle cx="180" cy="100" r="24" fill="none" stroke="currentColor" stroke-width="15"/><line x1="189" y1="109" x2="214" y2="134" stroke="currentColor" stroke-width="15"/><line x1="76" y1="156" x2="124" y2="156" stroke="currentColor" stroke-width="15"/><line x1="100" y1="156" x2="100" y2="204" stroke="currentColor" stroke-width="15"/><path d="M 190.4 162 A 12 12 0 1 0 180 180 A 12 12 0 1 1 169.6 198" fill="none" stroke="currentColor" stroke-width="15"/></svg><figcaption>64</figcaption></figure>
+        <figure class="fav"><svg width="32" height="32" viewBox="0 0 280 280"><path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="22"/><path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="22"/><g fill="currentColor"><circle cx="100" cy="100" r="18"/><circle cx="180" cy="100" r="18"/><circle cx="100" cy="180" r="18"/><circle cx="180" cy="180" r="18"/></g></svg><figcaption>32 → dots</figcaption></figure>
+        <figure class="fav"><svg width="16" height="16" viewBox="0 0 280 280"><path d="M 62 40 L 40 40 L 40 240 L 62 240" fill="none" stroke="currentColor" stroke-width="30"/><path d="M 218 40 L 240 40 L 240 240 L 218 240" fill="none" stroke="currentColor" stroke-width="30"/><g fill="currentColor"><circle cx="100" cy="100" r="25"/><circle cx="180" cy="100" r="25"/><circle cx="100" cy="180" r="25"/><circle cx="180" cy="180" r="25"/></g></svg><figcaption>16 → dots</figcaption></figure>
+      </div>
+      <div class="cap">Z1 small-size chain</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

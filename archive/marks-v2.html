@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS — mathematical marks v0.2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #F4EDDC;   /* candidate B — beige paper */
+    --slate:  #46586A;
+    --ledger: #8B6C1F;
+    --gilt:   #C9A24B;
+    --chalk:  #E0D5BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 48px 56px 72px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .row { margin-bottom: 48px; }
+  .row-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--ledger);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .row-note {
+    font-size: 15px; color: var(--slate); margin-bottom: 14px; max-width: 78ch;
+  }
+  .cells { display: flex; gap: 20px; align-items: stretch; }
+  .cell {
+    border: 1px solid var(--chalk);
+    display: flex; align-items: center; justify-content: center;
+    padding: 36px; min-height: 240px; flex: 1;
+  }
+  .cell.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+  .cell.small { flex: 0.9; gap: 26px; }
+  .cell svg { display: block; }
+  .fav { text-align: center; }
+  .fav figcaption { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--slate); margin-top: 8px; }
+  .dark .fav figcaption { color: var(--gilt); }
+
+  .papers { display: flex; gap: 20px; margin-bottom: 56px; }
+  .paper-card { flex: 1; border: 1px solid var(--chalk); padding: 26px; }
+  .paper-card .chipname { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--slate); margin-top: 12px; }
+  .paper-card p { font-size: 16px; line-height: 1.55; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · mathematical marks · v0.2 · stroke-consistent geometry, navy on beige paper</div>
+
+<div class="row">
+  <div class="row-label">Paper candidates</div>
+  <div class="row-note">Whole page is set on candidate B. Each card below shows the alternative tones with live type.</div>
+  <div class="papers">
+    <div class="paper-card" style="background:#FAF7F0">
+      <p><b>Ivory.</b> Each instrument has a latent fair value, never broadcast.</p>
+      <div class="chipname">A · ivory · #FAF7F0 (current)</div>
+    </div>
+    <div class="paper-card" style="background:#F4EDDC">
+      <p><b>Beige.</b> Each instrument has a latent fair value, never broadcast.</p>
+      <div class="chipname">B · beige · #F4EDDC</div>
+    </div>
+    <div class="paper-card" style="background:#EFE5CC">
+      <p><b>Manila.</b> Each instrument has a latent fair value, never broadcast.</p>
+      <div class="chipname">C · manila · #EFE5CC</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ M1 VESICA Q ============ -->
+<div class="row">
+  <div class="row-label">M1 — Vesica Q</div>
+  <div class="row-note">Two circles, each passing through the other's centre — the vesica piscis,
+  Euclid's Elements I.1, the first construction in mathematics. The right circle takes a radial
+  tail: the pair reads "OQ". The lawful descendant of the current interlocked logo.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="230" height="172" viewBox="0 0 320 240">
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="230" height="172" viewBox="0 0 320 240">
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="14"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="var(--gilt)" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell small dark">
+      <figure class="fav"><svg width="32" height="24" viewBox="0 0 320 240"><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="20"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="20"/><line x1="212" y1="132" x2="262" y2="182" stroke="currentColor" stroke-width="20"/></svg><figcaption>32</figcaption></figure>
+      <figure class="fav"><svg width="16" height="12" viewBox="0 0 320 240"><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><line x1="212" y1="132" x2="268" y2="188" stroke="currentColor" stroke-width="30"/></svg><figcaption>16</figcaption></figure>
+      <figure class="fav"><svg width="16" height="12" viewBox="0 0 320 240"><circle cx="160" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><line x1="180" y1="132" x2="236" y2="188" stroke="currentColor" stroke-width="30"/></svg><figcaption>16 simplified</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- ============ M2 LATTICE ============ -->
+<div class="row">
+  <div class="row-label">M2 — Lattice</div>
+  <div class="row-note">A recombining binomial tree — the option-pricing lattice. One node becomes
+  two, becomes three, becomes four: time moves right, uncertainty branches and recombines.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="200" height="160" viewBox="0 0 300 240">
+        <g stroke="currentColor" stroke-width="6">
+          <line x1="60" y1="120" x2="120" y2="90"/><line x1="60" y1="120" x2="120" y2="150"/>
+          <line x1="120" y1="90" x2="180" y2="60"/><line x1="120" y1="90" x2="180" y2="120"/>
+          <line x1="120" y1="150" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="180"/>
+          <line x1="180" y1="60" x2="240" y2="30"/><line x1="180" y1="60" x2="240" y2="90"/>
+          <line x1="180" y1="120" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="150"/>
+          <line x1="180" y1="180" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="210"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="60" cy="120" r="11"/>
+          <circle cx="120" cy="90" r="11"/><circle cx="120" cy="150" r="11"/>
+          <circle cx="180" cy="60" r="11"/><circle cx="180" cy="120" r="11"/><circle cx="180" cy="180" r="11"/>
+          <circle cx="240" cy="30" r="11"/><circle cx="240" cy="90" r="11"/><circle cx="240" cy="150" r="11"/><circle cx="240" cy="210" r="11"/>
+        </g>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="200" height="160" viewBox="0 0 300 240">
+        <g stroke="currentColor" stroke-width="6">
+          <line x1="60" y1="120" x2="120" y2="90"/><line x1="60" y1="120" x2="120" y2="150"/>
+          <line x1="120" y1="90" x2="180" y2="60"/><line x1="120" y1="90" x2="180" y2="120"/>
+          <line x1="120" y1="150" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="180"/>
+          <line x1="180" y1="60" x2="240" y2="30"/><line x1="180" y1="60" x2="240" y2="90"/>
+          <line x1="180" y1="120" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="150"/>
+          <line x1="180" y1="180" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="210"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="60" cy="120" r="11"/>
+          <circle cx="120" cy="90" r="11"/><circle cx="120" cy="150" r="11"/>
+          <circle cx="180" cy="60" r="11"/><circle cx="180" cy="120" r="11"/><circle cx="180" cy="180" r="11"/>
+        </g>
+        <g fill="var(--gilt)">
+          <circle cx="240" cy="30" r="11"/><circle cx="240" cy="90" r="11"/><circle cx="240" cy="150" r="11"/><circle cx="240" cy="210" r="11"/>
+        </g>
+      </svg>
+    </div>
+    <div class="cell small dark">
+      <figure class="fav"><svg width="32" height="26" viewBox="0 0 300 240"><g stroke="currentColor" stroke-width="12"><line x1="60" y1="120" x2="120" y2="90"/><line x1="60" y1="120" x2="120" y2="150"/><line x1="120" y1="90" x2="180" y2="60"/><line x1="120" y1="90" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="180"/><line x1="180" y1="60" x2="240" y2="30"/><line x1="180" y1="60" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="210"/></g><g fill="currentColor"><circle cx="60" cy="120" r="18"/><circle cx="120" cy="90" r="18"/><circle cx="120" cy="150" r="18"/><circle cx="180" cy="60" r="18"/><circle cx="180" cy="120" r="18"/><circle cx="180" cy="180" r="18"/><circle cx="240" cy="30" r="18"/><circle cx="240" cy="90" r="18"/><circle cx="240" cy="150" r="18"/><circle cx="240" cy="210" r="18"/></g></svg><figcaption>32</figcaption></figure>
+      <figure class="fav"><svg width="16" height="13" viewBox="0 0 300 240"><g stroke="currentColor" stroke-width="16"><line x1="60" y1="120" x2="120" y2="90"/><line x1="60" y1="120" x2="120" y2="150"/><line x1="120" y1="90" x2="180" y2="60"/><line x1="120" y1="90" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="120"/><line x1="120" y1="150" x2="180" y2="180"/><line x1="180" y1="60" x2="240" y2="30"/><line x1="180" y1="60" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="90"/><line x1="180" y1="120" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="150"/><line x1="180" y1="180" x2="240" y2="210"/></g><g fill="currentColor"><circle cx="60" cy="120" r="26"/><circle cx="120" cy="90" r="26"/><circle cx="120" cy="150" r="26"/><circle cx="180" cy="60" r="26"/><circle cx="180" cy="120" r="26"/><circle cx="180" cy="180" r="26"/><circle cx="240" cy="30" r="26"/><circle cx="240" cy="90" r="26"/><circle cx="240" cy="150" r="26"/><circle cx="240" cy="210" r="26"/></g></svg><figcaption>16</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- ============ M3 BREAKOUT Q ============ -->
+<div class="row">
+  <div class="row-label">M3 — Breakout Q</div>
+  <div class="row-note">A circle with a gap at 45°, and a discretised random walk escaping through
+  it — the latent price path breaking out. The object OXDAQ actually simulates. Still reads as a Q.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="176" height="176" viewBox="0 0 240 240">
+        <path d="M 191.4 146.0 A 76 76 0 1 0 146.0 191.4" fill="none" stroke="currentColor" stroke-width="14"/>
+        <polyline points="146,146 146,174 174,174 174,202 202,202 202,226" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="176" height="176" viewBox="0 0 240 240">
+        <path d="M 191.4 146.0 A 76 76 0 1 0 146.0 191.4" fill="none" stroke="currentColor" stroke-width="14"/>
+        <polyline points="146,146 146,174 174,174 174,202 202,202 202,226" fill="none" stroke="var(--gilt)" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell small dark">
+      <figure class="fav"><svg width="30" height="30" viewBox="0 0 240 240"><path d="M 191.4 146.0 A 76 76 0 1 0 146.0 191.4" fill="none" stroke="currentColor" stroke-width="20"/><polyline points="148,148 148,176 176,176 176,204 204,204 204,224" fill="none" stroke="currentColor" stroke-width="20"/></svg><figcaption>32</figcaption></figure>
+      <figure class="fav"><svg width="16" height="16" viewBox="0 0 240 240"><path d="M 191.4 146.0 A 76 76 0 1 0 146.0 191.4" fill="none" stroke="currentColor" stroke-width="26"/><polyline points="150,150 150,182 182,182 182,214 214,214" fill="none" stroke="currentColor" stroke-width="26"/></svg><figcaption>16</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- ============ M4 SIGMA SEAL ============ -->
+<div class="row">
+  <div class="row-label">M4 — Sigma seal</div>
+  <div class="row-note">A geometric summation sign in a circle: the sum, sealed. Speaks to the
+  ledger signature (the double rule under a total) and to Σ as the working tool of the trade.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="176" height="176" viewBox="0 0 240 240">
+        <circle cx="120" cy="120" r="96" fill="none" stroke="currentColor" stroke-width="10"/>
+        <polyline points="158,74 92,74 138,120 92,166 158,166" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell dark">
+      <svg width="176" height="176" viewBox="0 0 240 240">
+        <circle cx="120" cy="120" r="96" fill="none" stroke="var(--gilt)" stroke-width="10"/>
+        <polyline points="158,74 92,74 138,120 92,166 158,166" fill="none" stroke="currentColor" stroke-width="14"/>
+      </svg>
+    </div>
+    <div class="cell small dark">
+      <figure class="fav"><svg width="30" height="30" viewBox="0 0 240 240"><circle cx="120" cy="120" r="96" fill="none" stroke="currentColor" stroke-width="16"/><polyline points="158,74 92,74 138,120 92,166 158,166" fill="none" stroke="currentColor" stroke-width="20"/></svg><figcaption>32</figcaption></figure>
+      <figure class="fav"><svg width="16" height="16" viewBox="0 0 240 240"><circle cx="120" cy="120" r="96" fill="none" stroke="currentColor" stroke-width="22"/><polyline points="158,74 92,74 138,120 92,166 158,166" fill="none" stroke="currentColor" stroke-width="28"/></svg><figcaption>16</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

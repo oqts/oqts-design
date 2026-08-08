@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <!-- OQTS matrix monogram — Z1-U uniform parametric cut, optical rev 2 (2026-08-07)
+       Grid: glyph centres (100,100) (180,100) (100,180) (180,180) — 80 apart both axes
+       Glyph centreline box 48×48; stroke 14 with SQUARE caps.
+       OPTICAL CORRECTION (rev 2): flat-sided glyphs read larger than rounds at equal
+       size (type-design overshoot principle), so flats are narrowed vs the O/Q rounds:
+       O/Q ink 62 (reference) · T bar 44 centreline => ink 58 (93.5%) · S 42 wide => ink 56 (90%).
+       O: circle r24
+       Q: circle r24 + tail along the 45° diagonal from (c+8,c+8) to the box corner (c+24,c+24)
+       T: bar 44 + stem 48
+       S: three rails + two semicircles r12, half-width 21
+       Brackets: stroke 16, butt caps. Colour: Oxford #002147.
+       At ≤32px use oqts-dots.svg instead. -->
+  <g stroke="#002147" fill="none">
+    <path d="M 62 40 L 40 40 L 40 240 L 62 240" stroke-width="16"/>
+    <path d="M 218 40 L 240 40 L 240 240 L 218 240" stroke-width="16"/>
+  </g>
+  <g stroke="#002147" fill="none" stroke-width="14" stroke-linecap="square">
+    <circle cx="100" cy="100" r="24"/>
+    <circle cx="180" cy="100" r="24"/>
+    <line x1="188" y1="108" x2="204" y2="124"/>
+    <line x1="78" y1="156" x2="122" y2="156"/>
+    <line x1="100" y1="156" x2="100" y2="204"/>
+    <path d="M 201 156 H 171 A 12 12 0 0 0 171 180 H 189 A 12 12 0 0 1 189 204 H 159"/>
+  </g>
+</svg>

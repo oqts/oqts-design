@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS — the matrix monogram v0.6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #F4EDDC;
+    --slate:  #46586A;
+    --chalk:  #E0D5BC;
+    --camel:  #B08D57;
+    --camelnavy: #CDB183;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 48px 56px 72px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .row { margin-bottom: 52px; }
+  .row-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--camel);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .row-note { font-size: 15px; color: var(--slate); margin-bottom: 14px; max-width: 84ch; }
+  .cells { display: flex; gap: 20px; align-items: stretch; }
+  .cell {
+    border: 1px solid var(--chalk);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 26px; min-height: 225px; flex: 1; gap: 12px;
+  }
+  .cell.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+  .cap {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    letter-spacing: 0.08em; color: var(--slate); text-align: center; line-height: 1.6;
+  }
+  .dark .cap { color: var(--camelnavy); }
+  .favs { display: flex; gap: 26px; align-items: flex-end; }
+  .fav { text-align: center; }
+  .fav figcaption { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--slate); margin-top: 7px; }
+  .dark .fav figcaption { color: var(--camelnavy); }
+  svg text { fill: currentColor; }
+  .lockup { display: flex; align-items: center; gap: 30px; }
+  .lockup .name {
+    font-size: 15px; font-weight: 500; letter-spacing: 0.22em; line-height: 2;
+  }
+  .lockup .name .accent-rule { display: block; height: 1.5px; background: var(--camel); margin-top: 8px; }
+  .dark .lockup .name .accent-rule { background: var(--camelnavy); }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · v0.6 · the matrix monogram — [ O Q / T S ] · accents: camel &amp; old gold</div>
+
+<div class="row">
+  <div class="row-label">The matrix — five settings of the same idea</div>
+  <div class="row-note">A 2×2 matrix whose entries are the society's own name. All monochrome. The
+  question each variant answers differently: what are the letters made of, and what encloses them?</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="134" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <circle cx="186" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <line x1="192" y1="98" x2="203" y2="109" stroke="currentColor" stroke-width="9"/>
+        <line x1="120" y1="138" x2="148" y2="138" stroke="currentColor" stroke-width="9"/>
+        <line x1="134" y1="138" x2="134" y2="168" stroke="currentColor" stroke-width="9"/>
+        <path d="M 186 136 A 8 8 0 0 0 186 152 A 8 8 0 0 1 186 168" fill="none" stroke="currentColor" stroke-width="9"/>
+      </svg>
+      <div class="cap">X1 · constructed glyphs<br>circle · radial · tangent · ogee</div>
+    </div>
+    <div class="cell">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <text x="134" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">O</text>
+        <text x="186" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">Q</text>
+        <text x="134" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">T</text>
+        <text x="186" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">S</text>
+      </svg>
+      <div class="cap">X2 · serif entries<br>the journal set in brackets</div>
+    </div>
+    <div class="cell">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 116 40 Q 86 120 116 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 204 40 Q 234 120 204 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="136" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <circle cx="184" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <line x1="190" y1="98" x2="201" y2="109" stroke="currentColor" stroke-width="9"/>
+        <line x1="122" y1="138" x2="150" y2="138" stroke="currentColor" stroke-width="9"/>
+        <line x1="136" y1="138" x2="136" y2="168" stroke="currentColor" stroke-width="9"/>
+        <path d="M 184 136 A 8 8 0 0 0 184 152 A 8 8 0 0 1 184 168" fill="none" stroke="currentColor" stroke-width="9"/>
+      </svg>
+      <div class="cap">X3 · parentheses<br>the mathematician's matrix</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cells">
+    <div class="cell">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <text x="134" y="106" font-family="IBM Plex Mono" font-size="42" font-weight="500" text-anchor="middle">O</text>
+        <text x="186" y="106" font-family="IBM Plex Mono" font-size="42" font-weight="500" text-anchor="middle">Q</text>
+        <text x="134" y="166" font-family="IBM Plex Mono" font-size="42" font-weight="500" text-anchor="middle">T</text>
+        <text x="186" y="166" font-family="IBM Plex Mono" font-size="42" font-weight="500" text-anchor="middle">S</text>
+      </svg>
+      <div class="cap">X4 · mono entries<br>the terminal's matrix</div>
+    </div>
+    <div class="cell">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <line x1="92" y1="40" x2="92" y2="200" stroke="currentColor" stroke-width="12"/>
+        <line x1="228" y1="40" x2="228" y2="200" stroke="currentColor" stroke-width="12"/>
+        <text x="134" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">O</text>
+        <text x="186" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">Q</text>
+        <text x="134" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">T</text>
+        <text x="186" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">S</text>
+      </svg>
+      <div class="cap">X5 · determinant bars<br>|OQTS| — the determinant of the society</div>
+    </div>
+    <div class="cell dark">
+      <div class="favs">
+        <figure class="fav"><svg width="64" height="48" viewBox="0 0 320 240"><path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="14"/><path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="14"/><circle cx="134" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="11"/><circle cx="186" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="11"/><line x1="192" y1="98" x2="203" y2="109" stroke="currentColor" stroke-width="11"/><line x1="120" y1="138" x2="148" y2="138" stroke="currentColor" stroke-width="11"/><line x1="134" y1="138" x2="134" y2="168" stroke="currentColor" stroke-width="11"/><path d="M 186 136 A 8 8 0 0 0 186 152 A 8 8 0 0 1 186 168" fill="none" stroke="currentColor" stroke-width="11"/></svg><figcaption>64</figcaption></figure>
+        <figure class="fav"><svg width="32" height="24" viewBox="0 0 320 240"><path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="18"/><path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="18"/><g fill="currentColor"><circle cx="134" cy="92" r="14"/><circle cx="186" cy="92" r="14"/><circle cx="134" cy="150" r="14"/><circle cx="186" cy="150" r="14"/></g></svg><figcaption>32 → dots</figcaption></figure>
+        <figure class="fav"><svg width="16" height="12" viewBox="0 0 320 240"><path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="26"/><path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="26"/><g fill="currentColor"><circle cx="134" cy="92" r="20"/><circle cx="186" cy="92" r="20"/><circle cx="134" cy="150" r="20"/><circle cx="186" cy="150" r="20"/></g></svg><figcaption>16 → dots</figcaption></figure>
+      </div>
+      <div class="cap">small sizes: letters become the four dots<br>(the Q1 mark is the same mark, sampled down)</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-label">Dark surface + full signature</div>
+  <div class="cells">
+    <div class="cell dark">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <circle cx="134" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <circle cx="186" cy="92" r="17" fill="none" stroke="currentColor" stroke-width="9"/>
+        <line x1="192" y1="98" x2="203" y2="109" stroke="currentColor" stroke-width="9"/>
+        <line x1="120" y1="138" x2="148" y2="138" stroke="currentColor" stroke-width="9"/>
+        <line x1="134" y1="138" x2="134" y2="168" stroke="currentColor" stroke-width="9"/>
+        <path d="M 186 136 A 8 8 0 0 0 186 152 A 8 8 0 0 1 186 168" fill="none" stroke="currentColor" stroke-width="9"/>
+      </svg>
+      <div class="cap">X1 on navy</div>
+    </div>
+    <div class="cell dark">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <text x="134" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">O</text>
+        <text x="186" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">Q</text>
+        <text x="134" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">T</text>
+        <text x="186" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">S</text>
+      </svg>
+      <div class="cap">X2 on navy</div>
+    </div>
+    <div class="cell">
+      <div class="lockup">
+        <svg width="120" height="90" viewBox="0 0 320 240">
+          <path d="M 106 40 L 84 40 L 84 200 L 106 200" fill="none" stroke="currentColor" stroke-width="12"/>
+          <path d="M 214 40 L 236 40 L 236 200 L 214 200" fill="none" stroke="currentColor" stroke-width="12"/>
+          <text x="134" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">O</text>
+          <text x="186" y="108" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">Q</text>
+          <text x="134" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">T</text>
+          <text x="186" y="168" font-family="STIX Two Text" font-size="46" font-weight="600" text-anchor="middle">S</text>
+        </svg>
+        <div class="name">
+          OXFORD QUANTITATIVE<br>TRADING SOCIETY
+          <span class="accent-rule"></span>
+        </div>
+      </div>
+      <div class="cap">signature — the matrix already spells the initials,<br>so the lockup needs only the full name</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

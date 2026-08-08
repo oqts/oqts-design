@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OQTS — sands, C1 mono, quant abstracts v0.5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oxford: #002147;
+    --paper:  #F4EDDC;
+    --slate:  #46586A;
+    --chalk:  #E0D5BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--oxford);
+    font-family: "STIX Two Text", serif;
+    padding: 48px 56px 72px;
+  }
+  .page-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .row { margin-bottom: 52px; }
+  .row-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; letter-spacing: 0.12em; color: var(--slate);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .row-note { font-size: 15px; color: var(--slate); margin-bottom: 14px; max-width: 84ch; }
+  .cells { display: flex; gap: 20px; align-items: stretch; }
+  .cell {
+    border: 1px solid var(--chalk);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 26px; min-height: 210px; flex: 1; gap: 12px;
+  }
+  .cell.dark { background: var(--oxford); color: var(--paper); border-color: var(--oxford); }
+  .cap {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    letter-spacing: 0.08em; color: var(--slate); text-align: center; line-height: 1.6;
+  }
+  .dark .cap { color: #C9BFA5; }
+
+  /* accent demo cells */
+  .acc { width: 100%; }
+  .acc .surface { padding: 20px 22px; text-align: center; }
+  .acc .surface.navy { background: var(--oxford); }
+  .acc .eyebrow {
+    font-family: "STIX Two Text", serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.26em; margin-bottom: 10px;
+  }
+  .acc .rules span { display: block; height: 1.5px; }
+  .acc .rules span + span { margin-top: 3px; }
+  .favs { display: flex; gap: 24px; align-items: flex-end; }
+  .fav { text-align: center; }
+  .fav figcaption { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--slate); margin-top: 7px; }
+</style>
+</head>
+<body>
+
+<div class="page-title">OQTS · v0.5 · sandier golds · C1 monochrome · quant-native abstracts</div>
+
+<!-- ================= SANDS ================= -->
+<div class="row">
+  <div class="row-label">Accent — golds, warmer and sandier (each shown on both surfaces)</div>
+  <div class="row-note">The old ledger gold (#8B6C1F) leaned olive. Four warmer candidates, worn by the
+  small-caps eyebrow and the closing double rule — the places the accent actually lives, since the
+  mark itself is now monochrome.</div>
+  <div class="cells">
+    <div class="cell">
+      <div class="acc">
+        <div class="surface">
+          <div class="eyebrow" style="color:#B08D57">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#B08D57"></span><span style="background:#B08D57"></span></div>
+        </div>
+        <div class="surface navy">
+          <div class="eyebrow" style="color:#CDB183">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#CDB183"></span><span style="background:#CDB183"></span></div>
+        </div>
+      </div>
+      <div class="cap">camel · #B08D57<br>on navy → #CDB183</div>
+    </div>
+    <div class="cell">
+      <div class="acc">
+        <div class="surface">
+          <div class="eyebrow" style="color:#BFA275">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#BFA275"></span><span style="background:#BFA275"></span></div>
+        </div>
+        <div class="surface navy">
+          <div class="eyebrow" style="color:#D9C49C">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#D9C49C"></span><span style="background:#D9C49C"></span></div>
+        </div>
+      </div>
+      <div class="cap">sand · #BFA275<br>on navy → #D9C49C</div>
+    </div>
+    <div class="cell">
+      <div class="acc">
+        <div class="surface">
+          <div class="eyebrow" style="color:#A5843E">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#A5843E"></span><span style="background:#A5843E"></span></div>
+        </div>
+        <div class="surface navy">
+          <div class="eyebrow" style="color:#C8A85E">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#C8A85E"></span><span style="background:#C8A85E"></span></div>
+        </div>
+      </div>
+      <div class="cap">old gold · #A5843E<br>on navy → #C8A85E</div>
+    </div>
+    <div class="cell">
+      <div class="acc">
+        <div class="surface">
+          <div class="eyebrow" style="color:#C7B289">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#C7B289"></span><span style="background:#C7B289"></span></div>
+        </div>
+        <div class="surface navy">
+          <div class="eyebrow" style="color:#E2D2AC">OXFORD QUANTITATIVE</div>
+          <div class="rules"><span style="background:#E2D2AC"></span><span style="background:#E2D2AC"></span></div>
+        </div>
+      </div>
+      <div class="cap">champagne · #C7B289<br>on navy → #E2D2AC</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= C1 MONO ================= -->
+<div class="row">
+  <div class="row-label">C1 — monochrome, three cuts</div>
+  <div class="row-note">The construction with no accent anywhere. C1a as before; C1b drops the tangent
+  bar; C1c shortens the bar to the true tangent segment — it spans exactly the two points of tangency,
+  which reads less like a hat and more like a rule of the construction.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="196" height="147" viewBox="0 0 320 240">
+        <line x1="116" y1="48" x2="204" y2="48" stroke="currentColor" stroke-width="13"/>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">C1a · full construction</div>
+    </div>
+    <div class="cell">
+      <svg width="196" height="147" viewBox="0 0 320 240">
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">C1b · no tangent bar</div>
+    </div>
+    <div class="cell">
+      <svg width="196" height="147" viewBox="0 0 320 240">
+        <line x1="128" y1="48" x2="192" y2="48" stroke="currentColor" stroke-width="13"/>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">C1c · tangent cut to its true segment</div>
+    </div>
+    <div class="cell dark">
+      <div class="favs">
+        <figure class="fav"><svg width="64" height="48" viewBox="0 0 320 240"><line x1="128" y1="48" x2="192" y2="48" stroke="currentColor" stroke-width="16"/><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="16"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="16"/><path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="16"/><line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="16"/></svg><figcaption>64</figcaption></figure>
+        <figure class="fav"><svg width="32" height="24" viewBox="0 0 320 240"><line x1="128" y1="48" x2="192" y2="48" stroke="currentColor" stroke-width="22"/><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="22"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="22"/><path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="22"/><line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="22"/></svg><figcaption>32</figcaption></figure>
+        <figure class="fav"><svg width="16" height="12" viewBox="0 0 320 240"><circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="30"/><line x1="212" y1="132" x2="264" y2="184" stroke="currentColor" stroke-width="30"/></svg><figcaption>16 simplified</figcaption></figure>
+      </div>
+      <div class="cap">C1c dark + favicon fallback</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= QUANT ABSTRACTS ROW 1 ================= -->
+<div class="row">
+  <div class="row-label">Quant-native abstracts — from the working vocabulary</div>
+  <div class="row-note">Monochrome marks whose source is the maths of the trade itself.</div>
+  <div class="cells">
+    <div class="cell">
+      <svg width="176" height="132" viewBox="0 0 320 240">
+        <path d="M 118 40 L 96 40 L 96 200 L 118 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 202 40 L 224 40 L 224 200 L 202 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <g fill="currentColor">
+          <circle cx="136" cy="90" r="13"/><circle cx="184" cy="90" r="13"/>
+          <circle cx="136" cy="150" r="13"/><circle cx="184" cy="150" r="13"/>
+        </g>
+      </svg>
+      <div class="cap">Q1 · the 2×2<br>a matrix of four entries — four letters, every model's first object</div>
+    </div>
+    <div class="cell">
+      <svg width="176" height="132" viewBox="0 0 320 240">
+        <circle cx="140" cy="130" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="140" y1="72" x2="234" y2="72" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">Q2 · sigma<br>σ — volatility; a circle and its tangent, same family as the vesica</div>
+    </div>
+    <div class="cell">
+      <svg width="176" height="132" viewBox="0 0 320 240">
+        <circle cx="122" cy="120" r="50" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="167" y1="141" x2="248" y2="66" stroke="currentColor" stroke-width="13"/>
+        <line x1="167" y1="99" x2="248" y2="174" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">Q3 · alpha<br>α — the loop and the open jaws; excess return</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= QUANT ABSTRACTS ROW 2 ================= -->
+<div class="row">
+  <div class="cells">
+    <div class="cell">
+      <svg width="186" height="140" viewBox="0 0 320 240">
+        <line x1="70" y1="190" x2="250" y2="60" stroke="currentColor" stroke-width="10"/>
+        <g stroke="currentColor" stroke-width="5">
+          <line x1="100" y1="140" x2="100" y2="168"/>
+          <line x1="140" y1="158" x2="140" y2="140"/>
+          <line x1="180" y1="90" x2="180" y2="110"/>
+          <line x1="220" y1="100" x2="220" y2="82"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="100" cy="140" r="11"/><circle cx="140" cy="158" r="11"/>
+          <circle cx="180" cy="90" r="11"/><circle cx="220" cy="100" r="11"/>
+        </g>
+      </svg>
+      <div class="cap">Q4 · least squares<br>the fit and its residuals — regression as a picture</div>
+    </div>
+    <div class="cell">
+      <svg width="186" height="140" viewBox="0 0 320 240">
+        <g fill="none" stroke="currentColor">
+          <ellipse cx="160" cy="124" rx="100" ry="62" stroke-width="7"/>
+          <ellipse cx="160" cy="124" rx="66" ry="40" stroke-width="7"/>
+          <ellipse cx="160" cy="124" rx="34" ry="20" stroke-width="7"/>
+        </g>
+        <polyline points="48,54 116,92 102,118 152,112 160,124" fill="none" stroke="currentColor" stroke-width="9"/>
+        <circle cx="160" cy="124" r="8" fill="currentColor"/>
+      </svg>
+      <div class="cap">Q5 · descent<br>contours of the loss, and the path down — how the machine learns</div>
+    </div>
+    <div class="cell">
+      <svg width="186" height="140" viewBox="0 0 320 240">
+        <line x1="60" y1="170" x2="260" y2="170" stroke="currentColor" stroke-width="8"/>
+        <g stroke="currentColor" stroke-width="8">
+          <line x1="88" y1="170" x2="88" y2="132"/>
+          <line x1="122" y1="170" x2="122" y2="80"/>
+          <line x1="156" y1="170" x2="156" y2="112"/>
+          <line x1="190" y1="170" x2="190" y2="58"/>
+          <line x1="224" y1="170" x2="224" y2="140"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="88" cy="132" r="10"/><circle cx="122" cy="80" r="10"/>
+          <circle cx="156" cy="112" r="10"/><circle cx="190" cy="58" r="10"/>
+          <circle cx="224" cy="140" r="10"/>
+        </g>
+      </svg>
+      <div class="cap">Q6 · the sampled signal<br>discrete impulses on a baseline — signal processing, not a price chart</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DARK CHECK ================= -->
+<div class="row">
+  <div class="row-label">Dark-surface check</div>
+  <div class="cells">
+    <div class="cell dark">
+      <svg width="196" height="147" viewBox="0 0 320 240">
+        <line x1="128" y1="48" x2="192" y2="48" stroke="currentColor" stroke-width="13"/>
+        <circle cx="128" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <circle cx="192" cy="112" r="64" fill="none" stroke="currentColor" stroke-width="13"/>
+        <path d="M 160 56.6 A 32 32 0 0 0 160 112 A 32 32 0 0 1 160 167.4" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="212" y1="132" x2="258" y2="178" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">C1c on navy</div>
+    </div>
+    <div class="cell dark">
+      <svg width="176" height="132" viewBox="0 0 320 240">
+        <path d="M 118 40 L 96 40 L 96 200 L 118 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <path d="M 202 40 L 224 40 L 224 200 L 202 200" fill="none" stroke="currentColor" stroke-width="12"/>
+        <g fill="currentColor">
+          <circle cx="136" cy="90" r="13"/><circle cx="184" cy="90" r="13"/>
+          <circle cx="136" cy="150" r="13"/><circle cx="184" cy="150" r="13"/>
+        </g>
+      </svg>
+      <div class="cap">Q1 on navy</div>
+    </div>
+    <div class="cell dark">
+      <svg width="176" height="132" viewBox="0 0 320 240">
+        <circle cx="140" cy="130" r="58" fill="none" stroke="currentColor" stroke-width="13"/>
+        <line x1="140" y1="72" x2="234" y2="72" stroke="currentColor" stroke-width="13"/>
+      </svg>
+      <div class="cap">Q2 on navy</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
