@@ -5,8 +5,13 @@ Society**. This repository is the single editable source of truth for OQTS
 styling — the public site (`oqts/oqts.org`) and the member platform
 (`oqts-platform`) consume from here and never define styling of their own.
 
-**Read [`brand.md`](brand.md) first.** It carries the identity, colour, type
-and logo specification, including the locked construction of the mark.
+**Two files, and they work as a pair.** [`brand.md`](brand.md) explains and
+specifies; [`demo/`](demo/index.html) shows. Every rule in the doc has a worked
+example on the demo page, and the demo has a light/dark toggle that repaints the
+whole page — chrome, components and charts — so both modes can be inspected
+rather than imagined.
+
+Read `brand.md` first, with the demo open beside it.
 
 ---
 

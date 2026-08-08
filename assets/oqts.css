@@ -70,6 +70,34 @@
   --oqts-text:'STIX Two Text', Georgia, serif;
 }
 
+/* ── Semantic surface roles ──────────────────────────────────────────────
+   Build against these, not the raw colour names, and a page follows the
+   theme automatically. Light is the default; dark is selected, not flipped.
+   Verified dark: ink 13.8:1, ink-2 7.8:1, accent 7.8:1 on oxford. */
+:root{
+  --oqts-surface:var(--oqts-ivory);      /* page ground        */
+  --oqts-surface-2:var(--oqts-paper);    /* panels, cards      */
+  --oqts-ink:var(--oqts-oxford);         /* body + headings    */
+  --oqts-ink-2:var(--oqts-slate);        /* secondary text     */
+  --oqts-hairline:var(--oqts-chalk);     /* rules, borders     */
+  --oqts-accent-text:var(--oqts-bronze); /* eyebrows, labels   */
+  --oqts-accent-rule:var(--oqts-camel);  /* rules, detail      */
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    --oqts-surface:#002147;   --oqts-surface-2:#0D3358;
+    --oqts-ink:#F4EDDC;       --oqts-ink-2:#A9B6C6;
+    --oqts-hairline:#1B3A5C;
+    --oqts-accent-text:#CDB183; --oqts-accent-rule:#CDB183;
+  }
+}
+:root[data-theme="dark"]{
+  --oqts-surface:#002147;   --oqts-surface-2:#0D3358;
+  --oqts-ink:#F4EDDC;       --oqts-ink-2:#A9B6C6;
+  --oqts-hairline:#1B3A5C;
+  --oqts-accent-text:#CDB183; --oqts-accent-rule:#CDB183;
+}
+
 /* ── Type scale ──────────────────────────────────────────────────────────
    Latin Modern Mono sets everything in the display column; STIX Two Text
    sets everything in the reading column. Sizes are px so the ramp survives

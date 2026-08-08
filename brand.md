@@ -1,13 +1,45 @@
 # OQTS Brand & Design System
 
-**Oxford Quantitative Trading Society** — brand identity and design doc.
-Status: **v1.1** (2026-08-08) — **logo and type system final.** Palette revised:
-lighter `ivory` ground, `paper` demoted to a tint, `bronze` added for accent
-text. Remaining open
-items are noted inline as `TODO`.
-This file is the single editable source of truth for all OQTS styling. The
-public site (`oqts/oqts.org`) and the member platform (`oqts-platform`)
-consume tokens and assets from this repo; styling is never defined elsewhere.
+**Oxford Quantitative Trading Society.** Status **v1.1** (2026-08-08) — logo,
+type, colour, charts and imagery all specified. Open items are marked `TODO`.
+
+This file is the single editable source of truth for OQTS styling. The public
+site (`oqts/oqts.org`) and the member platform (`oqts-platform`) consume tokens
+and assets from this repo and never define styling of their own.
+
+---
+
+## How to use this document
+
+**This doc explains and specifies. [`demo/`](demo/index.html) shows.**
+
+Every rule below has a worked example on the demo page, and the demo has a
+light/dark toggle that repaints the entire page — chrome, components and charts
+— so both modes can be inspected rather than imagined. Nothing in the brand is
+described here without being visible there.
+
+| This doc | Explains | See it |
+|---|---|---|
+| §2 Colour | Why two grounds and why the accent splits by job | demo §2 — every token with its live contrast against the current ground |
+| §3 Type | Why a monospace leads and a journal serif carries | demo §3 — every scale role rendered at real size with its token |
+| §4 Signature device | Why a ledger double rule closes a section | demo §5 — the rule, the hairline and the bracketed block |
+| §5 Logo | The locked construction and the asset set | demo §1 — every colourway, the size ladder, clear space, and six ways to get it wrong |
+| §6 Charts | Why these hues, and where red/green costs you | demo §6 — bar, line, diverging, scatter, both ramps, in both modes |
+| §7 Imagery | Why full colour rather than duotone | demo §7 — the two crops, the scrim, the escape hatch |
+| §8 Layout | Grid, measure and rhythm | demo §4 — the spacing scale drawn to size |
+| §9 Accessibility | The floor everything is measured against | demo §2 and §6 — contrast shown, not asserted |
+
+Serve it locally:
+
+```bash
+python3 -m http.server 8001 -d oqts-design
+# demo/  — the visual reference · lab/ — the type tester that produced the spec
+```
+
+**Two habits keep this honest.** Colour decisions are *measured*, never
+eyeballed — every contrast figure in this doc came from a calculation and every
+chart hue from the palette validator. And every asset is *generated* from a
+spec, never hand-drawn, so the numbers in §5 and the artwork cannot drift apart.
 
 ---
 
@@ -39,6 +71,9 @@ small-caps labels.
 ---
 
 ## 2. Colour
+
+> **See it —** [demo §2](demo/index.html#colour): every token as a swatch with its measured
+> contrast against the current ground, and the accent split shown side by side.
 
 | Token | Hex | Role |
 |---|---|---|
@@ -76,6 +111,9 @@ Rules of use:
   contrast in both modes).
 
 ## 3. Type
+
+> **See it —** [demo §3](demo/index.html#type): the whole scale rendered at real size, each
+> role labelled with its token, in both faces.
 
 Two families. No third.
 
@@ -146,6 +184,9 @@ components, 8–10 between sections.
 
 ## 4. The signature device: the closing rule
 
+> **See it —** [demo §5](demo/index.html#components): the double rule closing a section, the
+> hairline opening one, and the bracket reused as a content frame.
+
 In ledger typography a **double rule** under a column means *the total —
 this account is settled.* It is the one piece of visual language that is
 simultaneously editorial, institutional, and from the society's actual
@@ -162,6 +203,9 @@ Usage:
   mark's own signature is the bracket.
 
 ## 5. Logo — the matrix monogram
+
+> **See it —** [demo §1](demo/index.html#logo): all five artefacts in every colourway, the
+> size ladder down to 16px, clear space drawn, and six ways to get it wrong.
 
 The identity is a **2×2 matrix whose entries are the society's initials** —
 `[O Q / T S]` — set in Latin Modern Mono inside drawn brackets. It reads as
@@ -243,6 +287,10 @@ drawn separately:
   interactive type tester that produced this spec is `lab/index.html`.
 
 ## 6. Data visualisation
+
+> **See it —** [demo §6](demo/index.html#charts): ranked bars, two-series lines, the diverging
+> attribution chart, the four-slot scatter and both ramps — all built from the tokens, so the
+> theme toggle repaints them.
 
 Charts are the most brand-critical thing this society produces — research
 notes, OXDAQ standings, fund reports. Every value here came out of the
@@ -345,6 +393,9 @@ on every point.
 
 ## 7. Imagery
 
+> **See it —** [demo §7](demo/index.html#imagery): the only two crops, the scrim treatment for
+> type over an image, and the escape hatch.
+
 Photography is **full colour**, governed by a grading rule rather than a
 filter. The society needs to look like a real community, which duotone and
 monochrome both undercut; the price is that the rule has to be enforced.
@@ -378,6 +429,8 @@ monochrome both undercut; the price is that the rule has to be enforced.
 
 ## 8. Layout & structure
 
+> **See it —** [demo §4](demo/index.html#space): the 4px scale drawn to size, step by step.
+
 - Grid: 12-col, max content width 1120px; long-form text column 680px.
 - Section headers: tracked-caps `camel` eyebrow in Latin Modern Mono, then
   the heading in Latin Modern Mono.
@@ -389,6 +442,9 @@ monochrome both undercut; the price is that the rule has to be enforced.
   ambient animation are off-brand. `prefers-reduced-motion` respected.
 
 ## 9. Accessibility floor
+
+> **See it —** [demo §2](demo/index.html#colour) shows live contrast per token; every status
+> chip in [demo §5](demo/index.html#components) ships with its icon and word.
 
 - All text pairs ≥ 4.5:1. Verified on `ivory`: `oxford` 15.1, `slate` 6.9,
   `bronze` 4.8. `camel` (2.9) and `chalk` (1.4) are **never** used for text.
