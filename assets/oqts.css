@@ -1,0 +1,132 @@
+/* OQTS design tokens — faces, colour, type scale, spacing, layout.
+   One import gives a project everything it needs to be on-brand:
+
+     <link rel="stylesheet" href="assets/oqts.css">
+
+   Latin Modern Mono ... GUST Font License (see fonts/latin-modern-mono/LICENSE.txt)
+   STIX Two Text ...... SIL Open Font License 1.1 (see fonts/stix-two-text/LICENSE.txt)
+
+   Both are shipped here as OTF/TTF. Convert to WOFF2 before production —
+   these files are 2-4x larger than they need to be over the wire. */
+
+/* ── Latin Modern Mono — logo, display, headings, eyebrows, figures ──
+   Only three cuts exist. Do not ask this family for a weight ramp; take
+   hierarchy from size and letter-spacing instead. Never below 13px. */
+@font-face{
+  font-family:'Latin Modern Mono';
+  src:url('fonts/latin-modern-mono/LatinModernMono-Regular.otf') format('opentype');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Latin Modern Mono';
+  src:url('fonts/latin-modern-mono/LatinModernMono-Bold.otf') format('opentype');
+  font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Latin Modern Mono';
+  src:url('fonts/latin-modern-mono/LatinModernMono-Slanted.otf') format('opentype');
+  font-weight:400; font-style:italic; font-display:swap;
+}
+
+/* ── STIX Two Text — body copy, UI, forms, member portal ── */
+@font-face{
+  font-family:'STIX Two Text';
+  src:url('fonts/stix-two-text/STIXTwoText-Regular.ttf') format('truetype');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'STIX Two Text';
+  src:url('fonts/stix-two-text/STIXTwoText-Medium.ttf') format('truetype');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'STIX Two Text';
+  src:url('fonts/stix-two-text/STIXTwoText-SemiBold.ttf') format('truetype');
+  font-weight:600; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'STIX Two Text';
+  src:url('fonts/stix-two-text/STIXTwoText-Bold.ttf') format('truetype');
+  font-weight:700; font-style:normal; font-display:swap;
+}
+
+/* ── Brand tokens, so a consumer needs one import to be correct ── */
+:root{
+  /* grounds */
+  --oqts-ivory:#FBF8F1;       /* base — the default light ground */
+  --oqts-oxford:#002147;      /* base — ink on light, and the dark ground */
+  /* secondary */
+  --oqts-paper:#F4EDDC;       /* tint for panels, cards and bands on ivory */
+  --oqts-chalk:#E0D5BC;       /* hairlines and borders */
+  --oqts-slate:#46586A;       /* supporting text — 6.9:1 on ivory */
+  /* accent — one gold, two roles. On light grounds gold is not text-safe
+     (camel measures 2.9:1), so text takes bronze and rules take camel.
+     Reversed on navy the constraint disappears. */
+  --oqts-bronze:#856B32;      /* accent TEXT on light — 4.8:1 on ivory */
+  --oqts-camel:#B08D57;       /* accent RULES and detail on light — never text */
+  --oqts-camel-rev:#CDB183;   /* accent on navy — 7.8:1, text-safe */
+
+  --oqts-display:'Latin Modern Mono', ui-monospace, monospace;
+  --oqts-text:'STIX Two Text', Georgia, serif;
+}
+
+/* ── Type scale ──────────────────────────────────────────────────────────
+   Latin Modern Mono sets everything in the display column; STIX Two Text
+   sets everything in the reading column. Sizes are px so the ramp survives
+   a consumer changing the root size; line heights are unitless.
+
+   Latin Modern is a 10pt optical design and goes thin on screen, so 13px
+   is a hard floor for it — that is why the eyebrow is 13 and not 12. */
+:root{
+  /* display column — Latin Modern Mono */
+  --oqts-display-xl:clamp(30px, 4.4vw, 46px); /* page title      1.16 / .01em  */
+  --oqts-display-l:clamp(22px, 2.6vw, 28px);  /* section heading 1.25 / .015em */
+  --oqts-display-m:20px;                      /* sub-heading     1.30 / .02em  */
+  --oqts-label:16px;                          /* card + table heading, caps, .06em */
+  --oqts-data:15px;                           /* tables and figures, tabular  */
+  --oqts-eyebrow:13px;                        /* section eyebrow, caps, .14em */
+  --oqts-micro:13px;                          /* colophon, captions, .03em    */
+
+  /* reading column — STIX Two Text */
+  --oqts-lede:20px;                           /* standfirst      1.55 */
+  --oqts-body:17px;                           /* body            1.65 */
+  --oqts-body-s:14px;                         /* caption, note   1.60 */
+
+  /* line heights */
+  --oqts-lh-tight:1.16;
+  --oqts-lh-heading:1.25;
+  --oqts-lh-body:1.65;
+  --oqts-lh-ui:1.40;
+
+  /* tracking. Caps always need some; lower case never does. */
+  --oqts-track-eyebrow:.14em;
+  --oqts-track-label:.06em;
+  --oqts-track-display:.015em;
+  --oqts-track-wordmark:.09em;                /* the logo's own value */
+}
+
+/* ── Spacing scale ───────────────────────────────────────────────────────
+   A 4px grid. Steps 1-4 are for detail inside a component, 5-7 between
+   components, 8-10 between sections. Reach for a step, not a number. */
+:root{
+  --oqts-space-1:4px;
+  --oqts-space-2:8px;
+  --oqts-space-3:12px;
+  --oqts-space-4:16px;
+  --oqts-space-5:24px;
+  --oqts-space-6:32px;
+  --oqts-space-7:48px;
+  --oqts-space-8:64px;
+  --oqts-space-9:96px;
+  --oqts-space-10:128px;
+
+  /* layout */
+  --oqts-measure:68ch;        /* long-form column — never wider */
+  --oqts-content:1120px;      /* page max width */
+  --oqts-gutter:32px;         /* page padding; 20px below 640px */
+  --oqts-rule:1px;            /* hairline weight, in chalk */
+}
+
+@media (max-width:640px){
+  :root{ --oqts-gutter:20px; }
+}

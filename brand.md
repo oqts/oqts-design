@@ -48,8 +48,7 @@ small-caps labels.
 | `chalk` | `#E0D5BC` | Secondary. Hairlines and borders. |
 | `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. |
 | `bronze` | `#856B32` | **Accent text.** The only gold safe for type on a light ground — 4.8:1 on `ivory`. Eyebrows, small-caps labels, links on hover. |
-| `camel` | `#B08D57` | Accent for **rules and detail only** on light — 2.9:1, not text-safe. On navy → `#CDB183`. |
-| `oldgold` | `#A5843E` | Accent for **rules and detail only** on light — 3.3:1, not text-safe. On navy → `#C8A85E`. |
+| `camel` | `#B08D57` | Accent for **rules and detail only** on light — 2.9:1, not text-safe. On navy → `#CDB183`, where it is text-safe at 7.8:1. |
 
 Rules of use:
 
@@ -58,17 +57,20 @@ Rules of use:
   No greys, no gradients.
 - `oxford` on `ivory` is the primary text pair (15.1:1). `paper` on `oxford`
   for dark surfaces (13.8:1).
-- **Gold is not text-safe on light grounds.** Measured: `camel` 2.9:1 and
-  `oldgold` 3.3:1 on `ivory` — both below the 4.5:1 floor at any size. Accent
-  *text* therefore uses `bronze`; the two golds are for rules, marks and
-  detail. Reversed on navy the constraint disappears: `camel` 7.8:1 and
-  `oldgold` 7.0:1 both pass, so gold text is fine on dark.
+- **One gold, two roles.** On light grounds gold is not text-safe — `camel`
+  measures 2.9:1 on `ivory`, below the 4.5:1 floor at any size. So accent
+  *text* is `bronze` and accent *rules* are `camel`, and the two never swap.
+  Reversed on navy the constraint disappears (`camel-rev` 7.8:1), so gold text
+  is fine on dark.
 - The accent is earned, not sprinkled: if a page uses gold in more than
   rules, labels, and one marker, it is over-dressed. The logo itself is
   always monochrome — accents never enter the mark.
 - The **title bar is `oxford`**, full-bleed, carrying the reversed lockup. It
   is the first thing on the page and should read as a distinct band, not as a
   continuation of the ground.
+- **Navy opens and closes a page, and does nothing in between.** Title bar and
+  footer only. A third navy band mid-page makes the page read as striped
+  rather than bookended — use a `paper` tint for feature sections instead.
 - Chart colours are **not** brand colours; the data palette is defined
   separately when the first chart ships (dataviz tokens, validated for
   contrast in both modes).
@@ -103,6 +105,45 @@ Type rules:
   Sans 3** for interface chrome only (never body, never display). Do not
   introduce it pre-emptively.
 
+### The type scale
+
+Every size is a token in `assets/oqts.css`. Reach for a role, never a number.
+
+| Token | Size | Face | Line | Tracking | Use |
+|---|---|---|---|---|---|
+| `--oqts-display-xl` | 30→46 fluid | mono | 1.16 | .01em | Page title, one per page |
+| `--oqts-display-l` | 22→28 fluid | mono | 1.25 | .015em | Section heading |
+| `--oqts-display-m` | 20px | mono | 1.30 | .02em | Sub-heading |
+| `--oqts-label` | 16px | mono | 1.35 | .06em caps | Card and table headings |
+| `--oqts-data` | 15px | mono | 1.50 | — | Tables, figures, tabular numerals |
+| `--oqts-eyebrow` | 13px | mono | 1.40 | .14em caps | Section eyebrow, in `bronze` |
+| `--oqts-micro` | 13px | mono | 1.50 | .03em | Colophon, figure captions |
+| `--oqts-lede` | 20px | serif | 1.55 | — | Standfirst under a title |
+| `--oqts-body` | 17px | serif | 1.65 | — | Body copy |
+| `--oqts-body-s` | 14px | serif | 1.60 | — | Captions, notes, secondary |
+
+- **13px is a hard floor for Latin Modern**, which is why the eyebrow is 13
+  and not 12. The serif may go to 14; nothing goes below that.
+- Hierarchy in the display column comes from **size and tracking**, never
+  weight — Latin Modern has no weight ramp to give.
+- Caps always take tracking; lower case never does.
+
+### Spacing and layout
+
+A 4px grid, also tokenised. Steps 1–4 work inside a component, 5–7 between
+components, 8–10 between sections.
+
+| Token | Value | Typical use |
+|---|---|---|
+| `--oqts-space-1…4` | 4 / 8 / 12 / 16px | Padding, gaps, label-to-field |
+| `--oqts-space-5…7` | 24 / 32 / 48px | Component padding, card gutters |
+| `--oqts-space-8…10` | 64 / 96 / 128px | Section rhythm |
+| `--oqts-measure` | 68ch | Long-form column — never wider |
+| `--oqts-content` | 1120px | Page max width |
+| `--oqts-gutter` | 32px, 20px ≤640px | Page padding |
+| `--oqts-rule` | 1px | Hairline weight, in `chalk` |
+
+
 ## 4. The signature device: the closing rule
 
 In ledger typography a **double rule** under a column means *the total —
@@ -114,7 +155,7 @@ Usage:
 
 - A single hairline (`1px chalk` on light, translucent `paper` on oxford)
   opens a section; the **double rule** (two 1px lines, 3px apart, in
-  `camel`/`oldgold`) closes it — under mastheads, under section ends, under
+  `camel`) closes it — under mastheads, under section ends, under
   table totals.
 - The double rule closes sections and totals, and nowhere else. Never
   decorate with it mid-content. It does **not** appear in the logo — the
@@ -183,8 +224,7 @@ drawn separately:
 | `assets/favicon/icon-512.png` | PWA / Android maskable icon |
 | `assets/favicon/og-card.png` / `-navy` | Link previews, 1200×630 |
 
-`TODO` — convert both faces to WOFF2 and subset before production; ship the
-type scale as a token file alongside `assets/fonts/fonts.css`.
+`TODO` — convert both faces to WOFF2 and subset before production.
 
 ### Rules
 
@@ -218,8 +258,8 @@ type scale as a token file alongside `assets/fonts/fonts.css`.
 
 - All text pairs ≥ 4.5:1. Verified on `ivory`: `oxford` 15.1, `slate` 6.9,
   `bronze` 4.8. `camel` (2.9) and `chalk` (1.4) are **never** used for text.
-- Visible keyboard focus: 2px `oxford` outline on light, `oldgold` navy
-  variant `#C8A85E` on oxford.
+- Visible keyboard focus: 2px `oxford` outline on light, `camel-rev`
+  `#CDB183` on oxford.
 - Latin Modern Mono is a fine-stroked 10pt design: never below 13px, and
   prefer dark-on-light for anything small.
 - Responsive to 360px. Semantic headings, one `h1` per page.

@@ -6,7 +6,7 @@ PART 1 — CODE, TOKENS AND DOCUMENTATION: MIT
 
 Applies to everything in this repository EXCEPT the brand assets listed in
 Part 2: the build and analysis scripts (lab/tools/), the design tokens and
-stylesheet (assets/fonts/fonts.css), the demonstration page (demo/), the type
+stylesheet (assets/oqts.css), the demonstration page (demo/), the type
 tester (lab/index.html), and the documentation (README.md, brand.md).
 
 MIT License

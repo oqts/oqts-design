@@ -19,7 +19,8 @@ oqts-design/
 │   ├── logo/         17 production SVGs — the source of truth
 │   ├── logo-png/     raster exports at 1x / 2x / 3x
 │   ├── favicon/      favicon.ico, PNG icons, apple-touch, Open Graph cards
-│   └── fonts/        the two brand faces, with licences, plus fonts.css
+│   ├── oqts.css      ONE import: faces, colour, type scale, spacing
+│   └── fonts/        the two brand faces, with their licences
 ├── demo/             a sample page proving the whole system
 ├── lab/              the type tester and the scripts that build assets/
 └── archive/          superseded artwork and the exploration history
@@ -52,11 +53,13 @@ fine, so do not push past these.
 ## Using the type
 
 ```html
-<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/oqts.css">
 ```
 
-That gives you both families and the colour tokens as CSS custom properties
-(`--oqts-oxford`, `--oqts-paper`, `--oqts-camel`, `--oqts-display`, …).
+One import, and a project has everything: both families, the colour tokens,
+the type scale and the spacing scale, all as CSS custom properties
+(`--oqts-ivory`, `--oqts-bronze`, `--oqts-body`, `--oqts-space-5`, …).
+Reach for a role, never a raw value.
 
 **Latin Modern Mono** leads — logo, display, headings, eyebrows, figures and
 tables. **STIX Two Text** carries the reading — body copy, UI, forms, portal.
@@ -99,7 +102,7 @@ python3 -m http.server 8001 -d oqts-design
 
 This repository is licensed in **two parts** — see [`LICENSE`](LICENSE).
 
-- **Code, tokens and docs are MIT.** The build scripts, `fonts.css`, the demo
+- **Code, tokens and docs are MIT.** The build scripts, `oqts.css`, the demo
   page, the type tester and the documentation are yours to reuse.
 - **The brand assets are all rights reserved.** The mark, wordmark, lockups
   and their exports identify the Society and are published here so that our

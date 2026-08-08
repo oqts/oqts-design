@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OQTS — brand system demo</title>
 <link rel="icon" href="../assets/favicon/favicon.ico">
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/oqts.css">
 <style>
 
 :root{
   /* base */      --ivory:#FBF8F1;  --oxford:#002147;
   /* secondary */ --paper:#F4EDDC;  --chalk:#E0D5BC;  --slate:#46586A;
-  /* accent */    --bronze:#856B32; --camel:#B08D57;  --oldgold:#A5843E;
+  /* accent */    --bronze:#856B32; --camel:#B08D57;
   /* accent, reversed onto navy */
-                  --camel-rev:#CDB183; --oldgold-rev:#C8A85E;
+                  --camel-rev:#CDB183;
   --mono:var(--oqts-display);
   --text:var(--oqts-text);
   --measure:68ch; --wide:1120px;
@@ -104,17 +104,8 @@ tr.total td{border-bottom:0;border-top:1px solid var(--camel);
 .tier dd{margin:0;font-size:19px}
 
 /* ── navy surface ─────────────────────────────────────────── */
-.dark{background:var(--oxford);color:var(--paper);margin-top:64px;padding:68px 0}
-.dark h2,.dark h1{color:var(--paper)}
-.dark .eyebrow{color:var(--camel-rev)}
-.dark .small{color:#A9B6C6}
-.dark a{color:var(--paper)}
-.dark a:hover{color:var(--oldgold-rev)}
-.dark .close-rule{border-top-color:var(--oldgold-rev)}
-.dark .close-rule::after{border-top-color:var(--oldgold-rev)}
-.dark .bracketed::before,.dark .bracketed::after{border-color:var(--camel-rev)}
-.dark img.lockup{height:150px;width:auto;display:block}
-.dark :focus-visible{outline-color:var(--camel-rev)}
+.band{background:var(--paper);margin-top:64px;padding:68px 0}
+.band .lockup{height:150px;width:auto;display:block}
 .split{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
 
 /* ── cards ────────────────────────────────────────────────── */
@@ -155,7 +146,7 @@ footer h3{color:var(--camel-rev);font-size:12.5px;letter-spacing:.14em}
 footer ul{list-style:none;margin:0 0 26px;padding:0}
 footer li{margin-bottom:7px}
 footer a{color:var(--paper);text-decoration:none;font-size:16px}
-footer a:hover{color:var(--oldgold-rev);text-decoration:underline}
+footer a:hover{color:var(--camel-rev);text-decoration:underline}
 footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
   font:400 12.5px/1.7 var(--mono);color:#A9B6C6;letter-spacing:.03em}
 .foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:34px}
@@ -174,7 +165,7 @@ footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
   .bracketed::before,.bracketed::after{width:13px}
   .tier{grid-template-columns:1fr;gap:6px}
   .split{grid-template-columns:1fr;gap:34px}
-  .dark img.lockup{height:120px}
+  .band .lockup{height:120px}
   footer .grid{grid-template-columns:1fr;gap:36px}
   footer img{height:132px}
 }
@@ -278,10 +269,10 @@ footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
   </section>
 
   <!-- ══ navy surface: reverse lockup + accent variants ══ -->
-  <section class="dark">
+  <section class="band">
     <div class="wrap">
       <div class="split">
-        <img class="lockup" src="../assets/logo/oqts-lockup-stacked-reverse.svg" alt="">
+        <img class="lockup" src="../assets/logo/oqts-lockup-stacked.svg" alt="">
         <div>
           <p class="eyebrow">The live fund</p>
           <h2 style="max-width:22ch">Real capital, a risk mandate, and a review that
@@ -357,9 +348,8 @@ footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
       <div class="col"><p class="small">Ivory carries the page and navy answers it;
         paper drops back to a tint for panels and bands. The accent is earned — rules,
         labels, one marker. Note the split: on light grounds gold is not text-safe
-        (camel 2.9:1, oldgold 3.3:1), so accent <em>text</em> uses bronze at 4.8:1 and
-        the golds are kept for rules and detail. Reversed on navy both golds pass
-        comfortably. The mark itself is always monochrome.</p></div>
+        (camel measures 2.9:1), so accent <em>text</em> uses bronze at 4.8:1 and camel
+        is kept for rules and detail. Reversed on navy the constraint disappears. The mark itself is always monochrome.</p></div>
       <div class="swatches">
         <div class="sw"><div class="chip" style="background:var(--ivory);border-bottom:1px solid var(--chalk)"></div>
           <div class="info"><b>ivory</b><span>#FBF8F1 · base ground</span></div></div>
@@ -375,12 +365,9 @@ footer .colophon{margin-top:34px;padding-top:20px;border-top:1px solid #1B3A5C;
           <div class="info"><b>bronze</b><span>#856B32 · accent text</span></div></div>
         <div class="sw"><div class="chip" style="background:var(--camel)"></div>
           <div class="info"><b>camel</b><span>#B08D57 · accent rules</span></div></div>
-        <div class="sw"><div class="chip" style="background:var(--oldgold)"></div>
-          <div class="info"><b>oldgold</b><span>#A5843E · accent rules</span></div></div>
         <div class="sw"><div class="chip" style="background:var(--camel-rev)"></div>
           <div class="info"><b>camel</b><span>#CDB183 · on navy</span></div></div>
-        <div class="sw"><div class="chip" style="background:var(--oldgold-rev)"></div>
-          <div class="info"><b>oldgold</b><span>#C8A85E · on navy</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--camel-rev)"></div>
       </div>
       </div>
     </div>
