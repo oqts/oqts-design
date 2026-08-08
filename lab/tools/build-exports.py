@@ -34,14 +34,39 @@ def render(svg, out, width=None, height=None, bg=None):
 
 # ---- 1. logo PNGs at 1x/2x/3x. Base widths chosen from real use:
 #         lockup 600 (masthead/email), stacked 360, mark 256 (avatar/app icon).
-for svg, base in [("oqts-lockup.svg", 600), ("oqts-lockup-reverse.svg", 600),
-                  ("oqts-lockup-stacked.svg", 360), ("oqts-lockup-stacked-reverse.svg", 360),
-                  ("oqts-mark.svg", 256), ("oqts-mark-reverse.svg", 256),
-                  ("oqts-wordmark.svg", 480)]:
+#
+# Transparent PNGs are the flexible case but they break wherever the host
+# supplies its own background -- Word, PowerPoint, Slack, email clients. So the
+# baked variants are exported too, and those are FLATTENED to RGB so no alpha
+# channel survives to be composited badly.
+BASE_WIDTH = {"lockup": 600, "lockup-stacked": 360, "mark": 256, "wordmark": 480}
+
+
+def base_for(stem):
+    body = stem[len("oqts-"):]
+    for key in ("lockup-stacked", "lockup", "wordmark", "mark"):
+        if body.startswith(key):
+            return BASE_WIDTH[key]
+    return 480
+
+
+for svg in sorted(os.listdir(LOGO)):
+    if not svg.endswith(".svg") or "favicon" in svg:
+        continue
     stem = svg[:-4]
+    base = base_for(stem)
+    backed = "-on-" in stem
     for mult in (1, 2, 3):
         suffix = "" if mult == 1 else f"@{mult}x"
-        render(svg, os.path.join(PNG, f"{stem}{suffix}.png"), width=base * mult)
+        out = os.path.join(PNG, f"{stem}{suffix}.png")
+        render(svg, out, width=base * mult)
+        if backed:
+            # flatten: a baked background must not ship an alpha channel
+            im = Image.open(out)
+            if im.mode in ("RGBA", "LA", "P"):
+                Image.alpha_composite(
+                    Image.new("RGBA", im.size, (255, 255, 255, 255)),
+                    im.convert("RGBA")).convert("RGB").save(out)
 
 # ---- 2. favicons. The dots cut is the only thing legible at these sizes.
 for px in (16, 32, 48, 64):

@@ -36,6 +36,7 @@ TEXT_FONT = os.path.join(FONTS, "lmm-lmmono10-regular.otf")
 MARK_STEM, TEXT_CAP = 0.1352, 0.61          # measured by tools/analyse-fonts.py
 
 NAVY, PAPER, WHITE = "#002147", "#F4EDDC", "#FFFFFF"
+IVORY = "#FBF8F1"   # the page ground; the default baked background
 LINES = ["OXFORD", "QUANTITATIVE", "TRADING SOCIETY"]
 
 
@@ -158,8 +159,8 @@ def write(name, body, w, h, bg, title):
 
 # ---------- 1. mark only ----------
 for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
-                           ("-on-beige", NAVY, PAPER), ("-on-white", NAVY, WHITE),
-                           ("-on-navy", PAPER, NAVY)]:
+                           ("-on-ivory", NAVY, IVORY), ("-on-paper", NAVY, PAPER),
+                           ("-on-white", NAVY, WHITE), ("-on-navy", PAPER, NAVY)]:
     p = pad_for(bg)
     frag, w, h = build_mark(colour)
     body = f'<g transform="translate({p},{p})">{frag}</g>'
@@ -167,8 +168,8 @@ for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
 
 # ---------- 2. horizontal lockup ----------
 for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
-                           ("-on-beige", NAVY, PAPER), ("-on-white", NAVY, WHITE),
-                           ("-on-navy", PAPER, NAVY)]:
+                           ("-on-ivory", NAVY, IVORY), ("-on-paper", NAVY, PAPER),
+                           ("-on-white", NAVY, WHITE), ("-on-navy", PAPER, NAVY)]:
     p = pad_for(bg)
     frag, mw, mh = build_mark(colour)
     x0 = H + GAP
@@ -180,7 +181,7 @@ for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
 
 # ---------- 3. stacked lockup ----------
 for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
-                           ("-on-navy", PAPER, NAVY)]:
+                           ("-on-ivory", NAVY, IVORY), ("-on-navy", PAPER, NAVY)]:
     p = pad_for(bg)
     frag, mw, mh = build_mark(colour)
     stack_gap = 46.0
@@ -196,12 +197,14 @@ for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
           bg, "OQTS stacked lockup")
 
 # ---------- 4. wordmark only ----------
-for suffix, colour in [("", NAVY), ("-reverse", PAPER)]:
+for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
+                           ("-on-ivory", NAVY, IVORY), ("-on-navy", PAPER, NAVY)]:
+    p = pad_for(bg)
     wm, wmw, y0, L, fs_cap = build_wordmark(colour, 0)
     top = y0 - fs_cap
-    body = f'<g transform="translate({PAD},{PAD - top:.2f})">{wm}</g>'
-    write(f"oqts-wordmark{suffix}.svg", body, wmw + 2 * PAD,
-          (2 * L + fs_cap) + 2 * PAD, None, "OQTS wordmark")
+    body = f'<g transform="translate({p},{p - top:.2f})">{wm}</g>'
+    write(f"oqts-wordmark{suffix}.svg", body, wmw + 2 * p,
+          (2 * L + fs_cap) + 2 * p, bg, "OQTS wordmark")
 
 # ---------- 5. favicon: dots fallback for <=32px ----------
 for suffix, colour, bg in [("", NAVY, None), ("-on-navy", PAPER, NAVY)]:

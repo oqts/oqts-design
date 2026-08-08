@@ -40,7 +40,7 @@ cannot take vector (email clients, some slide software, social cards).
 |---|---|
 | Site masthead, letterhead, decks, email | `logo/oqts-lockup.svg` |
 | The same on a dark surface | `logo/oqts-lockup-reverse.svg` |
-| A flat file with the background baked in | `logo/oqts-lockup-on-{beige,white,navy}.svg` |
+| A file with the background baked in | `logo/oqts-lockup-on-{ivory,paper,white,navy}.svg` |
 | Narrow or portrait space | `logo/oqts-lockup-stacked.svg` |
 | The name is already on the page | `logo/oqts-mark.svg` |
 | Social avatar, app icon | `logo/oqts-mark-on-navy.svg` |
@@ -48,8 +48,13 @@ cannot take vector (email clients, some slide software, social cards).
 | iOS home screen | `favicon/apple-touch-icon.png` |
 | Link previews | `favicon/og-card.png` (or `-navy`) |
 
-Transparent SVGs are the primaries. The `-on-*` variants bake a background
-plus 40 units of clear space, for slides and anywhere CSS is not available.
+Transparent SVGs are the primaries. The `-on-*` variants bake a background plus
+40 units of clear space — use them wherever **you do not control the surface**
+(Word, PowerPoint, Slack, email), because a transparent logo composited onto a
+dark theme disappears. `-on-ivory` is the default light choice.
+
+Every SVG also has a PNG at 1×/2×/3× in `logo-png/`. The `-on-*` PNGs are
+flattened to RGB with no alpha channel; the rest keep transparency.
 
 **Minimum sizes:** lockup ≥ 180px wide, mark alone ≥ 48px, and below 32px use
 the favicon — its entries collapse to four dots. Latin Modern's strokes are

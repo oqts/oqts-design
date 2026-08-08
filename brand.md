@@ -246,17 +246,23 @@ it is the single place any of these numbers is edited.
 
 ### Asset set
 
-Transparent files are the primaries; the `-on-*` files bake a background
-and 40 units of clear space for slide decks and anywhere a flat file is
-easier than CSS.
+Transparent files are the primaries; the `-on-*` files bake a background and
+40 units of clear space. Reach for a baked file wherever **you do not control
+the surface** — Word, PowerPoint, Keynote, Slack, email clients and anything
+that composites onto its own background. A transparent logo dropped into a
+dark-themed Slack becomes navy-on-near-black and vanishes.
+
+`-on-ivory` is the default light choice, matching the page ground. `-on-paper`
+sits on a panel tint, `-on-white` is for documents and print, `-on-navy` for
+dark surfaces.
 
 | File | Use |
 |---|---|
 | `oqts-lockup.svg` / `-reverse` | **Primary.** Site masthead, letterhead, decks, email footer |
-| `oqts-lockup-on-beige` / `-on-white` / `-on-navy` | Flat-background versions of the above |
-| `oqts-lockup-stacked.svg` / `-reverse` / `-on-navy` | Narrow and vertical contexts — posters, pull-ups, portrait slides |
-| `oqts-mark.svg` / `-reverse` / `-on-beige` / `-on-white` / `-on-navy` | Mark alone where the name is already present; social avatar; app icon |
-| `oqts-wordmark.svg` / `-reverse` | Where the mark appears separately on the same surface |
+| `oqts-lockup-on-ivory` / `-on-paper` / `-on-white` / `-on-navy` | Baked-background versions of the above |
+| `oqts-lockup-stacked.svg` / `-reverse` / `-on-ivory` / `-on-navy` | Narrow and vertical contexts — posters, pull-ups, portrait slides |
+| `oqts-mark.svg` / `-reverse` / `-on-ivory` / `-on-paper` / `-on-white` / `-on-navy` | Mark alone where the name is already present; social avatar; app icon |
+| `oqts-wordmark.svg` / `-reverse` / `-on-ivory` / `-on-navy` | Where the mark appears separately on the same surface |
 | `oqts-favicon.svg` / `-on-navy` | **≤ 32px only** — entries collapse to four dots `[::]` |
 
 Rasters are derived from those SVGs by `lab/tools/build-exports.py`, never
@@ -264,7 +270,7 @@ drawn separately:
 
 | File | Use |
 |---|---|
-| `assets/logo-png/*.png`, `@2x`, `@3x` | Email, slide software, anywhere vector is refused |
+| `assets/logo-png/*.png`, `@2x`, `@3x` | Email, slide software, anywhere vector is refused. Every SVG has a PNG; the `-on-*` PNGs are **flattened to RGB with no alpha channel**, so nothing can composite them wrongly |
 | `assets/favicon/favicon.ico` | Browser tab — 16/32/48 in one file |
 | `assets/favicon/apple-touch-icon.png` | iOS home screen, 180×180, opaque navy |
 | `assets/favicon/icon-512.png` | PWA / Android maskable icon |
