@@ -242,7 +242,141 @@ drawn separately:
 - Exploration history and superseded artwork are in `archive/`; the
   interactive type tester that produced this spec is `lab/index.html`.
 
-## 6. Layout & structure
+## 6. Data visualisation
+
+Charts are the most brand-critical thing this society produces — research
+notes, OXDAQ standings, fund reports. Every value here came out of the
+six-checks validator, not out of taste, and **must be re-validated after any
+change**. Tokens live in `assets/oqts.css`.
+
+### The rules that are not negotiable
+
+- **One axis.** Never two y-scales on one chart. Two measures of different
+  scale become two charts, small multiples, or an index to a common base.
+- **Colour follows the entity, never its rank.** Filtering a series out must
+  not repaint the survivors.
+- **Assign slots in fixed order, never cycled.** A ninth series folds into
+  "Other", facets or small multiples — never a generated hue.
+- **Text wears text tokens, never the series colour.** A coloured mark beside
+  a label carries identity; the label itself stays in ink.
+- **Sequential is one hue light→dark. Diverging is two hues with a neutral
+  midpoint.** Never a rainbow, never a hue at the midpoint.
+- A legend is present for two or more series; four or fewer are also direct
+  labelled, so identity is never colour alone. A table view always exists.
+
+### Categorical
+
+Eight slots. Slots 1 and 2 are the brand, so most charts read as OQTS
+without effort.
+
+| Slot | Hue | Light | Dark |
+|---|---|---|---|
+| 1 | oxford blue *(brand)* | `#1E5C99` | `#2C69A7` |
+| 2 | gold *(brand)* | `#B8821E` | `#BD8725` |
+| 3 | violet | `#7A5BB0` | `#8365BB` |
+| 4 | teal | `#0E8A72` | `#20937A` |
+| 5 | orange | `#C4611A` | `#CC6824` |
+| 6 | crimson | `#8E2740` | `#9E374D` |
+| 7 | magenta | `#C2529E` | `#C959A5` |
+| 8 | green | `#2F6B1E` | `#3C782C` |
+
+Validated for **adjacent** pairs — bars, stacks, lines — worst ΔE 10.6 light
+and 10.8 dark, all checks pass. Three dark slots sit just under 3:1 on navy,
+which obliges visible labels or a table view; that is not dismissable.
+
+**Scatter, bubble and small multiples use slots 1, 2, 4 and 6 only.** There
+any two marks can touch, so all pairs must separate — validated at ΔE 10.4
+light, 10.1 dark. Beyond four series, facet; do not add slots.
+
+> `slate` is deliberately absent. It measures below the chroma floor — in a
+> chart it reads as grey, not as a colour. It stays a text token.
+
+### Sequential
+
+One hue, the brand blue, light to dark: `--oqts-seq-100` … `-800`. Steps 100–400
+are for continuous fills only, where the lightest may recede into the surface.
+**Ordinal marks — tiers, buckets, funnel stages — start at 500**, the first
+step clearing 3:1.
+
+### Diverging — and its one real weakness
+
+Red ↔ green with a neutral midpoint, chosen deliberately for an audience that
+reads P&L. It carries a cost worth stating plainly.
+
+| | Light | Dark |
+|---|---|---|
+| negative, midpoint→extreme | `#C8442E` `#A82A22` `#7F1D1D` | `#BF544B` `#DE7065` `#FE8C80` |
+| midpoint | `#DCD5C6` | `#2A4257` |
+| positive, midpoint→extreme | `#46A876` `#2A8A5F` `#1E6B4F` | `#73BF88` `#86D29B` `#99E6AD` |
+
+- On **light**, corresponding steps clear ΔE 8.3–10.1 — a pass.
+- On **dark**, equal-lightness arms only reached 5.1–6.9, below the floor,
+  because on navy both arms must be light and only hue remains. The arms are
+  therefore **deliberately asymmetric in lightness** (ΔE 9.4–15.3). The cost:
+  a +5% and a −5% do not read as equally weighted. Sign is carried by hue and
+  lightness together, which is more robust, not less.
+- **Non-corresponding steps drop to ΔE 4.3.** Wherever arbitrary steps can
+  abut — correlation matrices, heatmaps — the sign must also be carried by a
+  signed value, a label, or the texture arm angle. Never by hue alone.
+
+### Status
+
+Reserved. Never a series colour, always shipped with an icon and a label.
+
+| Role | Hex | on ivory | on oxford |
+|---|---|---|---|
+| good | `#0CA30C` | 3.16 | 4.78 |
+| warning | `#FAB219` | 1.73 | 8.75 |
+| serious | `#EC835A` | 2.49 | 6.08 |
+| critical | `#D03B3B` | 4.53 | 3.34 |
+
+`warning` and `serious` are sub-3:1 on ivory by design — the icon and label
+are the mitigation, which is why status colour never travels alone.
+
+### Chrome
+
+Surface `ivory` / `oxford`. Ink `oxford` / `paper`. Secondary `slate` /
+`#A9B6C6`. Axis and labels `#6B6555` / `#8FA0B4`. Gridlines `chalk` /
+`#1B3A5C` — recessive, always. Baseline `#C9BB9C` / `#2A4E75`.
+
+Marks: thin, 2px lines, markers ≥ 8px, a 2px surface gap between adjacent
+fills and stacked segments, direct labels used selectively — never a number
+on every point.
+
+## 7. Imagery
+
+Photography is **full colour**, governed by a grading rule rather than a
+filter. The society needs to look like a real community, which duotone and
+monochrome both undercut; the price is that the rule has to be enforced.
+
+**Shooting and selection**
+
+- Natural light wherever possible. No on-camera flash, no filters, no heavy
+  vignettes, no lifted or crushed blacks.
+- Neutral white balance. A warm or blue cast is the single most common way a
+  set of photos stops looking like one set.
+- Plain or architectural backgrounds. Oxford stone, plain walls, clean
+  interiors — never a cluttered room.
+- Eye-level for people. No extreme angles.
+- Crops: 3:2 landscape or 4:5 portrait. Nothing else.
+
+**Grading**
+
+- One consistent, slight warmth so images sit with `ivory`. Grade the set
+  together, never image by image.
+- Headshots share one framing — head and shoulders, same crop, same
+  background treatment across the whole committee.
+- No stock photography, and in particular none of traders-at-screens.
+
+**Placement**
+
+- Never set type directly on a busy photograph. If text must sit over an
+  image, use an `oxford` scrim at 70% and put the type on that.
+- **If a photograph cannot be graded into the set, do not use it.** A data
+  figure or a type-led card is always better than one off-brand image, and
+  this rule is what stops the site drifting once other people upload.
+
+## 8. Layout & structure
 
 - Grid: 12-col, max content width 1120px; long-form text column 680px.
 - Section headers: tracked-caps `camel` eyebrow in Latin Modern Mono, then
@@ -254,7 +388,7 @@ drawn separately:
 - Motion: one orchestrated page-load reveal at most; scroll effects and
   ambient animation are off-brand. `prefers-reduced-motion` respected.
 
-## 7. Accessibility floor
+## 9. Accessibility floor
 
 - All text pairs ≥ 4.5:1. Verified on `ivory`: `oxford` 15.1, `slate` 6.9,
   `bronze` 4.8. `camel` (2.9) and `chalk` (1.4) are **never** used for text.
@@ -264,7 +398,7 @@ drawn separately:
   prefer dark-on-light for anything small.
 - Responsive to 360px. Semantic headings, one `h1` per page.
 
-## 8. Single source of truth
+## 10. Single source of truth
 
 Per society policy, everything is editable in exactly one place:
 

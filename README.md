@@ -66,6 +66,19 @@ tables. **STIX Two Text** carries the reading — body copy, UI, forms, portal.
 No third family. Latin Modern has only three cuts, so take hierarchy from size
 and letter-spacing rather than weight, and never set it below 13px.
 
+## Charts
+
+`oqts.css` also carries the validated chart palette — eight categorical slots,
+a sequential ramp, a red/green diverging scale and reserved status colours, in
+both light and dark. **Read `brand.md` section 6 before building one.** Three
+rules catch most mistakes: never two y-axes, assign slots in fixed order and
+never cycle them, and use only slots 1, 2, 4 and 6 for scatter and small
+multiples.
+
+Every value was produced by a validator, so re-run it after any change rather
+than adjusting by eye — the command is in the comment at the top of the chart
+section in `oqts.css`.
+
 > Convert both faces to WOFF2 before production. They ship here as OTF/TTF,
 > which is 2–4× larger than it needs to be over the wire.
 

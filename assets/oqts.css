@@ -130,3 +130,88 @@
 @media (max-width:640px){
   :root{ --oqts-gutter:20px; }
 }
+
+/* ── Data visualisation ──────────────────────────────────────────────────
+   Every value below was produced by the six-checks validator, not chosen by
+   eye. Re-run it after ANY change:
+     python3 <dataviz-skill>/scripts/validate_palette.py "<hex,…>" \
+             --mode light --surface '#FBF8F1'
+
+   Chart surfaces are the brand grounds: ivory light, oxford dark. */
+:root{
+  --oqts-chart-surface:#FBF8F1;
+  --oqts-chart-ink:#002147;        /* primary ink   15.1:1 */
+  --oqts-chart-ink-2:#46586A;      /* secondary      6.9:1 */
+  --oqts-chart-muted:#6B6555;      /* axis + labels  5.5:1 */
+  --oqts-chart-grid:#E0D5BC;       /* hairline, recessive  */
+  --oqts-chart-baseline:#C9BB9C;
+
+  /* Categorical — fixed slot order, never cycled. Slots 1-2 are the brand,
+     so a one- or two-series chart reads as OQTS. A 9th series folds into
+     "Other", facets, or small multiples; it is never a generated hue.
+     Validated light on #FBF8F1: worst adjacent ΔE 10.6, all checks pass. */
+  --oqts-series-1:#1E5C99;   /* oxford blue — brand */
+  --oqts-series-2:#B8821E;   /* gold — brand        */
+  --oqts-series-3:#7A5BB0;   /* violet  */
+  --oqts-series-4:#0E8A72;   /* teal    */
+  --oqts-series-5:#C4611A;   /* orange  */
+  --oqts-series-6:#8E2740;   /* crimson */
+  --oqts-series-7:#C2529E;   /* magenta */
+  --oqts-series-8:#2F6B1E;   /* green   */
+
+  /* Sequential — one hue, light to dark. Steps 100-400 are for continuous
+     fills only (heatmaps), where the lightest may recede into the surface.
+     Ordinal marks (tiers, buckets) start at 500, the first step over 3:1. */
+  --oqts-seq-100:#C7E8FF; --oqts-seq-200:#9ED2FF;
+  --oqts-seq-300:#7BB9FD; --oqts-seq-400:#629FE1;
+  --oqts-seq-500:#4783C4; --oqts-seq-600:#2C68A6;
+  --oqts-seq-700:#0B4E8A; --oqts-seq-800:#00356E;
+
+  /* Diverging — red/green, midpoint to extreme. Corresponding steps clear
+     ΔE 8.3-10.1 on light. Non-corresponding steps drop to 4.3, so where
+     arbitrary steps abut (matrices, heatmaps) the sign MUST also be carried
+     by a label, a texture arm-angle, or a signed value. */
+  --oqts-div-neg-1:#C8442E; --oqts-div-neg-2:#A82A22; --oqts-div-neg-3:#7F1D1D;
+  --oqts-div-mid:#DCD5C6;
+  --oqts-div-pos-1:#46A876; --oqts-div-pos-2:#2A8A5F; --oqts-div-pos-3:#1E6B4F;
+
+  /* Status — reserved. Never reused as a series colour, always shipped with
+     an icon and a label. warning and serious are sub-3:1 on ivory by design;
+     the icon + label pairing is the mitigation. */
+  --oqts-status-good:#0CA30C;      /* ivory 3.16 · oxford 4.78 */
+  --oqts-status-warning:#FAB219;   /* ivory 1.73 · oxford 8.75 */
+  --oqts-status-serious:#EC835A;   /* ivory 2.49 · oxford 6.08 */
+  --oqts-status-critical:#D03B3B;  /* ivory 4.53 · oxford 3.34 */
+}
+
+/* Dark mode is selected, not flipped: its own steps from the same hues,
+   validated against the oxford surface. Declare under both scopes so an
+   explicit theme choice beats the OS setting either way. */
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    --oqts-chart-surface:#002147;
+    --oqts-chart-ink:#F4EDDC; --oqts-chart-ink-2:#A9B6C6;
+    --oqts-chart-muted:#8FA0B4; --oqts-chart-grid:#1B3A5C;
+    --oqts-chart-baseline:#2A4E75;
+    --oqts-series-1:#2C69A7; --oqts-series-2:#BD8725;
+    --oqts-series-3:#8365BB; --oqts-series-4:#20937A;
+    --oqts-series-5:#CC6824; --oqts-series-6:#9E374D;
+    --oqts-series-7:#C959A5; --oqts-series-8:#3C782C;
+    --oqts-div-neg-1:#BF544B; --oqts-div-neg-2:#DE7065; --oqts-div-neg-3:#FE8C80;
+    --oqts-div-mid:#2A4257;
+    --oqts-div-pos-1:#73BF88; --oqts-div-pos-2:#86D29B; --oqts-div-pos-3:#99E6AD;
+  }
+}
+:root[data-theme="dark"]{
+  --oqts-chart-surface:#002147;
+  --oqts-chart-ink:#F4EDDC; --oqts-chart-ink-2:#A9B6C6;
+  --oqts-chart-muted:#8FA0B4; --oqts-chart-grid:#1B3A5C;
+  --oqts-chart-baseline:#2A4E75;
+  --oqts-series-1:#2C69A7; --oqts-series-2:#BD8725;
+  --oqts-series-3:#8365BB; --oqts-series-4:#20937A;
+  --oqts-series-5:#CC6824; --oqts-series-6:#9E374D;
+  --oqts-series-7:#C959A5; --oqts-series-8:#3C782C;
+  --oqts-div-neg-1:#BF544B; --oqts-div-neg-2:#DE7065; --oqts-div-neg-3:#FE8C80;
+  --oqts-div-mid:#2A4257;
+  --oqts-div-pos-1:#73BF88; --oqts-div-pos-2:#86D29B; --oqts-div-pos-3:#99E6AD;
+}
