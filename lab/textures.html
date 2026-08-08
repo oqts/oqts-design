@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OQTS — texture lab</title>
+<link rel="icon" href="../assets/favicon/favicon.ico">
+<link rel="stylesheet" href="../assets/oqts.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--oqts-surface);color:var(--oqts-ink);
+  font:400 var(--oqts-body)/var(--oqts-lh-body) var(--oqts-text)}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:32px;
+  max-width:1400px;margin:0 auto;padding:24px 32px 96px}
+h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
+.sub{font:400 13px/1.5 var(--oqts-display);color:var(--oqts-ink-2);margin:0 0 24px}
+
+/* controls */
+.controls{position:sticky;top:24px;align-self:start;background:var(--oqts-surface-2);
+  padding:20px;font:400 13px/1.5 var(--oqts-display)}
+.controls label{display:block;margin-bottom:12px}
+.controls .lab{display:flex;justify-content:space-between;color:var(--oqts-ink-2);
+  text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:3px}
+.controls .lab b{color:var(--oqts-ink);font-weight:400}
+.controls input[type=range]{width:100%;accent-color:var(--oqts-bronze)}
+.controls select,.controls input[type=number]{width:100%;font:inherit;
+  border:1px solid var(--oqts-chalk);background:var(--oqts-surface);padding:5px 7px;border-radius:2px}
+.controls .row{display:flex;gap:8px}
+.controls button{font:500 13px/1 var(--oqts-text);background:var(--oqts-ink);color:var(--oqts-surface);
+  border:0;border-radius:2px;padding:9px 12px;cursor:pointer;margin-top:4px}
+.controls button.sec{background:none;color:var(--oqts-ink);border:1px solid var(--oqts-ink)}
+#params{font:400 11px/1.6 var(--oqts-display);color:var(--oqts-ink-2);
+  background:var(--oqts-surface);border:1px solid var(--oqts-chalk);
+  padding:8px;margin-top:12px;word-break:break-all;user-select:all}
+
+/* previews */
+.preview{margin-bottom:48px}
+.preview h2{font:400 13px/1 var(--oqts-display);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--oqts-accent-text);margin:0 0 12px}
+.stage{position:relative;border:1px solid var(--oqts-hairline);overflow:hidden}
+.stage svg.tex{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.stage .content{position:relative}
+
+.hero-mock{padding:56px 48px}
+.hero-mock .eyebrow{font:400 13px/1.4 var(--oqts-display);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--oqts-accent-text);margin:0 0 16px}
+.hero-mock h3{font:400 clamp(30px,3.2vw,42px)/1.16 var(--oqts-display);
+  letter-spacing:.015em;margin:0 0 20px;max-width:14em}
+.hero-mock p{font-size:20px;line-height:1.55;max-width:34em;margin:0 0 24px}
+.hero-mock .btn{display:inline-block;font:500 14px/1 var(--oqts-text);background:var(--oqts-ink);
+  color:var(--oqts-surface);padding:13px 22px;border-radius:2px;text-decoration:none;margin-right:12px}
+.hero-mock .btn.sec{background:none;color:var(--oqts-ink);border:1px solid var(--oqts-ink)}
+
+.body-mock{padding:48px}
+.body-mock h4{font:400 20px/1.3 var(--oqts-display);margin:0 0 12px}
+.body-mock p{max-width:68ch;color:var(--oqts-ink)}
+.body-mock p.note{font-size:14px;color:var(--oqts-ink-2)}
+
+.panel-mock{padding:40px 48px}
+.panel-mock .inner{position:relative;background:var(--oqts-paper);padding:24px;max-width:520px}
+.panel-mock .inner svg.tex{position:absolute;inset:0;width:100%;height:100%}
+.panel-mock .pcontent{position:relative}
+.panel-mock label{display:block;font-size:14px;color:var(--oqts-ink-2);margin-bottom:6px}
+.panel-mock .fake-input{background:var(--oqts-surface);border:1px solid var(--oqts-chalk);
+  border-radius:2px;height:42px;max-width:340px;margin-bottom:14px}
+.panel-mock .btn{display:inline-block;font:500 14px/1 var(--oqts-text);background:var(--oqts-ink);
+  color:var(--oqts-surface);padding:13px 22px;border-radius:2px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="controls">
+    <h1>Texture lab</h1>
+    <p class="sub">Noise-modulated fields · oxford ink on ivory</p>
+
+    <label><span class="lab">Pattern</span>
+      <select id="pattern">
+        <option value="dots">A · dot field</option>
+        <option value="squares">B · square matrix (2px radius)</option>
+        <option value="bars">C · right-aligned depth bars</option>
+        <option value="hexes">D · hex lattice</option>
+      </select>
+    </label>
+    <label><span class="lab">Seed <b id="v-seed"></b></span>
+      <div class="row"><input type="number" id="seed" value="7" min="1" max="9999">
+      <button class="sec" id="dice" title="random seed">🎲</button></div>
+    </label>
+    <label><span class="lab">Cell / spacing <b id="v-cell"></b></span>
+      <input type="range" id="cell" min="8" max="36" step="1" value="18"></label>
+    <label><span class="lab">Element size min <b id="v-szmin"></b></span>
+      <input type="range" id="szmin" min="0" max="10" step="0.1" value="0.8"></label>
+    <label><span class="lab">Element size max <b id="v-szmax"></b></span>
+      <input type="range" id="szmax" min="1" max="18" step="0.1" value="3.1"></label>
+    <label><span class="lab">Alpha min <b id="v-amin"></b></span>
+      <input type="range" id="amin" min="0" max="0.15" step="0.005" value="0.02"></label>
+    <label><span class="lab">Alpha max <b id="v-amax"></b></span>
+      <input type="range" id="amax" min="0.02" max="0.3" step="0.005" value="0.12"></label>
+    <label><span class="lab">Cluster scale (coarser ⟵) <b id="v-cluster"></b></span>
+      <input type="range" id="cluster" min="3" max="14" step="1" value="7"></label>
+    <label><span class="lab">Detail mix <b id="v-detail"></b></span>
+      <input type="range" id="detail" min="0" max="1" step="0.05" value="0.35"></label>
+    <label><span class="lab">Sparsity cutoff <b id="v-cut"></b></span>
+      <input type="range" id="cut" min="0" max="0.4" step="0.01" value="0.04"></label>
+    <label><span class="lab">Density ramp</span>
+      <select id="ramp">
+        <option value="right">toward right</option>
+        <option value="left">toward left</option>
+        <option value="none">none (uniform)</option>
+      </select>
+    </label>
+    <label><span class="lab">Ramp reach <b id="v-reach"></b></span>
+      <input type="range" id="reach" min="0.2" max="1" step="0.05" value="0.75"></label>
+    <button id="dl">Download hero SVG</button>
+    <div id="params"></div>
+  </aside>
+
+  <main>
+    <div class="preview">
+      <h2>In a hero · texture in the right whitespace</h2>
+      <div class="stage hero-mock" id="stage-hero">
+        <div class="content">
+          <p class="eyebrow">Oxford Quantitative Trading Society</p>
+          <h3>Quantitative trading, learnt by doing</h3>
+          <p>We teach markets the only way that sticks: by trading them.
+            Education, competition and community for Oxford students who want
+            to understand how modern markets actually work.</p>
+          <a class="btn">Join the society</a><a class="btn sec">Explore OXDAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview">
+      <h2>Behind lighter text · full-width, quiet</h2>
+      <div class="stage body-mock" id="stage-body">
+        <div class="content">
+          <h4>How research is organised</h4>
+          <p>Around five projects run at a time, four members each. Every
+            project has a project lead who owns its direction and its
+            write-ups. All projects report to the Head of Research &amp;
+            Technology, who sets standards for methodology, data handling and
+            honest measurement.</p>
+          <p class="note">Projects that survive scrutiny may graduate to live
+            strategies, trading real capital under the society's live-fund
+            programme.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview">
+      <h2>On a paper panel · e.g. the signup band</h2>
+      <div class="stage panel-mock" id="stage-panel">
+        <div class="content">
+          <div class="inner" id="panel-inner">
+            <div class="pcontent">
+              <label>Email address</label>
+              <div class="fake-input"></div>
+              <a class="btn">Join the mailing list</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const INK = '#002147';
+const $ = id => document.getElementById(id);
+const IDS = ['seed','cell','szmin','szmax','amin','amax','cluster','detail','cut','reach'];
+
+function makeNoise(seed, gw, gh){
+  let s = (seed >>> 0) || 1;
+  const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
+  const grid = [];
+  for (let y = 0; y <= gh; y++){ const row = []; for (let x = 0; x <= gw; x++) row.push(rnd()); grid.push(row); }
+  const sm = t => t * t * (3 - 2 * t);
+  return (u, v) => {
+    u = Math.min(Math.max(u, 0), 0.999); v = Math.min(Math.max(v, 0), 0.999);
+    const x = u * gw, y = v * gh, xi = x | 0, yi = y | 0, xf = sm(x - xi), yf = sm(y - yi);
+    const a = grid[yi][xi] * (1 - xf) + grid[yi][xi + 1] * xf;
+    const b = grid[yi + 1][xi] * (1 - xf) + grid[yi + 1][xi + 1] * xf;
+    return a * (1 - yf) + b * yf;
+  };
+}
+const smoothstep = (e0, e1, x) => { const t = Math.min(Math.max((x - e0) / (e1 - e0), 0), 1); return t * t * (3 - 2 * t); };
+
+function P(){
+  return {
+    pattern: $('pattern').value, seed: +$('seed').value, cell: +$('cell').value,
+    szmin: +$('szmin').value, szmax: +$('szmax').value,
+    amin: +$('amin').value, amax: +$('amax').value,
+    cluster: +$('cluster').value, detail: +$('detail').value,
+    cut: +$('cut').value, ramp: $('ramp').value, reach: +$('reach').value,
+  };
+}
+
+function fieldFn(p, W, H){
+  const n1 = makeNoise(p.seed, p.cluster, Math.max(2, Math.round(p.cluster * H / W)));
+  const n2 = makeNoise(p.seed + 999, p.cluster * 2 + 1, Math.max(3, Math.round((p.cluster * 2 + 1) * H / W)));
+  return (u, v) => {
+    let t = (1 - p.detail) * n1(u, v) + p.detail * n2(u, v);
+    if (p.ramp === 'right') t *= smoothstep(1 - p.reach, 0.92, u);
+    if (p.ramp === 'left')  t *= smoothstep(1 - p.reach, 0.92, 1 - u);
+    return Math.min(Math.max(t, 0), 1);
+  };
+}
+
+function generate(p, W, H){
+  const f = fieldFn(p, W, H), el = [];
+  const lerp = (a, b, t) => a + (b - a) * t;
+  if (p.pattern === 'bars'){
+    const row = Math.max(10, p.cell * 0.8), bh = Math.max(3, p.cell * 0.38);
+    for (let y = row / 2; y < H; y += row){
+      const t = f(0.5, y / H); if (t < p.cut) continue;
+      const ln = lerp(20, W * 0.75, t), a = lerp(p.amin, p.amax, t);
+      el.push(`<rect x="${(W - ln).toFixed(1)}" y="${(y - bh / 2).toFixed(1)}" width="${ln.toFixed(1)}" height="${bh.toFixed(1)}" rx="2" fill="${INK}" opacity="${a.toFixed(3)}"/>`);
+    }
+    return el.join('');
+  }
+  if (p.pattern === 'hexes'){
+    const R = p.cell * 0.72, dy = R * 1.5, dx = R * Math.sqrt(3);
+    let yi = 0;
+    for (let y = 0; y < H + R; y += dy, yi++){
+      for (let x = yi % 2 ? dx / 2 : 0; x < W + R; x += dx){
+        const t = f(x / W, y / H); if (t < p.cut) continue;
+        const r = R * lerp(p.szmin / 10, Math.min(p.szmax / 10, 1), t), a = lerp(p.amin, p.amax, t);
+        const pts = Array.from({length: 6}, (_, k) =>
+          `${(x + r * Math.sin(k * Math.PI / 3)).toFixed(1)},${(y - r * Math.cos(k * Math.PI / 3)).toFixed(1)}`).join(' ');
+        el.push(`<polygon points="${pts}" fill="${INK}" opacity="${a.toFixed(3)}"/>`);
+      }
+    }
+    return el.join('');
+  }
+  for (let y = p.cell / 2; y < H; y += p.cell){
+    for (let x = p.cell / 2; x < W; x += p.cell){
+      const t = f(x / W, y / H); if (t < p.cut) continue;
+      const a = lerp(p.amin, p.amax, t);
+      if (p.pattern === 'dots'){
+        const r = lerp(p.szmin, p.szmax, t);
+        el.push(`<circle cx="${x}" cy="${y}" r="${r.toFixed(2)}" fill="${INK}" opacity="${a.toFixed(3)}"/>`);
+      } else {
+        const s = lerp(Math.max(p.szmin, 1.5), p.szmax * 1.4, t);
+        el.push(`<rect x="${(x - s / 2).toFixed(2)}" y="${(y - s / 2).toFixed(2)}" width="${s.toFixed(2)}" height="${s.toFixed(2)}" rx="2" fill="${INK}" opacity="${a.toFixed(3)}"/>`);
+      }
+    }
+  }
+  return el.join('');
+}
+
+function svgFor(p, W, H, rampOverride){
+  const q = rampOverride ? Object.assign({}, p, rampOverride) : p;
+  return `<svg class="tex" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">${generate(q, W, H)}</svg>`;
+}
+
+function render(){
+  const p = P();
+  for (const id of IDS){ const v = $('v-' + id.replace('szmin','szmin')); }
+  $('v-seed').textContent = p.seed; $('v-cell').textContent = p.cell + 'px';
+  $('v-szmin').textContent = p.szmin; $('v-szmax').textContent = p.szmax;
+  $('v-amin').textContent = p.amin.toFixed(3); $('v-amax').textContent = p.amax.toFixed(3);
+  $('v-cluster').textContent = p.cluster; $('v-detail').textContent = p.detail;
+  $('v-cut').textContent = p.cut; $('v-reach').textContent = p.reach;
+
+  const hero = $('stage-hero'), body = $('stage-body'), panel = $('panel-inner');
+  hero.querySelectorAll('svg.tex').forEach(e => e.remove());
+  body.querySelectorAll('svg.tex').forEach(e => e.remove());
+  panel.querySelectorAll('svg.tex').forEach(e => e.remove());
+  hero.insertAdjacentHTML('afterbegin', svgFor(p, hero.clientWidth, hero.clientHeight));
+  body.insertAdjacentHTML('afterbegin', svgFor(p, body.clientWidth, body.clientHeight, {ramp: 'none'}));
+  panel.insertAdjacentHTML('afterbegin', svgFor(p, panel.clientWidth, panel.clientHeight, {ramp: 'none'}));
+  $('params').textContent = JSON.stringify(p);
+}
+
+for (const id of [...IDS, 'pattern', 'ramp']) $(id).addEventListener('input', render);
+$('dice').addEventListener('click', e => { e.preventDefault(); $('seed').value = 1 + Math.floor(Math.random() * 9998); render(); });
+$('dl').addEventListener('click', () => {
+  const p = P(), W = 1000, H = 560;
+  const s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">${generate(p, W, H)}</svg>`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([s], {type: 'image/svg+xml'}));
+  a.download = `oqts-texture-${p.pattern}-${p.seed}.svg`;
+  a.click();
+});
+window.addEventListener('resize', render);
+render();
+</script>
+</body>
+</html>
