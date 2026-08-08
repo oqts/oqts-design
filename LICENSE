@@ -1,0 +1,78 @@
+This repository is licensed in two parts. Read both.
+
+================================================================================
+PART 1 — CODE, TOKENS AND DOCUMENTATION: MIT
+================================================================================
+
+Applies to everything in this repository EXCEPT the brand assets listed in
+Part 2: the build and analysis scripts (lab/tools/), the design tokens and
+stylesheet (assets/fonts/fonts.css), the demonstration page (demo/), the type
+tester (lab/index.html), and the documentation (README.md, brand.md).
+
+MIT License
+
+Copyright (c) 2026 Oxford Quantitative Trading Society
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+PART 2 — BRAND ASSETS: ALL RIGHTS RESERVED
+================================================================================
+
+Copyright (c) 2026 Oxford Quantitative Trading Society. All rights reserved.
+
+The following are NOT covered by the MIT licence above and are not licensed
+for reuse:
+
+  * assets/logo/          the OQTS mark, wordmark and lockups
+  * assets/logo-png/      raster exports of the same
+  * assets/favicon/       icons and social cards derived from the same
+  * the name "Oxford Quantitative Trading Society", the initials "OQTS",
+    and the matrix monogram in any form or colourway
+
+These are the visual identity of the Society. They are published here so that
+the Society's own websites, applications and members can use them correctly,
+and so that partners and sponsors can reproduce them accurately. That is the
+extent of the permission granted.
+
+You may NOT use these assets to identify anything other than the Oxford
+Quantitative Trading Society, imply endorsement or affiliation, or modify them
+and continue to present the result as the Society's identity. Reproduce them
+only as specified in brand.md, unaltered.
+
+For any use not covered above, ask: oqts@oqts.org
+
+--------------------------------------------------------------------------------
+THIRD-PARTY FONTS
+--------------------------------------------------------------------------------
+
+The typefaces in assets/fonts/ are the work of others and carry their own
+licences, which travel with them and are unaffected by anything above:
+
+  * Latin Modern Mono — GUST Font License (LPPL-based)
+    assets/fonts/latin-modern-mono/LICENSE.txt
+  * STIX Two Text — SIL Open Font License 1.1
+    assets/fonts/stix-two-text/LICENSE.txt
+
+Both permit commercial use and redistribution. The logo artwork carries its
+glyphs as outlines rather than live text, so deployed files embed no font.
+
+The full type library in lab/fonts/ is third-party material gathered for
+evaluation. Each face remains under its own licence (predominantly the SIL
+Open Font License and Apache 2.0); none of it is the Society's work.

@@ -97,7 +97,18 @@ python3 -m http.server 8001 -d design
 
 ## Licences
 
-Both faces are free for commercial use and redistributable. Latin Modern is
-under the GUST Font License (LPPL-based); STIX Two Text is under the SIL Open
-Font License 1.1. Full texts sit beside the fonts. The logo carries its glyphs
+This repository is licensed in **two parts** — see [`LICENSE`](LICENSE).
+
+- **Code, tokens and docs are MIT.** The build scripts, `fonts.css`, the demo
+  page, the type tester and the documentation are yours to reuse.
+- **The brand assets are all rights reserved.** The mark, wordmark, lockups
+  and their exports identify the Society and are published here so that our
+  own sites, our members and our sponsors can reproduce them correctly. That
+  is the extent of the permission. Reproduce them as specified in `brand.md`,
+  unaltered, and ask at oqts@oqts.org for anything else.
+
+The typefaces are third-party and carry their own licences, which are
+unaffected: Latin Modern is under the GUST Font License, STIX Two Text under
+the SIL Open Font License 1.1, both permitting commercial use and
+redistribution. Full texts sit beside the fonts. The logo carries its glyphs
 as **outlines**, so deployed artwork has no font dependency.
