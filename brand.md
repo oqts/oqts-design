@@ -65,6 +65,10 @@ be run by students, not a student club that mentions research. Specific
 beats clever; numbers beat adjectives. Sentence case everywhere except
 small-caps labels.
 
+**No em-dashes, anywhere.** Rework the sentence with a colon, a comma, or
+a full stop. (House rule, 2026-08-08; applies to every surface, including
+UI microcopy.)
+
 ### Positioning line
 
 > Oxford's first dedicated quantitative trading society.
@@ -204,6 +208,18 @@ Usage:
 - The double rule closes sections and totals, and nowhere else. Never
   decorate with it mid-content. It does **not** appear in the logo — the
   mark's own signature is the bracket.
+
+### The plate
+
+The device family's third member: a **1px `chalk` frame** around a page's
+title area, with the dot-field texture (§8) running inside it, flush to
+the frame on every edge. The closing rule sits *outside*, below the
+frame. One plate per page at most — it marks the hero, and nothing else;
+repeated down a page it would decay into boxes. Paper panels are never
+plated and never textured.
+
+Interactive panels take a hover affordance: a `1px` `oxford` outline
+(drawn as an inset shadow, so nothing reflows).
 
 ## 5. Logo — the matrix monogram
 

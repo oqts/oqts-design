@@ -24,10 +24,13 @@ oqts-design/
 │   ├── logo/         17 production SVGs — the source of truth
 │   ├── logo-png/     raster exports at 1x / 2x / 3x
 │   ├── favicon/      favicon.ico, PNG icons, apple-touch, Open Graph cards
+│   ├── matrix/       parametric matrix devices (JOIN, …) — brand.md §5
+│   ├── patterns/     the dot-field whitespace textures — brand.md §8
 │   ├── oqts.css      ONE import: faces, colour, type scale, spacing
-│   └── fonts/        the two brand faces, with their licences
+│   └── fonts/        the two brand faces (WOFF2 + sources), with licences
 ├── demo/             a sample page proving the whole system
-├── lab/              the type tester and the scripts that build assets/
+├── lab/              the type tester, the texture lab, and the build tools
+│   └── tools/        build-logos.py · build-matrix.py · build-patterns.mjs
 └── archive/          superseded artwork and the exploration history
 ```
 

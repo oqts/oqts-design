@@ -57,7 +57,7 @@ h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
 .body-mock p.note{font-size:14px;color:var(--oqts-ink-2)}
 
 .panel-mock{padding:40px 48px}
-.panel-mock .inner{position:relative;background:var(--oqts-paper);padding:24px;max-width:520px}
+.panel-mock .inner{position:relative;background:var(--oqts-ivory);border:1px solid var(--oqts-chalk);padding:24px;max-width:520px}
 .panel-mock .inner svg.tex{position:absolute;inset:0;width:100%;height:100%}
 .panel-mock .pcontent{position:relative}
 .panel-mock label{display:block;font-size:14px;color:var(--oqts-ink-2);margin-bottom:6px}
@@ -71,7 +71,7 @@ h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
 <div class="layout">
   <aside class="controls">
     <h1>Texture lab</h1>
-    <p class="sub">Noise-modulated fields · oxford ink on ivory</p>
+    <p class="sub">Noise-modulated fields · oxford ink on ivory<br>Defaults = the canonical recipe (brand.md §8)</p>
 
     <label><span class="lab">Pattern</span>
       <select id="pattern">
@@ -82,25 +82,25 @@ h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
       </select>
     </label>
     <label><span class="lab">Seed <b id="v-seed"></b></span>
-      <div class="row"><input type="number" id="seed" value="7" min="1" max="9999">
+      <div class="row"><input type="number" id="seed" value="5994" min="1" max="9999">
       <button class="sec" id="dice" title="random seed">🎲</button></div>
     </label>
     <label><span class="lab">Cell / spacing <b id="v-cell"></b></span>
-      <input type="range" id="cell" min="8" max="36" step="1" value="18"></label>
+      <input type="range" id="cell" min="8" max="36" step="1" value="14"></label>
     <label><span class="lab">Element size min <b id="v-szmin"></b></span>
-      <input type="range" id="szmin" min="0" max="10" step="0.1" value="0.8"></label>
+      <input type="range" id="szmin" min="0" max="10" step="0.1" value="0"></label>
     <label><span class="lab">Element size max <b id="v-szmax"></b></span>
-      <input type="range" id="szmax" min="1" max="18" step="0.1" value="3.1"></label>
+      <input type="range" id="szmax" min="1" max="18" step="0.1" value="4"></label>
     <label><span class="lab">Alpha min <b id="v-amin"></b></span>
-      <input type="range" id="amin" min="0" max="0.15" step="0.005" value="0.02"></label>
+      <input type="range" id="amin" min="0" max="0.15" step="0.005" value="0"></label>
     <label><span class="lab">Alpha max <b id="v-amax"></b></span>
-      <input type="range" id="amax" min="0.02" max="0.3" step="0.005" value="0.12"></label>
+      <input type="range" id="amax" min="0.02" max="0.3" step="0.005" value="0.105"></label>
     <label><span class="lab">Cluster scale (coarser ⟵) <b id="v-cluster"></b></span>
-      <input type="range" id="cluster" min="3" max="14" step="1" value="7"></label>
+      <input type="range" id="cluster" min="3" max="14" step="1" value="6"></label>
     <label><span class="lab">Detail mix <b id="v-detail"></b></span>
-      <input type="range" id="detail" min="0" max="1" step="0.05" value="0.35"></label>
+      <input type="range" id="detail" min="0" max="1" step="0.05" value="0.5"></label>
     <label><span class="lab">Sparsity cutoff <b id="v-cut"></b></span>
-      <input type="range" id="cut" min="0" max="0.4" step="0.01" value="0.04"></label>
+      <input type="range" id="cut" min="0" max="0.4" step="0.01" value="0"></label>
     <label><span class="lab">Density ramp</span>
       <select id="ramp">
         <option value="right">toward right</option>
@@ -109,7 +109,7 @@ h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
       </select>
     </label>
     <label><span class="lab">Ramp reach <b id="v-reach"></b></span>
-      <input type="range" id="reach" min="0.2" max="1" step="0.05" value="0.75"></label>
+      <input type="range" id="reach" min="0.2" max="1" step="0.05" value="1"></label>
     <button id="dl">Download hero SVG</button>
     <div id="params"></div>
   </aside>
@@ -147,7 +147,7 @@ h1{font:400 22px/1.2 var(--oqts-display);letter-spacing:.015em;margin:0 0 4px}
     </div>
 
     <div class="preview">
-      <h2>On a paper panel · e.g. the signup band</h2>
+      <h2>In a plate · ivory only (paper is never textured)</h2>
       <div class="stage panel-mock" id="stage-panel">
         <div class="content">
           <div class="inner" id="panel-inner">

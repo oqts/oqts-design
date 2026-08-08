@@ -74,7 +74,11 @@ section{padding-top:var(--oqts-space-9)}
 .grid{display:grid;gap:var(--oqts-space-5)}
 .g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
-.panel{background:var(--oqts-surface-2);padding:var(--oqts-space-5)}
+.panel{background:var(--oqts-surface-2);padding:var(--oqts-space-5);transition:box-shadow .15s ease}
+.panel:hover{box-shadow:0 0 0 1px var(--oqts-ink)}
+.plate{position:relative;border:1px solid var(--oqts-hairline);padding:var(--oqts-space-6)}
+.plate .tex{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right;pointer-events:none}
+.plate .over{position:relative}
 .spec{font:400 var(--oqts-micro)/1.55 var(--oqts-display);color:var(--oqts-ink-2);
   letter-spacing:.02em;margin-top:var(--oqts-space-2)}
 .spec b{color:var(--oqts-ink);font-weight:400}
@@ -390,6 +394,20 @@ footer .colophon{margin-top:var(--oqts-space-6);padding-top:var(--oqts-space-4);
         <h2>Components</h2>
         <p class="note">The pieces every page is assembled from. Each one is built only from the
           tokens above, so all of it follows the theme.</p>
+      </div>
+
+      <h4>The plate — the hero's frame</h4>
+      <p class="note">A 1px chalk frame around a page's title area, the dot field (§8) flush
+        inside it, the closing rule outside below. One per page, heroes only. Interactive
+        panels take a 1px oxford outline on hover.</p>
+      <div class="plate" style="margin-bottom:var(--oqts-space-6)">
+        <img class="tex" src="../assets/patterns/oqts-dots-right-2.svg" alt="">
+        <div class="over" style="max-width:32em">
+          <p class="eyebrow" style="margin-bottom:var(--oqts-space-3)">Eyebrow</p>
+          <h3 style="margin-bottom:var(--oqts-space-3)">A page title sits in the plate</h3>
+          <p class="note" style="margin:0">Texture runs to the frame on every edge; the
+            reading column stays on clean ivory.</p>
+        </div>
       </div>
 
       <div class="grid g2">
