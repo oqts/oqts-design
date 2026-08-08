@@ -1,7 +1,7 @@
 # OQTS design
 
 Brand assets and the design system for the **Oxford Quantitative Trading
-Society**. This directory is the single editable source of truth for OQTS
+Society**. This repository is the single editable source of truth for OQTS
 styling — the public site (`oqts/oqts.org`) and the member platform
 (`oqts-platform`) consume from here and never define styling of their own.
 
@@ -13,7 +13,7 @@ and logo specification, including the locked construction of the mark.
 ## Layout
 
 ```
-design/
+oqts-design/
 ├── brand.md          the design doc — colour, type, logo spec, rules
 ├── assets/           everything you consume
 │   ├── logo/         17 production SVGs — the source of truth
@@ -91,7 +91,7 @@ To add a face: drop the `.ttf` into `lab/fonts/` and run
 Serve the directory to view `demo/` or `lab/` in a browser:
 
 ```bash
-python3 -m http.server 8001 -d design
+python3 -m http.server 8001 -d oqts-design
 # then http://<host>:8001/demo/  and  http://<host>:8001/lab/
 ```
 
