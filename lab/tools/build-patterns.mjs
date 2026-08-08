@@ -64,14 +64,22 @@ function dots(p, W, H, { rampStart = null, rampEnd = null, bottomFade = true } =
     el.join('') + '</svg>';
 }
 
+// The right cut ships as a numbered set differing ONLY in seed. Adjacent
+// placements rotate through the set so no two visible fields ever repeat.
+// SEEDS[0] is the canonical recipe seed; the rest are fixed companions.
+const SEEDS = [5994, 1387, 2718, 3141, 4669, 8128];
+
 const out = join(dirname(fileURLToPath(import.meta.url)), '../../assets/patterns');
 mkdirSync(out, { recursive: true });
 const files = {
-  // right cut: anchored to the right edge of the 1120px content column, the
-  // faintest dots land around the middle of the page (ramp 0.42 -> 0.97 of 1200px)
-  'oqts-dots-right.svg': dots(RECIPE, 1200, 760, { rampStart: 0.42, rampEnd: 0.97 }),
   'oqts-dots-uniform.svg': dots(RECIPE, 800, 800, { bottomFade: false }),
 };
+for (let i = 0; i < SEEDS.length; i++) {
+  // right cut: anchored to the right edge of the 1120px content column, the
+  // faintest dots land around the middle of the page (ramp 0.42 -> 0.97 of 1200px)
+  files[`oqts-dots-right-${i + 1}.svg`] =
+    dots({ ...RECIPE, seed: SEEDS[i] }, 1200, 760, { rampStart: 0.42, rampEnd: 0.97 });
+}
 for (const [name, svg] of Object.entries(files)) {
   writeFileSync(join(out, name), svg);
   console.log(name, (svg.length / 1024).toFixed(1) + 'k');

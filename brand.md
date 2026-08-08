@@ -455,14 +455,17 @@ the assets ship in `assets/patterns/`):
  "amin":0,"amax":0.105,"cluster":6,"detail":0.5,"cut":0}
 ```
 
-Two cuts: `oqts-dots-right.svg` — the workhorse — carries explicit pixel
-dimensions (1200×760) so it renders at a **fixed intrinsic scale**
-(`background-size:auto`): dot size never varies with the height of the
-section wearing it. **The field always ramps right-to-left**: densest at
-the right edge, the last and smallest dots landing around the middle of
-the page, with a baked bottom fade so tall sections dissolve rather than
-crop. `oqts-dots-uniform.svg` (no ramp) exists for sparse full-width
-areas.
+The workhorse cut ships as a numbered set, `oqts-dots-right-1.svg` …
+`-6.svg`, identical in recipe and **differing only in seed**. Rotate
+through the set: adjacent placements must wear different numbers, so no
+two fields a reader can compare are ever the same constellation. Each
+carries explicit pixel dimensions (1200×760) and renders at a **fixed
+intrinsic scale** (`background-size:auto`): dot size never varies with
+the height of the section wearing it. **The field always ramps
+right-to-left**: densest at the right edge, the last and smallest dots
+landing around the middle of the page, with a baked bottom fade so tall
+sections dissolve rather than crop. `oqts-dots-uniform.svg` (no ramp)
+exists for sparse full-width areas.
 
 Rules of use:
 
