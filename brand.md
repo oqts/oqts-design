@@ -515,10 +515,14 @@ Rules of use:
   ground, not of components.
 - Opacity is baked into the asset and peaks at 0.105. Do not raise it, and
   do not tint the dots — one ink, screened, like everything else.
-- The field fills plain whitespace wherever content leaves it: heroes and
-  any section whose content is a narrow column. Never behind body copy at
-  reading density; the ramp exists so dots fade out before the measure
-  column, and it always runs right-to-left.
+- The texture is **two layers**. `oqts-dots-ground.svg`, a seamless tile
+  with alpha capped at 0.055, is the universal page ground: it covers the
+  whole ivory surface, quiet enough to sit under anything, and panels and
+  cards occlude it, reading as paper laid on the textured ground. The
+  ramped cuts are the loud layer, and live **only inside the plate** (§4),
+  where the frame explains their edges. Free-floating texture patches on
+  open sections are retired: texture is a property of the ground or of the
+  plate, never of an unframed region.
 - Keep max dot diameter between one-fifth and one-third of cell spacing
   (the recipe sits at 4/14). Coarser reads as halftone; finer as grime.
 - A re-tune happens in the lab, lands here as a new recipe, and regenerates
