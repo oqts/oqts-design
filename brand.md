@@ -216,10 +216,12 @@ Usage:
 
 ### The plate
 
-The device family's third member: a **1px `chalk` frame** around a page's
+The device family's third member: a **1px `camel` frame** around a page's
 title area, with the dot-field texture (§8) running inside it, flush to
-the frame on every edge. The closing rule sits *outside*, below the
-frame. One plate per page at most — it marks the hero, and nothing else;
+the frame on every edge, and a **clean ivory halo (~18px)** around the
+outside so the plate's field and the page's ground texture never touch:
+the plate reads as an object laid on the ground, not a patch of it. The
+closing rule sits *outside*, below the frame. One plate per page at most — it marks the hero, and nothing else;
 repeated down a page it would decay into boxes. Paper panels are never
 plated and never textured.
 
