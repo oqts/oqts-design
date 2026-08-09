@@ -212,6 +212,13 @@
   --oqts-status-warning:#FAB219;   /* ivory 1.73 · oxford 8.75 */
   --oqts-status-serious:#EC835A;   /* ivory 2.49 · oxford 6.08 */
   --oqts-status-critical:#D03B3B;  /* ivory 4.53 · oxford 3.34 */
+
+  /* Sponsor tier metals — the medal pins on sponsor-tier labels, and
+     nothing else. Rules and pins only, never text, never in charts.
+     The founder tier wears camel, the brand's own gold. */
+  --oqts-tier-gold:#C9A24B;
+  --oqts-tier-silver:#A6ADB5;
+  --oqts-tier-bronze:#9C5F35;
 }
 
 /* Dark mode is selected, not flipped: its own steps from the same hues,
