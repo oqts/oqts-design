@@ -5,6 +5,7 @@ build-logos.py whenever the mark changes.
 
 Produces:
   assets/logo-png/   1x / 2x / 3x PNGs of the lockup, stacked lockup and mark
+  assets/matrix-png/ 1x / 2x / 3x PNGs of every matrix device
   assets/favicon/    favicon.ico (16/32/48), PNG icons, apple-touch-icon,
                      and a 1200x630 Open Graph card
 """
@@ -17,16 +18,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DESIGN = os.path.dirname(os.path.dirname(HERE))
 LOGO = os.path.join(DESIGN, "assets", "logo")
 PNG = os.path.join(DESIGN, "assets", "logo-png")
+MATRIX = os.path.join(DESIGN, "assets", "matrix")
+MATRIX_PNG = os.path.join(DESIGN, "assets", "matrix-png")
 ICON = os.path.join(DESIGN, "assets", "favicon")
-for d in (PNG, ICON):
+for d in (PNG, MATRIX_PNG, ICON):
     os.makedirs(d, exist_ok=True)
 
 NAVY, PAPER = "#002147", "#F4EDDC"
 written = []
 
 
-def render(svg, out, width=None, height=None, bg=None):
-    cairosvg.svg2png(url=os.path.join(LOGO, svg), write_to=out,
+def render(svg, out, width=None, height=None, bg=None, src=None):
+    cairosvg.svg2png(url=os.path.join(src or LOGO, svg), write_to=out,
                      output_width=width, output_height=height,
                      background_color=bg)
     written.append((os.path.relpath(out, DESIGN), f"{width or ''}x{height or ''}"))
@@ -43,6 +46,8 @@ BASE_WIDTH = {"lockup": 600, "lockup-stacked": 360, "mark": 256, "wordmark": 480
 
 
 def base_for(stem):
+    if "circlesafe" in stem:
+        return 512          # profile-photo use: @2x lands on 1024
     body = stem[len("oqts-"):]
     for key in ("lockup-stacked", "lockup", "wordmark", "mark"):
         if body.startswith(key):
@@ -50,23 +55,28 @@ def base_for(stem):
     return 480
 
 
-for svg in sorted(os.listdir(LOGO)):
-    if not svg.endswith(".svg") or "favicon" in svg:
-        continue
-    stem = svg[:-4]
-    base = base_for(stem)
-    backed = "-on-" in stem
-    for mult in (1, 2, 3):
-        suffix = "" if mult == 1 else f"@{mult}x"
-        out = os.path.join(PNG, f"{stem}{suffix}.png")
-        render(svg, out, width=base * mult)
-        if backed:
-            # flatten: a baked background must not ship an alpha channel
-            im = Image.open(out)
-            if im.mode in ("RGBA", "LA", "P"):
-                Image.alpha_composite(
-                    Image.new("RGBA", im.size, (255, 255, 255, 255)),
-                    im.convert("RGBA")).convert("RGB").save(out)
+def export_dir(src, dest):
+    for svg in sorted(os.listdir(src)):
+        if not svg.endswith(".svg") or "favicon" in svg:
+            continue
+        stem = svg[:-4]
+        base = base_for(stem)
+        backed = "-on-" in stem
+        for mult in (1, 2, 3):
+            suffix = "" if mult == 1 else f"@{mult}x"
+            out = os.path.join(dest, f"{stem}{suffix}.png")
+            render(svg, out, width=base * mult, src=src)
+            if backed:
+                # flatten: a baked background must not ship an alpha channel
+                im = Image.open(out)
+                if im.mode in ("RGBA", "LA", "P"):
+                    Image.alpha_composite(
+                        Image.new("RGBA", im.size, (255, 255, 255, 255)),
+                        im.convert("RGBA")).convert("RGB").save(out)
+
+
+export_dir(LOGO, PNG)
+export_dir(MATRIX, MATRIX_PNG)
 
 # ---- 2. favicons. The dots cut is the only thing legible at these sizes.
 for px in (16, 32, 48, 64):

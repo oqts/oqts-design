@@ -143,6 +143,7 @@ def svg_doc(body, w, h, bg=None, title=""):
 
 PAD = 16.0        # breathing room on transparent files
 PAD_BG = 40.0     # generous clear space when a background is baked in
+CIRCLE_KEEP = 0.92  # circlesafe: ink diagonal held to 92% of the crop circle
 written = []
 
 
@@ -165,6 +166,17 @@ for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
     frag, w, h = build_mark(colour)
     body = f'<g transform="translate({p},{p})">{frag}</g>'
     write(f"oqts-mark{suffix}.svg", body, w + 2 * p, h + 2 * p, bg, "OQTS mark")
+
+# circlesafe mark: opaque ground, ink diagonal cleared for a circular crop
+for suffix, colour, bg in [("-on-white-circlesafe", NAVY, WHITE),
+                           ("-on-ivory-circlesafe", NAVY, IVORY),
+                           ("-on-paper-circlesafe", NAVY, PAPER),
+                           ("-on-navy-circlesafe", PAPER, NAVY)]:
+    frag, w, h = build_mark(colour)
+    side = h * 2 ** 0.5 / CIRCLE_KEEP
+    p = (side - h) / 2.0
+    body = f'<g transform="translate({p:.3f},{p:.3f})">{frag}</g>'
+    write(f"oqts-mark{suffix}.svg", body, side, side, bg, "OQTS mark")
 
 # ---------- 2. horizontal lockup ----------
 for suffix, colour, bg in [("", NAVY, None), ("-reverse", PAPER, None),
