@@ -111,10 +111,13 @@ function groundTile(p, W) {
 const out = join(dirname(fileURLToPath(import.meta.url)), '../../assets/patterns');
 mkdirSync(out, { recursive: true });
 const files = {
-  // 1204 = 86 cells x 14px, so the dot lattice crosses the seam intact
-  'oqts-dots-ground.svg': groundTile(RECIPE, 1204),
   'oqts-dots-uniform.svg': dots(RECIPE, 800, 800, { bottomFade: false }),
 };
+// ground tiles: one per seed, rotated per page so no two pages share a sky.
+// 1204 = 86 cells x 14px, so the dot lattice crosses the seam intact.
+for (let i = 0; i < SEEDS.length; i++) {
+  files[`oqts-dots-ground-${i + 1}.svg`] = groundTile({ ...RECIPE, seed: SEEDS[i] }, 1204);
+}
 for (let i = 0; i < SEEDS.length; i++) {
   // right cut: anchored to the right edge of the 1120px content column, the
   // faintest dots land around the middle of the page (ramp 0.42 -> 0.97 of 1200px)

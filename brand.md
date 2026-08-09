@@ -515,7 +515,7 @@ Rules of use:
   ground, not of components.
 - Opacity is baked into the asset and peaks at 0.105. Do not raise it, and
   do not tint the dots — one ink, screened, like everything else.
-- The texture is **two layers**. `oqts-dots-ground.svg`, a seamless tile
+- The texture is **two layers**. `oqts-dots-ground-1.svg` … `-6.svg` (one per seed; pages rotate through them so no two pages share a sky), a seamless tile
   with alpha capped at 0.055, is the universal page ground: it covers the
   whole ivory surface, quiet enough to sit under anything, and panels and
   cards occlude it, reading as paper laid on the textured ground. The
