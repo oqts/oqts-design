@@ -4,7 +4,7 @@
 type, colour, charts and imagery all specified. Open items are marked `TODO`.
 
 This file is the single editable source of truth for OQTS styling. The public
-site (`oqts/oqts.org`) and the member platform (`oqts-platform`) consume tokens
+site (`oqts/oqts-site`) and the member platform (`oqts-platform`) consume tokens
 and assets from this repo and never define styling of their own.
 
 ---

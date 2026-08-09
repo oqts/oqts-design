@@ -2,14 +2,12 @@
 
 Brand assets and the design system for the **Oxford Quantitative Trading
 Society**. This repository is the single editable source of truth for OQTS
-styling — the public site (`oqts/oqts.org`) and the member platform
+styling — the public site (`oqts/oqts-site`) and the member platform
 (`oqts-platform`) consume from here and never define styling of their own.
 
 **Two files, and they work as a pair.** [`brand.md`](brand.md) explains and
 specifies; [`demo/`](demo/index.html) shows. Every rule in the doc has a worked
-example on the demo page, and the demo has a light/dark toggle that repaints the
-whole page — chrome, components and charts — so both modes can be inspected
-rather than imagined.
+example on the demo page. There is one ground and no dark mode.
 
 Read `brand.md` first, with the demo open beside it.
 
@@ -21,7 +19,7 @@ Read `brand.md` first, with the demo open beside it.
 oqts-design/
 ├── brand.md          the design doc — colour, type, logo spec, rules
 ├── assets/           everything you consume
-│   ├── logo/         17 production SVGs — the source of truth
+│   ├── logo/         the production SVGs — the source of truth
 │   ├── logo-png/     raster exports at 1x / 2x / 3x
 │   ├── favicon/      favicon.ico, PNG icons, apple-touch, Open Graph cards
 │   ├── matrix/       parametric matrix devices (JOIN, …) — brand.md §5
@@ -92,9 +90,6 @@ Every value was produced by a validator, so re-run it after any change rather
 than adjusting by eye — the command is in the comment at the top of the chart
 section in `oqts.css`.
 
-> Convert both faces to WOFF2 before production. They ship here as OTF/TTF,
-> which is 2–4× larger than it needs to be over the wire.
-
 ## Regenerating
 
 Every asset is generated; nothing is hand-drawn, so never edit an SVG by hand.
@@ -102,8 +97,10 @@ The logo specification lives at the top of `lab/tools/build-logos.py` and that
 is the only place any of those numbers is edited.
 
 ```bash
-uv run --with fonttools python lab/tools/build-logos.py        # assets/logo/
+uv run --with fonttools python lab/tools/build-logos.py         # assets/logo/
 uv run --with cairosvg --with pillow python lab/tools/build-exports.py  # PNGs, icons, OG cards
+uv run --with fonttools python lab/tools/build-matrix.py JOIN   # assets/matrix/
+node lab/tools/build-patterns.mjs                               # assets/patterns/
 ```
 
 ## The lab
