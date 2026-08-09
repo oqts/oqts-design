@@ -216,14 +216,14 @@ Usage:
 
 ### The plate
 
-The device family's third member: a **1px `camel` frame** around a page's
-title area, with the dot-field texture (§8) running inside it, flush to
-the frame on every edge, and a **clean ivory halo (~18px)** around the
-outside so the plate's field and the page's ground texture never touch:
-the plate reads as an object laid on the ground, not a patch of it. The
-closing rule sits *outside*, below the frame. One plate per page at most — it marks the hero, and nothing else;
-repeated down a page it would decay into boxes. Paper panels are never
-plated and never textured.
+The device family's third member: the **double `camel` ledger frame**,
+the closing rule's construction bent into a full frame (a 1px line, a
+3px gap, a 1px line) around a page's title area. The plate is a **clean
+`ivory` card** laid directly on the ground texture (§8); nothing is
+drawn inside it. Because the frame is itself the ledger device, **no
+closing rule sits directly beneath a plate**: the frame closes the hero,
+and every other section keeps its rule. One plate per page at most, and
+paper panels are never plated.
 
 Interactive panels take a hover affordance: a `1px` `oxford` outline
 (drawn as an inset shadow, so nothing reflows).
@@ -517,14 +517,13 @@ Rules of use:
   ground, not of components.
 - Opacity is baked into the asset and peaks at 0.105. Do not raise it, and
   do not tint the dots — one ink, screened, like everything else.
-- The texture is **two layers**. `oqts-dots-ground-1.svg` … `-6.svg` (one per seed; pages rotate through them so no two pages share a sky), a seamless tile
-  with alpha capped at 0.055, is the universal page ground: it covers the
-  whole ivory surface, quiet enough to sit under anything, and panels and
-  cards occlude it, reading as paper laid on the textured ground. The
-  ramped cuts are the loud layer, and live **only inside the plate** (§4),
-  where the frame explains their edges. Free-floating texture patches on
-  open sections are retired: texture is a property of the ground or of the
-  plate, never of an unframed region.
+- The texture in use is **one layer**: `oqts-dots-ground-1.svg` … `-6.svg`
+  (one per seed; pages rotate through them so no two pages share a sky), a
+  seamless tile with alpha capped at 0.055 covering the whole ivory
+  surface. Panels, cards and plates occlude it as clean surfaces, reading
+  as paper laid on the textured ground. The ramped cuts remain in the
+  asset set for future framed feature work, but nothing currently wears
+  them: texture is a property of the ground alone, never of a component.
 - Keep max dot diameter between one-fifth and one-third of cell spacing
   (the recipe sits at 4/14). Coarser reads as halftone; finer as grime.
 - A re-tune happens in the lab, lands here as a new recipe, and regenerates
