@@ -86,7 +86,7 @@ UI microcopy.)
 |---|---|---|
 | `ivory` | `#FBF8F1` | **Base ground.** A warm off-white — the same hue as `paper`, lifted. Carries every light page. |
 | `oxford` | `#002147` | **Base ink and dark ground.** Text on light; full-bleed for the title bar and the footer. Oxford Blue — the University's colour is free to use; its crest is not. |
-| `paper` | `#F4EDDC` | **Secondary.** The original beige, now a tint rather than a ground: panels, cards, banded sections. Reads as a soft inset against `ivory`. |
+| `paper` | `#F4EDDC` | **Secondary.** The original beige, now a tint rather than a ground: panels, cards, banded sections. Reads as a soft inset against `ivory`. Panels and cards in `paper` always carry a `1px` `camel` frame (§4). |
 | `chalk` | `#E0D5BC` | Secondary. Hairlines and borders. |
 | `slate` | `#46586A` | Secondary text on light (bylines, captions, metadata). 6.9:1 on `ivory`. On navy → `slate-rev` `#A9B6C6`, 7.8:1. |
 | `bronze` | `#8A6933` | **Accent text.** The only gold safe for type on a light ground — 4.8:1 on `ivory`. Eyebrows, small-caps labels, links on hover. |
@@ -225,8 +225,17 @@ closing rule sits directly beneath a plate**: the frame closes the hero,
 and every other section keeps its rule. One plate per page at most, and
 paper panels are never plated.
 
+**Paper cards are always framed.** Every panel or card on the `paper`
+tint carries a `1px` `camel` border — the plate's frame reduced to a
+single rule. Borderless paper cards do not exist in the system: the
+frame is what lifts a card off the `ivory` ground, and it keeps every
+card in the same device family as the plate and the closing rule.
+(Full-bleed `paper` bands — the sponsor marquee, banded sections — are
+grounds, not cards, and stay unframed.)
+
 Interactive panels take a hover affordance: a `1px` `oxford` outline
-(drawn as an inset shadow, so nothing reflows).
+(drawn as an inset shadow, so nothing reflows) in addition to the
+standing `camel` frame.
 
 ## 5. Logo — the matrix monogram
 
