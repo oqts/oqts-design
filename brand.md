@@ -107,6 +107,11 @@ Rules of use:
 - The accent is earned, not sprinkled: if a page uses gold in more than
   rules, labels, and one marker, it is over-dressed. The logo itself is
   always monochrome — accents never enter the mark.
+- **Sponsor tier metals** (`--oqts-tier-gold` `#C9A24B`, `--oqts-tier-silver`
+  `#A6ADB5`, `--oqts-tier-bronze` `#9C5F35`) exist for exactly one job: the
+  medal pin beside a sponsor-tier label, with the founder tier wearing
+  `camel`. Rules and pins only, never text, never in charts, never anywhere
+  else in the UI.
 - The **title bar is `oxford`**, full-bleed, carrying the reversed lockup. It
   is the first thing on the page and should read as a distinct band, not as a
   continuation of the ground.
