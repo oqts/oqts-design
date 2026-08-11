@@ -97,6 +97,11 @@ render("oqts-mark-on-navy.svg", os.path.join(ICON, "apple-touch-icon.png"),
 render("oqts-mark-on-navy.svg", os.path.join(ICON, "icon-512.png"),
        width=512, height=512)
 
+# the platform's tab icon: the same artwork inverted — navy mark on paper —
+# so the back office is distinguishable from the public site in a tab list
+render("oqts-mark-on-paper.svg", os.path.join(ICON, "icon-512-paper.png"),
+       width=512, height=512)
+
 # ---- 3. Open Graph card, 1200x630, lockup centred on paper ----
 def og_card(name, logo_svg, bg):
     W, Hh = 1200, 630
