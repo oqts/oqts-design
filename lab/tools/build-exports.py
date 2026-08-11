@@ -78,16 +78,27 @@ def export_dir(src, dest):
 export_dir(LOGO, PNG)
 export_dir(MATRIX, MATRIX_PNG)
 
-# ---- 2. favicons. The dots cut is the only thing legible at these sizes.
-for px in (16, 32, 48, 64):
-    render("oqts-favicon.svg", os.path.join(ICON, f"favicon-{px}.png"), width=px)
-
+# ---- 2. favicons. Three cuts: the dots (crispest at 16px, kept as an
+#         option) and the letter marks the sites actually use in the tab
+#         bar — navy plate for the public site, paper for the platform,
+#         so the two are distinguishable side by side (Alec, 2026-08-11).
 ico_sizes = [16, 32, 48]
-frames = [Image.open(os.path.join(ICON, f"favicon-{s}.png")).convert("RGBA") for s in ico_sizes]
-frames[0].save(os.path.join(ICON, "favicon.ico"), format="ICO",
-               sizes=[(s, s) for s in ico_sizes])
-written.append((os.path.relpath(os.path.join(ICON, "favicon.ico"), DESIGN),
-                "/".join(str(s) for s in ico_sizes)))
+
+
+def favicon_set(svg, stem):
+    for px in (16, 32, 48, 64):
+        render(svg, os.path.join(ICON, f"{stem}-{px}.png"), width=px)
+    frames = [Image.open(os.path.join(ICON, f"{stem}-{s}.png")).convert("RGBA")
+              for s in ico_sizes]
+    frames[0].save(os.path.join(ICON, f"{stem}.ico"), format="ICO",
+                   sizes=[(s, s) for s in ico_sizes])
+    written.append((os.path.relpath(os.path.join(ICON, f"{stem}.ico"), DESIGN),
+                    "/".join(str(s) for s in ico_sizes)))
+
+
+favicon_set("oqts-favicon.svg", "favicon")
+favicon_set("oqts-mark-on-navy.svg", "favicon-mark-navy")
+favicon_set("oqts-mark-on-paper.svg", "favicon-mark-paper")
 
 # apple-touch-icon must be opaque and square: the mark reversed on navy
 render("oqts-mark-on-navy.svg", os.path.join(ICON, "apple-touch-icon.png"),
