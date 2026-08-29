@@ -1,0 +1,14 @@
+# Deliberately NOT in this repository.
+#
+# oqts-design is public. The prospectus and its tier matrix carry
+# sponsorship pricing and commercial terms; those are private and their
+# home is Google Drive, per ../../planning/DATA-HOMES.md.
+#
+# The typesetting tooling is design-repo material and is tracked. The
+# commercial data it renders, the documents it produces, and the original
+# it verifies against are not.
+
+tiers.yml
+contacts.yml
+out/
+source/
