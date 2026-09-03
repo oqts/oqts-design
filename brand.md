@@ -371,7 +371,16 @@ change**. Tokens live in `assets/oqts.css`.
 - **Sequential is one hue light→dark. Diverging is two hues with a neutral
   midpoint.** Never a rainbow, never a hue at the midpoint.
 - A legend is present for two or more series; four or fewer are also direct
-  labelled, so identity is never colour alone. A table view always exists.
+  labelled, so identity is never colour alone.
+- **A table view always exists**, so a chart's values are reachable without
+  reading the picture. It need not be visible: a chart may hide it off
+  screen and offer a pointer affordance instead, as the platform's
+  dashboard charts do since 3 Sept 2026. What it may not be is absent, and
+  a hover readout does not replace it — hover is pointer-only, so a chart
+  carrying nothing else has no route to a value by keyboard, by screen
+  reader, or on a phone. Hide it with `.sr-only`, never with
+  `display:none` or `visibility:hidden`: both take it out of the
+  accessibility tree, which is the one thing that defeats the point.
 
 ### Categorical
 
