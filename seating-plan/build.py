@@ -127,7 +127,8 @@ def table_svg(n, label, seats, catering):
         dash = ' stroke-dasharray="1.2 1"' if p is None else ""
         o.append(f'<circle cx="{cx + dx:.2f}" cy="{cy + dy:.2f}" r="{R_DOT}" '
                  f'fill="{fill}" stroke="{stroke}" stroke-width="0.45"{dash}/>')
-        o.append(text(cx + dx, cy + dy + 1.15, "seat", ink, i + 1))
+        if catering:  # staff need seat numbers; guests on the easel do not
+            o.append(text(cx + dx, cy + dy + 1.15, "seat", ink, i + 1))
         # label: name, then tag (and dietary on the catering copy)
         lines = []
         if p is None:
@@ -184,7 +185,8 @@ def legend(catering):
              if catering else "")
     return ('<div class="legend">' + "".join(
         f'<span class="li">{d}<span>{t}</span></span>' for d, t in items) + extra +
-        '<span class="li note">Seats numbered clockwise from the top</span></div>')
+        ('<span class="li note">Seats numbered clockwise from the top</span>'
+         if catering else "") + '</div>')
 
 
 def plan_page(tables, catering, ev):

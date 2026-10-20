@@ -7,11 +7,12 @@ Two PDFs, both portrait:
 
 ```
 OQTS_Seating_Plan_Easel_A1.pdf     for the easels in the room
-  page 1  the plan: every round table, chairs numbered clockwise from the top,
-          sponsors in navy with their firm, committee in camel
+  page 1  the plan: every round table, sponsors in navy with their firm,
+          committee in camel (no seat numbers: guests find a table, not a chair)
   page 2  find your table: every name A to Z by first name, with its table
 OQTS_Seating_Plan_Catering_A3.pdf  for the venue and the committee
-  page 1  the same plan, with each guest's dietary note under their name
+  page 1  the same plan, chairs numbered clockwise from the top, with each
+          guest's dietary note under their name
   page 2  a ledger of every guest with a requirement, by table and seat
 ```
 
