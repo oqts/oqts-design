@@ -1,0 +1,11 @@
+# Deliberately NOT in this repository.
+#
+# oqts-design is public. Seating sheets and the plans built from them carry
+# names and dietary requirements; their home is Google Drive, per
+# ../../planning/DATA-HOMES.md. build.py also refuses paths in this repo.
+
+*.xlsx
+*.xls
+*.csv
+*.pdf
+out/
