@@ -22,7 +22,7 @@ The catering copy is the A1 layout set at half scale.
 **The spreadsheet and the PDFs are not in this repository, and never should
 be.** `oqts-design` is public, and both hold names and dietary requirements,
 some of them health or religious information. Their home is Google Drive, per
-`../../planning/DATA-HOMES.md`. `build.py` refuses a sheet or an output folder
+`../../oqts-infra/docs/data-homes.md`. `build.py` refuses a sheet or an output folder
 inside this repository. The tooling is tracked here; what it reads and writes
 is not.
 
