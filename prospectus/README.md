@@ -18,7 +18,7 @@ out/        the deliverables: .docx and .pdf
 the prospectus: four tiers, their fees, and what each one buys.
 `contacts.yml` holds personal mobile numbers, one of them belonging to
 someone other than the repo owner. Their home is Google Drive, per
-`../../planning/DATA-HOMES.md`. The typesetting tooling is tracked here;
+`../../oqts-infra/docs/data-homes.md`. The typesetting tooling is tracked here;
 the data it renders is not.
 
 Fetch all four from Drive before building. `build.py` exits with a
@@ -28,7 +28,7 @@ pointer to this file if `tiers.yml` or `contacts.yml` is missing, and
 **Neither directory is in this repository, and neither should be.**
 `oqts-design` is public, and the prospectus carries sponsorship tier
 pricing and the sponsor list. Those are private commercial documents and
-their home is Google Drive, per `../../planning/DATA-HOMES.md`. The build
+their home is Google Drive, per `../../oqts-infra/docs/data-homes.md`. The build
 tooling is tracked here; what it produces is not.
 
 Fetch both from Drive before building or verifying. `compare_text.py` in
